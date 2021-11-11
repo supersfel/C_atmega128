@@ -1,0 +1,27 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Init_TWI                                                                          0x00064     10
+TWI_TransCheck_ACK                                                                0x0006E     28
+TWI_Start                                                                         0x0008A      5
+TWI_Write_SLAW                                                                    0x0008F      3
+TWI_Write_Data                                                                    0x00092      5
+TWI_Stop                                                                          0x00097      4
+TWI_Restart                                                                       0x0009B      6
+TWI_Read_Data_NACK                                                                0x000A1      8
+MCP23008_I2C_Read                                                                 0x000A9     18
+MCP23008_I2C_Write                                                                0x000BB     15
+MCP23008_Init                                                                     0x000CA     10
+main                                                                              0x000D4     28

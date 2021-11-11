@@ -1,0 +1,6 @@
+VERSION:3 SOURCE_TIMESTAMP:53466889
+NODE:I LEVEL:0 LINE:1 "C:\cvavreval\inc\mega128.h"
+NODE:I LEVEL:0 LINE:2 "C:\Users\정민규\Desktop\마이크로프로세서2\SPI\spi_2_master\spi.h"
+NODE:I LEVEL:0 LINE:3 "C:\Users\정민규\Desktop\마이크로프로세서2\SPI\spi_2_master\usart.h"
+NODE:M LEVEL:0 LINE:5 "SPI_CS"
+NODE:F LEVEL:0 LINE:7 "main(void)"

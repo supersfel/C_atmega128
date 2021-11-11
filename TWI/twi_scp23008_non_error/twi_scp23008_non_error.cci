@@ -1,0 +1,11 @@
+VERSION:3 SOURCE_TIMESTAMP:535EA49C
+NODE:I LEVEL:0 LINE:8 "C:\cvavreval\inc\mega128.h"
+NODE:I LEVEL:0 LINE:9 "C:\cvavreval\inc\delay.h"
+NODE:I LEVEL:0 LINE:10 "C:\Users\정민규\Desktop\마이크로프로세서2\TWI\twi_scp23008_non_error\TWI.h"
+NODE:M LEVEL:0 LINE:13 "MCP23008ADDR"
+NODE:M LEVEL:0 LINE:14 "GPIO"
+NODE:M LEVEL:0 LINE:15 "IODIR"
+NODE:F LEVEL:0 LINE:35 "MCP23008_I2C_Read(unsigned char devAddr,unsigned char regAddr)"
+NODE:F LEVEL:0 LINE:54 "MCP23008_I2C_Write(unsigned char devAddr,unsigned char regAddr,unsigned char data)"
+NODE:F LEVEL:0 LINE:68 "MCP23008_Init(void)"
+NODE:F LEVEL:0 LINE:75 "main(void)"

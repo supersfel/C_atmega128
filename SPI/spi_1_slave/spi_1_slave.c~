@@ -1,0 +1,17 @@
+/*
+ * spi_1_slave.c
+ *
+ * Created: 2021-10-06 오후 12:38:36
+ * Author: 정민규
+ */
+
+#include <mega128.h>
+
+void main(void)
+{
+while (1)
+    {
+    // Please write your application code here
+
+    }
+}

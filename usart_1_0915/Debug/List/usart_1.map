@@ -1,0 +1,33 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Intro_msg                                                                         0x0515      17
+Error_msg                                                                         0x0526      17
+Current_str                                                                       0x0537      17
+Mem_str                                                                           0x0548      17
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+buffer_count                                                                      R5           1
+Status                                                                            R6,R7        2
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x000A0      6
+LCD_Data                                                                          0x000A6      7
+LCD_Comm                                                                          0x000AD      7
+LCD_delay                                                                         0x000B4      4
+LCD_Pos                                                                           0x000B8      9
+LCD_Char                                                                          0x000C1      8
+LCD_Str                                                                           0x000C9     15
+LCD_Clear                                                                         0x000D8      5
+LCD_Init                                                                          0x000DD     14
+Init_USART1_IntCon                                                                0x000EB     54
+usart1_receive                                                                    0x00121     52
+main                                                                              0x00155    126

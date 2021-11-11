@@ -1,0 +1,47 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+ti_Cnt_1ms                                                                        R5           1
+LCD_DelCnt_1ms                                                                    R4           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Init_TWI                                                                          0x000AC     10
+TWI_TransCheck_ACK                                                                0x000B6     26
+TWI_Start                                                                         0x000D0      5
+TWI_Write_SLAW                                                                    0x000D5      4
+TWI_Write_Data                                                                    0x000D9      4
+TWI_Stop                                                                          0x000DD      4
+TWI_Restart                                                                       0x000E1      6
+TWI_Write_SLAR                                                                    0x000E7     12
+TWI_Read_Data_NACK                                                                0x000F3     17
+LCD_PORT_Init                                                                     0x00104      6
+LCD_Data                                                                          0x0010A      7
+LCD_Comm                                                                          0x00111      7
+LCD_delay                                                                         0x00118      5
+LCD_Pos                                                                           0x0011D     15
+LCD_Char                                                                          0x0012C      7
+LCD_Str                                                                           0x00133     15
+LCD_Clear                                                                         0x00142      5
+LCD_Init                                                                          0x00147     14
+Timer0_Init                                                                       0x00155      9
+timer0_comp                                                                       0x0015E      7
+SRF02_I2C_Write                                                                   0x00165     30
+SRF02_I2C_Read                                                                    0x00183     51
+startRanging                                                                      0x001B6      9
+getRange                                                                          0x001BF     51
+main                                                                              0x001F2     82
+put_buff_G100                                                                     0x00244     46
+_print_G100                                                                       0x00272    337
+sprintf                                                                           0x003C3     55
+strlen                                                                            0x003FA     12
+strlenf                                                                           0x00406     13

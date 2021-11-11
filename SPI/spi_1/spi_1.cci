@@ -1,0 +1,7 @@
+VERSION:3 SOURCE_TIMESTAMP:534664BC
+NODE:I LEVEL:0 LINE:9 "C:\cvavreval\inc\mega128.h"
+NODE:I LEVEL:0 LINE:10 "C:\cvavreval\inc\delay.h"
+NODE:I LEVEL:0 LINE:11 "C:\cvavreval\inc\stdio.h"
+NODE:I LEVEL:0 LINE:12 "C:\Users\정민규\Desktop\마이크로프로세서2\spi_1\lcd.h"
+NODE:I LEVEL:0 LINE:13 "C:\Users\정민규\Desktop\마이크로프로세서2\spi_1\spi.h"
+NODE:F LEVEL:0 LINE:18 "main(void)"

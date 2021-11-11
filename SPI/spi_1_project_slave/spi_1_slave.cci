@@ -1,0 +1,12 @@
+VERSION:3 SOURCE_TIMESTAMP:53498CB4
+NODE:I LEVEL:0 LINE:8 "C:\cvavreval\inc\mega128.h"
+NODE:I LEVEL:0 LINE:9 "C:\cvavreval\inc\delay.h"
+NODE:I LEVEL:0 LINE:10 "C:\cvavreval\inc\stdio.h"
+NODE:I LEVEL:0 LINE:11 "C:\Users\정민규\Desktop\마이크로프로세서2\SPI\spi_1_project_slave\lcd.h"
+NODE:I LEVEL:0 LINE:12 "C:\Users\정민규\Desktop\마이크로프로세서2\SPI\spi_1_project_slave\spi.h"
+NODE:V LEVEL:0 LINE:14 "SPI_Rec_Char -> R6"
+NODE:V LEVEL:0 LINE:15 "count -> R9"
+NODE:V LEVEL:0 LINE:16 "flag -> R8"
+NODE:V LEVEL:0 LINE:16 "clear_flag -> R11"
+NODE:F LEVEL:0 LINE:17 "spi_isr(void)"
+NODE:F LEVEL:0 LINE:29 "main(void)"

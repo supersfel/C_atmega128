@@ -1,0 +1,36 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+QueData                                                                           0x0515      20
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+QueFront                                                                          R4,R5        2
+QueRear                                                                           R6,R7        2
+first_flag                                                                        R9           1
+error_flag                                                                        R8           1
+key                                                                               R11          1
+ch                                                                                R10          1
+pos                                                                               R13          1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x0008C      6
+LCD_Data                                                                          0x00092      7
+LCD_Comm                                                                          0x00099      7
+LCD_delay                                                                         0x000A0      5
+LCD_Pos                                                                           0x000A5      9
+LCD_Char                                                                          0x000AE      7
+LCD_Clear                                                                         0x000B5      5
+LCD_Init                                                                          0x000BA     14
+Init_USART1_IntCon                                                                0x000C8     54
+enQue                                                                             0x000FE     40
+deQue                                                                             0x00126     35
+usart1_receive                                                                    0x00149     95
+main                                                                              0x001A8     16

@@ -1,0 +1,31 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+PtrToStrChar                                                                      R4,R5        2
+ClearToSend                                                                       R7           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x000A1      6
+LCD_Data                                                                          0x000A7      7
+LCD_Comm                                                                          0x000AE      7
+LCD_delay                                                                         0x000B5      5
+LCD_Pos                                                                           0x000BA     15
+LCD_Char                                                                          0x000C9      7
+LCD_Str                                                                           0x000D0     13
+LCD_Clear                                                                         0x000DD      5
+LCD_Init                                                                          0x000E2     14
+Init_SPI_Master                                                                   0x000F0     10
+SPI_Master_Send                                                                   0x000FA     10
+SPI_Master_Send_IntContr                                                          0x00104     14
+spi_master_isr                                                                    0x00112     34
+main                                                                              0x00134    106

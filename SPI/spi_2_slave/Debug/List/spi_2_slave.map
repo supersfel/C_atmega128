@@ -1,0 +1,33 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+SPI_Str                                                                           0x0515      16
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+PtrToStrChar                                                                      R4,R5        2
+ClearToSend                                                                       R7           1
+count                                                                             R6           1
+SPI_flag                                                                          R9           1
+Str                                                                               R8           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x00089      6
+LCD_Data                                                                          0x0008F      7
+LCD_Comm                                                                          0x00096      7
+LCD_delay                                                                         0x0009D      4
+LCD_Pos                                                                           0x000A1     15
+LCD_Char                                                                          0x000B0      8
+LCD_Str                                                                           0x000B8     15
+LCD_Clear                                                                         0x000C7      5
+LCD_Init                                                                          0x000CC     14
+Init_SPI_Slave_IntContr                                                           0x000DA      7
+spi_isr                                                                           0x000E1     38
+main                                                                              0x00107     30

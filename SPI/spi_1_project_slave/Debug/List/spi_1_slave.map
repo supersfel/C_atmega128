@@ -1,0 +1,33 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+PtrToStrChar                                                                      R4,R5        2
+ClearToSend                                                                       R7           1
+SPI_Rec_Char                                                                      R6           1
+count                                                                             R9           1
+flag                                                                              R8           1
+clear_flag                                                                        R11          1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x0009B      6
+LCD_Data                                                                          0x000A1      7
+LCD_Comm                                                                          0x000A8      7
+LCD_delay                                                                         0x000AF      4
+LCD_Pos                                                                           0x000B3     15
+LCD_Char                                                                          0x000C2      8
+LCD_Str                                                                           0x000CA     15
+LCD_Clear                                                                         0x000D9      5
+LCD_Init                                                                          0x000DE     14
+Init_SPI_Slave_IntContr                                                           0x000EC      7
+spi_isr                                                                           0x000F3     38
+main                                                                              0x00119     40

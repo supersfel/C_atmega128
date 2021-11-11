@@ -1,0 +1,36 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+str                                                                               0x0559      17
+str2                                                                              0x056A      17
+start_str                                                                         0x057B      17
+error_message                                                                     0x058C      17
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+first_flag                                                                        R5           1
+error_flag                                                                        R4           1
+key                                                                               R7           1
+ch                                                                                R6           1
+pos                                                                               R9           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x000AB      6
+LCD_Data                                                                          0x000B1      7
+LCD_Comm                                                                          0x000B8      7
+LCD_delay                                                                         0x000BF      4
+LCD_Pos                                                                           0x000C3      9
+LCD_Char                                                                          0x000CC      8
+LCD_Str                                                                           0x000D4     15
+LCD_Clear                                                                         0x000E3      5
+LCD_Init                                                                          0x000E8     14
+Init_USART1_IntCon                                                                0x000F6     54
+usart1_receive                                                                    0x0012C     99
+main                                                                              0x0018F     75

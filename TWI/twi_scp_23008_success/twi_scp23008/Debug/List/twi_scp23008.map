@@ -1,0 +1,28 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Init_TWI                                                                          0x00064     10
+TWI_TransCheck_ACK                                                                0x0006E     26
+TWI_Start                                                                         0x00088      5
+TWI_Write_SLAW                                                                    0x0008D      3
+TWI_Write_Data                                                                    0x00090      3
+TWI_Stop                                                                          0x00093      4
+TWI_Restart                                                                       0x00097      6
+TWI_Write_SLAR                                                                    0x0009D     13
+TWI_Read_Data_NACK                                                                0x000AA     17
+TWI_Master_Receive_ExDevice                                                       0x000BB     50
+MCP23008_I2C_Write                                                                0x000ED     29
+MCP23008_Init                                                                     0x0010A     10
+main                                                                              0x00114     30

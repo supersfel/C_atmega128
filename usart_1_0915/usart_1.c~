@@ -1,0 +1,25 @@
+/*
+ * usart_1.c
+ *
+ * Created: 2021-09-15 오후 5:04:22
+ * Author: 정민규
+ */
+
+#include <mega128.h>
+#include <delay.h>
+#include <usart.h>
+
+
+void main(void)
+{
+
+    char array[] = "Serial Comm test \r\n" ;
+    Init_USART1(0);
+
+while (1)
+    {
+        puts_USART1(array);
+        delay_ms(300);
+
+    }
+}

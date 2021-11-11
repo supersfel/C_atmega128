@@ -1,0 +1,8 @@
+VERSION:3 SOURCE_TIMESTAMP:534F04E6
+NODE:M LEVEL:0 LINE:8 "_USE_SAFTY_TWI_"
+NODE:I LEVEL:0 LINE:10 "C:\cvavreval\inc\mega128.h"
+NODE:I LEVEL:0 LINE:11 "C:\cvavreval\inc\delay.h"
+NODE:I LEVEL:0 LINE:12 "C:\Users\정민규\Desktop\마이크로프로세서2\TWI\twi_send_message_slave\twi.h"
+NODE:I LEVEL:0 LINE:13 "C:\Users\정민규\Desktop\마이크로프로세서2\TWI\twi_send_message_slave\lcd.h"
+NODE:V LEVEL:0 LINE:15 "SLAVE_ADDR -> R5"
+NODE:F LEVEL:0 LINE:17 "main(void)"

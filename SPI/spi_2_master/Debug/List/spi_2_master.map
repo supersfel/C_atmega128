@@ -1,0 +1,22 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+PtrToStrChar                                                                      R4,R5        2
+ClearToSend                                                                       R7           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Init_SPI_Master                                                                   0x0007B     10
+SPI_Master_Send                                                                   0x00085      9
+Init_USART1                                                                       0x0008E     34
+getch_USART1                                                                      0x000B0      7
+main                                                                              0x000B7     14

@@ -1,0 +1,35 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+SLAVE_ADDR                                                                        R5           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Init_TWI                                                                          0x0009B     10
+TWI_TransCheck_ACK                                                                0x000A5     29
+TWI_Start                                                                         0x000C2      6
+TWI_Write_SLAW                                                                    0x000C8      4
+TWI_Write_Data                                                                    0x000CC      4
+TWI_Stop                                                                          0x000D0      4
+TWI_Master_Transmit                                                               0x000D4     23
+LCD_PORT_Init                                                                     0x000EB      6
+LCD_Data                                                                          0x000F1      7
+LCD_Comm                                                                          0x000F8      7
+LCD_delay                                                                         0x000FF      5
+LCD_Pos                                                                           0x00104     15
+LCD_Char                                                                          0x00113      7
+LCD_Str                                                                           0x0011A     15
+LCD_Clear                                                                         0x00129      5
+LCD_Init                                                                          0x0012E     14
+Init_USART1                                                                       0x0013C     34
+getch_USART1                                                                      0x0015E      7
+main                                                                              0x00165     29
