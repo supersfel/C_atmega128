@@ -1,0 +1,48 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+ti_Cnt_1ms                                                                        R5           1
+LCD_DelCnt_1ms                                                                    R4           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x00088      6
+LCD_Data                                                                          0x0008E      7
+LCD_Comm                                                                          0x00095      7
+LCD_delay                                                                         0x0009C      5
+LCD_Pos                                                                           0x000A1     15
+LCD_Char                                                                          0x000B0      7
+LCD_Str                                                                           0x000B7     15
+LCD_Clear                                                                         0x000C6      5
+LCD_Init                                                                          0x000CB     14
+Init_TWI                                                                          0x000D9     10
+TWI_TransCheck_ACK                                                                0x000E3     27
+TWI_Start                                                                         0x000FE      5
+TWI_Write_SLAW                                                                    0x00103      4
+TWI_Write_Data                                                                    0x00107      4
+TWI_Stop                                                                          0x0010B      4
+TWI_Restart                                                                       0x0010F      6
+TWI_Write_SLAR                                                                    0x00115     12
+TWI_Read_Data_NACK                                                                0x00121     15
+SRF02_I2C_Write                                                                   0x00130     30
+SRF02_I2C_Read                                                                    0x0014E     51
+startRanging                                                                      0x00181      9
+getRange                                                                          0x0018A     51
+Timer0_Init                                                                       0x001BD      9
+timer0_comp                                                                       0x001C6      7
+SRF_Run                                                                           0x001CD     25
+main                                                                              0x001E6     69
+put_buff_G100                                                                     0x0022B     46
+_print_G100                                                                       0x00259    340
+sprintf                                                                           0x003AD     55
+strlen                                                                            0x003E4     12
+strlenf                                                                           0x003F0     13

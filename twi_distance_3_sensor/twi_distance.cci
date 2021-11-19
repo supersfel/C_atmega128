@@ -1,0 +1,13 @@
+VERSION:3 SOURCE_TIMESTAMP:53716808
+NODE:I LEVEL:0 LINE:2 "C:\cvavreval\inc\mega128.h"
+NODE:I LEVEL:0 LINE:3 "C:\cvavreval\inc\delay.h"
+NODE:I LEVEL:0 LINE:4 "C:\cvavreval\inc\stdio.h"
+NODE:I LEVEL:0 LINE:5 "C:\Users\정민규\Desktop\마이크로프로세서2\TWI\twi_distance\lcd.h"
+NODE:I LEVEL:0 LINE:6 "C:\Users\정민규\Desktop\마이크로프로세서2\TWI\twi_distance\twi.h"
+NODE:I LEVEL:0 LINE:7 "C:\Users\정민규\Desktop\마이크로프로세서2\TWI\twi_distance\srf02.h"
+NODE:V LEVEL:0 LINE:9 "ti_Cnt_1ms -> R5"
+NODE:V LEVEL:0 LINE:10 "LCD_DelCnt_1ms -> R4"
+NODE:F LEVEL:0 LINE:12 "Timer0_Init(void)"
+NODE:F LEVEL:0 LINE:20 "timer0_comp(void)"
+NODE:F LEVEL:0 LINE:26 "SRF_Run(unsigned char Sonar_Addr)"
+NODE:F LEVEL:0 LINE:44 "main(void)"
