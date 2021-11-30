@@ -1,0 +1,27 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Port_char                                                                         0x0500      16
+Port_fnd                                                                          0x0510       8
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+zero_flag                                                                         R5           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+PORT_Init                                                                         0x00092     15
+Init_Timer1                                                                       0x000A1     20
+compare                                                                           0x000B5      2
+myDelay_us                                                                        0x000B7     16
+Buzzer_play                                                                       0x000C7     28
+KeyScan                                                                           0x000E3     63
+Changenum                                                                         0x00122     69
+OUTFND                                                                            0x00167     52
+main                                                                              0x0019B    234

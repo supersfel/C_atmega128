@@ -1,0 +1,59 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+Port_char                                                                         0x0515      16
+Port_fnd                                                                          0x0525       8
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+zero_flag                                                                         R5           1
+ti_Cnt_1ms                                                                        R4           1
+LCD_DelCnt_1ms                                                                    R7           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x000C5      6
+LCD_Data                                                                          0x000CB      7
+LCD_Comm                                                                          0x000D2      7
+LCD_delay                                                                         0x000D9      5
+LCD_Pos                                                                           0x000DE     15
+LCD_Char                                                                          0x000ED      7
+LCD_Str                                                                           0x000F4     13
+LCD_Clear                                                                         0x00101      5
+LCD_Init                                                                          0x00106     14
+Init_TWI                                                                          0x00114     10
+TWI_TransCheck_ACK                                                                0x0011E     27
+TWI_Start                                                                         0x00139      5
+TWI_Write_SLAW                                                                    0x0013E      4
+TWI_Write_Data                                                                    0x00142      4
+TWI_Stop                                                                          0x00146      4
+TWI_Restart                                                                       0x0014A      6
+TWI_Write_SLAR                                                                    0x00150     12
+TWI_Read_Data_NACK                                                                0x0015C     15
+SRF02_I2C_Write                                                                   0x0016B     32
+SRF02_I2C_Read                                                                    0x0018B     51
+startRanging                                                                      0x001BE      9
+getRange                                                                          0x001C7     51
+FND_PORT_Init                                                                     0x001FA     21
+compare                                                                           0x0020F      2
+myDelay_us                                                                        0x00211     14
+Buzzer_play                                                                       0x0021F     28
+KeyScan                                                                           0x0023B     63
+Changenum                                                                         0x0027A     67
+OUTFND                                                                            0x002BD     52
+buzzer_play_function                                                              0x002F1     78
+Timer0_Init                                                                       0x0033F      9
+timer0_comp                                                                       0x00348      7
+SRF_Run                                                                           0x0034F     25
+main                                                                              0x00368    226
+put_buff_G100                                                                     0x0044A     46
+_print_G100                                                                       0x00478    293
+sprintf                                                                           0x0059D     55
+strlen                                                                            0x005D4     12
+strlenf                                                                           0x005E0     13

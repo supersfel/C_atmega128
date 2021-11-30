@@ -1,0 +1,13 @@
+VERSION:3 SOURCE_TIMESTAMP:537861EE
+NODE:M LEVEL:0 LINE:1 "SRF02_Return_inch"
+NODE:M LEVEL:0 LINE:2 "SRF02_Return_Cm"
+NODE:M LEVEL:0 LINE:3 "SRF02_Return_microSecond"
+NODE:M LEVEL:0 LINE:5 "COM_REG"
+NODE:M LEVEL:0 LINE:7 "SRF02_1st_Seg_change"
+NODE:M LEVEL:0 LINE:8 "SRF02_2nd_Seg_change"
+NODE:M LEVEL:0 LINE:9 "SRF02_3rd_Seg_change"
+NODE:F LEVEL:0 LINE:12 "SRF02_I2C_Write(unsigned char address,unsigned char reg,unsigned char data)"
+NODE:F LEVEL:0 LINE:26 "SRF02_I2C_Read(unsigned char address,unsigned char reg,unsigned char * Data)"
+NODE:F LEVEL:0 LINE:53 "startRanging(unsigned char addr)"
+NODE:F LEVEL:0 LINE:58 "getRange(unsigned char addr,unsigned int * pDistance)"
+NODE:F LEVEL:0 LINE:72 "change_Sonar_Addr(unsigned char ori,unsigned char des)"
