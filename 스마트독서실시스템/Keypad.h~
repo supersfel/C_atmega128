@@ -159,3 +159,39 @@ void OUTFND( unsigned int t)
 }
 
 
+void buzzer_play_function(int t)
+{
+    switch(t) //각 키패드마다 나오는 음 설정
+            {
+                case 1:
+                Buzzer_play(Do);
+                break;
+                case 2:
+                Buzzer_play(Re);
+                break;
+                case 3:
+                Buzzer_play(Mi);
+                break;
+                case 4:
+                Buzzer_play(Fa);
+                break;
+                case 5:
+                Buzzer_play(Sol);
+                break;
+                case 6:
+                Buzzer_play(La);
+                break;
+                case 7:
+                Buzzer_play(Si);
+                break;
+                case 8:
+                Buzzer_play(Do/2);
+                break;
+                case 9:
+                Buzzer_play(Re/2);
+                break;
+                default:
+                break;
+                
+            }
+}

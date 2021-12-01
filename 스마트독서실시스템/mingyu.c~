@@ -1,0 +1,44 @@
+
+#define NONE 0
+#define START 1
+#define INPUT_PHONE 2
+#define INPUT_PHONE_INIT 3
+#define CHECK_PNUM 4
+#define CHECK_PNUM_INIT 5
+#define EXIT_CHOOSE 6
+#define PHONE_NUM_CHECK 7
+
+unsigned char ti_Cnt_1ms;
+unsigned char LCD_DelCnt_1ms;
+
+void Timer0_Init()  //타이머 인터럽트
+{
+    TCCR0 = (1<<WGM01)|(1<<CS00)|(1<<CS01)|(1<<CS02);
+    TCNT0 = 0x00;
+    OCR0 = 100;
+    TIMSK = (1<<OCIE0);
+}
+
+interrupt[TIM0_COMP] void timer0_comp(void)    //실제 카운트 증가
+{
+    ti_Cnt_1ms++;
+    LCD_DelCnt_1ms++;
+}
+
+
+
+int SRF_Run(char Sonar_Addr){    //SRF 주소로 값을 받아옴
+    unsigned char res;    
+    unsigned int Sonar_range;  
+    
+    res = getRange(Sonar_Addr, &Sonar_range);
+        if(res)
+        {         
+            return 0;
+        }
+        else if(LCD_DelCnt_1ms > 100)
+        {              
+            LCD_DelCnt_1ms = 0;            
+            return Sonar_range;
+        }        
+}

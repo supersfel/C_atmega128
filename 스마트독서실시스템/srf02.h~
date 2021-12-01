@@ -69,59 +69,5 @@ unsigned int getRange(char addr, unsigned int *pDistance)
     return res;
 }
 
-unsigned char change_Sonar_Addr(unsigned char ori, unsigned char des)
-{
-    unsigned char res = 0;
-    
-    switch(des)
-    {
-        case 0xE0:
-        case 0xE2:
-        case 0xE4:
-        case 0xE6:
-        case 0xE8:
-        case 0xEA:
-        case 0xEC:
-        case 0xEE:
-        case 0xF0:
-        case 0xF2:
-        case 0xF4:
-        case 0xF6:
-        case 0xF8:
-        case 0xFA:
-        case 0xFC:
-        case 0xFE:
-        
-        res = SRF02_I2C_Write(ori, COM_REG, SRF02_1st_Seg_change);
-        if(res) return res;
-        res = SRF02_I2C_Write(ori, COM_REG, SRF02_2nd_Seg_change);
-        if(res) return res;
-        res = SRF02_I2C_Write(ori, COM_REG, SRF02_3rd_Seg_change);
-        if(res) return res;
-        
-        res = SRF02_I2C_Write(ori, COM_REG, des);
-        if(res) return res;
-        break; 
-        
-    default:
-        return -1;
-    }
-    return 0;
-}
 
 
-int SRF_Run(char Sonar_Addr){    //SRF 주소로 값을 받아옴
-    unsigned char res;    
-    unsigned int Sonar_range;  
-    
-    res = getRange(Sonar_Addr, &Sonar_range);
-        if(res)
-        {         
-            return 0;
-        }
-        else if(LCD_DelCnt_1ms > 100)
-        {              
-            LCD_DelCnt_1ms = 0;            
-            return Sonar_range;
-        }        
-}

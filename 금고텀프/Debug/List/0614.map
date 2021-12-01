@@ -1,0 +1,49 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+str                                                                               0x05FE      17
+fnd                                                                               0x060F      28
+password                                                                          0x062B      28
+Port_char                                                                         0x0647      16
+Port_fnd                                                                          0x0657       8
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+buffer_count                                                                      R5           1
+zero_flag                                                                         R4           1
+interrupt_flag                                                                    R7           1
+master_flag                                                                       R2.0      1bit
+master_password                                                                   R8,R9        2
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+LCD_PORT_Init                                                                     0x00148      6
+LCD_Data                                                                          0x0014E      7
+LCD_Comm                                                                          0x00155      7
+LCD_delay                                                                         0x0015C      5
+LCD_Pos                                                                           0x00161     15
+LCD_Char                                                                          0x00170      7
+LCD_Str                                                                           0x00177     13
+LCD_Clear                                                                         0x00184      5
+LCD_Init                                                                          0x00189     14
+usart1_receive                                                                    0x00197     36
+Init_USART1_IntCon                                                                0x001BB      8
+PORT_Init                                                                         0x001C3     23
+Num_to_Str                                                                        0x001DA     62
+Init_Timer1                                                                       0x00218     20
+compare                                                                           0x0022C      2
+myDelay_us                                                                        0x0022E     11
+Buzzer_play                                                                       0x00239     28
+KeyScan                                                                           0x00255     65
+Changenum                                                                         0x00296     67
+OUTFND                                                                            0x002D9     32
+ext_int0_isr                                                                      0x002F9     89
+putch_USART                                                                       0x00352     10
+puts_USART                                                                        0x0035C     15
+main                                                                              0x0036B    489

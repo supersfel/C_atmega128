@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.HPInfoTech.CodeVisionAVR.C</ToolchainName>
-    <ProjectGuid>{B111626B-423D-497C-A76A-A46C3F34E8A0}</ProjectGuid>
+    <ProjectGuid>{41691556-423D-497C-A76A-A46C3F34E8A0}</ProjectGuid>
     <avrdevice>ATmega128</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -39,6 +39,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="smart_studyroom_system.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mingyu.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
