@@ -1,0 +1,16 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+Port_char                                                         0x0575      16
+Port_fnd                                                          0x0585       8
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+zero_flag                                                         R5           1
+ti_Cnt_1ms                                                        R4           1
+LCD_DelCnt_1ms                                                    R7           1
