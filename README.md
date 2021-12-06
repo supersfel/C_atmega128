@@ -2,4 +2,4 @@
 C언어 기반이며, codevision AVR에서 동작합니다.
 특히, TWI,SPI,USART등 통신위주로 했으며 그외 기본적인 구동함수들도 올라갈 예정입니다.
 
-smart독서실이 영어로 된 것이 완성파일입니다.
+SMARTSTUDYROOM <= 스마트 독서실 관리 시스템
