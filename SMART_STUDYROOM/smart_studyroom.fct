@@ -1,5 +1,5 @@
-main DSTACK_USAGE:116 DSTACK_LEVEL:116 FILE:"smart_studyroom_system.c" LINE:54
-sprintf DSTACK_USAGE:14 DSTACK_LEVEL:130 FILE:"C:\cvavreval\lib\stdio.lib" LINE:1410
-_print DSTACK_USAGE:20 DSTACK_LEVEL:150 FILE:"C:\cvavreval\lib\stdio.lib" LINE:503
-strlen DSTACK_USAGE:2 DSTACK_LEVEL:152 FILE:"C:\cvavreval\lib\string.lib" LINE:1707
-timer0_comp DSTACK_USAGE:2 DSTACK_LEVEL:154 FILE:"smart_studyroom_system.c" LINE:29
+main DSTACK_USAGE:162 DSTACK_LEVEL:162 FILE:"smart_studyroom_system.c" LINE:57
+sprintf DSTACK_USAGE:14 DSTACK_LEVEL:176 FILE:"C:\cvavreval\lib\stdio.lib" LINE:1410
+_print DSTACK_USAGE:20 DSTACK_LEVEL:196 FILE:"C:\cvavreval\lib\stdio.lib" LINE:503
+strlen DSTACK_USAGE:2 DSTACK_LEVEL:198 FILE:"C:\cvavreval\lib\string.lib" LINE:1707
+timer0_comp DSTACK_USAGE:2 DSTACK_LEVEL:200 FILE:"smart_studyroom_system.c" LINE:32

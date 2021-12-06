@@ -146,16 +146,16 @@ void OUTFND( unsigned int t)
     FND0 = t%10;
     PORTE = Port_fnd[0];
     PORTF = Port_char[FND0]; //1의자리
-    delay_ms(1);
+    delay_ms(10);
     PORTE = Port_fnd[1];
     PORTF = Port_char[FND1]; //10의자리 
-    delay_ms(1);
+    delay_ms(10);
     PORTE = Port_fnd[2];
     PORTF = Port_char[FND2]; //100의 자리 
-    delay_ms(1);
+    delay_ms(10);
     PORTE = Port_fnd[3]; //1000의 자리 
     PORTF = Port_char[FND3]; 
-    delay_ms(1); 
+    delay_ms(10); 
 }
 
 

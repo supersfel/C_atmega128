@@ -1128,7 +1128,7 @@ _0x97:
 	.DB  0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0
 	.DB  0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0
 	.DB  0x0,0x0
-_0xD2:
+_0xE7:
 	.DB  0x0
 _0x0:
 	.DB  0x20,0x20,0x20,0x20,0x20,0x20,0x20,0x20
@@ -1148,7 +1148,12 @@ _0x0:
 	.DB  0x75,0x6D,0x0,0x53,0x6F,0x6D,0x65,0x6F
 	.DB  0x6E,0x65,0x20,0x55,0x73,0x65,0x64,0x0
 	.DB  0x31,0x3A,0x59,0x65,0x73,0x20,0x20,0x32
-	.DB  0x3A,0x4E,0x6F,0x0
+	.DB  0x3A,0x4E,0x6F,0x0,0x45,0x6D,0x70,0x74
+	.DB  0x79,0x20,0x53,0x65,0x61,0x74,0x0,0x55
+	.DB  0x73,0x65,0x72,0x20,0x43,0x68,0x65,0x63
+	.DB  0x6B,0x0,0x47,0x6F,0x6F,0x64,0x20,0x42
+	.DB  0x79,0x65,0x0,0x44,0x6F,0x6F,0x72,0x20
+	.DB  0x4F,0x70,0x65,0x6E,0x0
 
 __GLOBAL_INI_TBL:
 	.DW  0x15
@@ -1195,13 +1200,33 @@ __GLOBAL_INI_TBL:
 	.DW  _0xB5+69
 	.DW  _0x0*2+128
 
-	.DW  0x0F
+	.DW  0x0B
 	.DW  _0xB5+81
+	.DW  _0x0*2+140
+
+	.DW  0x0C
+	.DW  _0xB5+92
+	.DW  _0x0*2+128
+
+	.DW  0x0B
+	.DW  _0xB5+104
+	.DW  _0x0*2+151
+
+	.DW  0x09
+	.DW  _0xB5+115
+	.DW  _0x0*2+162
+
+	.DW  0x0A
+	.DW  _0xB5+124
+	.DW  _0x0*2+171
+
+	.DW  0x0F
+	.DW  _0xB5+134
 	.DW  _0x0*2+100
 
 	.DW  0x01
 	.DW  0x05
-	.DW  _0xD2*2
+	.DW  _0xE7*2
 
 _0xFFFFFFFF:
 	.DW  0
@@ -1329,8 +1354,9 @@ _LCD_Comm:
 	RJMP _0x2060009
 _LCD_delay:
 ;	ms -> Y+0
+	LD   R30,Y
+	LDI  R31,0
 	CALL SUBOPT_0x2
-	CALL SUBOPT_0x3
 	RJMP _0x2060009
 _LCD_Pos:
 ;	col -> Y+1
@@ -1344,14 +1370,12 @@ _LCD_Pos:
 	ORI  R30,0x80
 	ST   -Y,R30
 	RCALL _LCD_Comm
-	RJMP _0x2060005
+	RJMP _0x2060004
 _LCD_Char:
 ;	c -> Y+0
 	LD   R30,Y
 	ST   -Y,R30
 	RCALL _LCD_Data
-	LDI  R30,LOW(1)
-	LDI  R31,HIGH(1)
 	CALL SUBOPT_0x3
 	RJMP _0x2060009
 _LCD_Str:
@@ -1371,7 +1395,7 @@ _0x3:
 	STD  Y+1,R31
 	RJMP _0x3
 _0x5:
-	RJMP _0x2060005
+	RJMP _0x2060004
 ;	*str -> Y+1
 ;	loop_count -> R17
 
@@ -1548,7 +1572,7 @@ _SRF02_I2C_Write:
 	BREQ _0x29
 	MOV  R30,R17
 	LDD  R17,Y+0
-	RJMP _0x2060008
+	RJMP _0x2060007
 _0x29:
 	LDD  R30,Y+2
 	ST   -Y,R30
@@ -1558,7 +1582,7 @@ _0x29:
 	BREQ _0x2A
 	MOV  R30,R17
 	LDD  R17,Y+0
-	RJMP _0x2060008
+	RJMP _0x2060007
 _0x2A:
 	LDD  R30,Y+1
 	ST   -Y,R30
@@ -1568,12 +1592,12 @@ _0x2A:
 	BREQ _0x2B
 	MOV  R30,R17
 	LDD  R17,Y+0
-	RJMP _0x2060008
+	RJMP _0x2060007
 _0x2B:
 	RCALL _TWI_Stop
 	LDI  R30,LOW(0)
 	LDD  R17,Y+0
-	RJMP _0x2060008
+	RJMP _0x2060007
 _SRF02_I2C_Read:
 	ST   -Y,R17
 	ST   -Y,R16
@@ -1595,7 +1619,7 @@ _SRF02_I2C_Read:
 	MOV  R30,R16
 	LDD  R17,Y+1
 	LDD  R16,Y+0
-	RJMP _0x2060006
+	RJMP _0x2060005
 _0x2C:
 	LDD  R30,Y+4
 	ST   -Y,R30
@@ -1606,7 +1630,7 @@ _0x2C:
 	MOV  R30,R16
 	LDD  R17,Y+1
 	LDD  R16,Y+0
-	RJMP _0x2060006
+	RJMP _0x2060005
 _0x2D:
 	RCALL _TWI_Restart
 	MOV  R16,R30
@@ -1616,7 +1640,7 @@ _0x2D:
 	MOV  R30,R16
 	LDD  R17,Y+1
 	LDD  R16,Y+0
-	RJMP _0x2060006
+	RJMP _0x2060005
 _0x2E:
 	LDD  R30,Y+5
 	ST   -Y,R30
@@ -1628,7 +1652,7 @@ _0x2E:
 	MOV  R30,R16
 	LDD  R17,Y+1
 	LDD  R16,Y+0
-	RJMP _0x2060006
+	RJMP _0x2060005
 _0x2F:
 	IN   R30,SPL
 	IN   R31,SPH
@@ -1644,7 +1668,7 @@ _0x2F:
 	MOV  R30,R16
 	LDD  R17,Y+1
 	LDD  R16,Y+0
-	RJMP _0x2060006
+	RJMP _0x2060005
 _0x30:
 	RCALL _TWI_Stop
 	LDD  R26,Y+2
@@ -1653,7 +1677,7 @@ _0x30:
 	LDI  R30,LOW(0)
 	LDD  R17,Y+1
 	LDD  R16,Y+0
-	RJMP _0x2060006
+	RJMP _0x2060005
 _startRanging:
 ;	addr -> Y+0
 	LD   R30,Y
@@ -1687,10 +1711,7 @@ _getRange:
 	POP  R17
 	MOV  R16,R30
 	CPI  R16,0
-	BREQ _0x31
-	CALL SUBOPT_0x7
-	JMP  _0x2060003
-_0x31:
+	BRNE _0x2060008
 	MOV  R31,R17
 	LDI  R30,LOW(0)
 	LDD  R26,Y+2
@@ -1710,10 +1731,7 @@ _0x31:
 	POP  R17
 	MOV  R16,R30
 	CPI  R16,0
-	BREQ _0x32
-	CALL SUBOPT_0x7
-	JMP  _0x2060003
-_0x32:
+	BRNE _0x2060008
 	LDD  R26,Y+2
 	LDD  R27,Y+2+1
 	MOVW R0,R26
@@ -1726,8 +1744,13 @@ _0x32:
 	MOVW R26,R0
 	ST   X+,R30
 	ST   X,R31
-	CALL SUBOPT_0x7
-	JMP  _0x2060003
+_0x2060008:
+	MOV  R30,R16
+	LDI  R31,0
+	LDD  R17,Y+1
+	LDD  R16,Y+0
+	ADIW R28,5
+	RET
 ;	ori -> Y+2
 ;	des -> Y+1
 ;	res -> R17
@@ -1767,13 +1790,10 @@ _Init_Timer1:
 	LDI  R31,HIGH(36863)
 	OUT  0x26+1,R31
 	OUT  0x26,R30
-	LDI  R30,LOW(2765)
-	LDI  R31,HIGH(2765)
-	OUT  0x2A+1,R31
-	OUT  0x2A,R30
+	CALL SUBOPT_0x7
 	IN   R30,0x37
 	ORI  R30,0x10
-	RJMP _0x2060004
+	RJMP _0x2060003
 _compare:
 	nop
 	RETI
@@ -1795,7 +1815,7 @@ _0x5D:
 _0x5E:
 	LDD  R17,Y+1
 	LDD  R16,Y+0
-_0x2060008:
+_0x2060007:
 	ADIW R28,4
 	RET
 _Buzzer_play:
@@ -1827,7 +1847,7 @@ _0x60:
 	__ADDWRN 16,17,1
 	RJMP _0x60
 _0x61:
-	RJMP _0x2060007
+	RJMP _0x2060006
 _KeyScan:
 	CALL __SAVELOCR6
 ;	key_scan_line -> R16,R17
@@ -1859,7 +1879,7 @@ _0x63:
 	MUL  R30,R19
 	MOVW R30,R0
 	ADIW R30,1
-	RJMP _0xCF
+	RJMP _0xE3
 _0x69:
 	CPI  R30,LOW(0x20)
 	LDI  R26,HIGH(0x20)
@@ -1869,7 +1889,7 @@ _0x69:
 	MUL  R30,R19
 	MOVW R30,R0
 	ADIW R30,2
-	RJMP _0xCF
+	RJMP _0xE3
 _0x6A:
 	CPI  R30,LOW(0x40)
 	LDI  R26,HIGH(0x40)
@@ -1879,7 +1899,7 @@ _0x6A:
 	MUL  R30,R19
 	MOVW R30,R0
 	ADIW R30,3
-	RJMP _0xCF
+	RJMP _0xE3
 _0x6B:
 	CPI  R30,LOW(0x80)
 	LDI  R26,HIGH(0x80)
@@ -1889,12 +1909,12 @@ _0x6B:
 	MUL  R30,R19
 	MOVW R30,R0
 	ADIW R30,4
-_0xCF:
+_0xE3:
 	MOVW R20,R30
 _0x68:
 	MOV  R30,R20
 	CALL __LOADLOCR6
-	RJMP _0x2060006
+	RJMP _0x2060005
 _0x65:
 	LSL  R16
 	ROL  R17
@@ -1902,7 +1922,7 @@ _0x65:
 	RJMP _0x63
 _0x64:
 	CALL __LOADLOCR6
-	RJMP _0x2060006
+	RJMP _0x2060005
 _Changenum:
 	ST   -Y,R17
 ;	num -> Y+1
@@ -1919,7 +1939,7 @@ _0x6D:
 	BRNE _0x6F
 	CALL SUBOPT_0xA
 	SUBI R30,-LOW(12)
-	RJMP _0xD0
+	RJMP _0xE4
 _0x6F:
 	CALL SUBOPT_0xA
 	SBIW R30,0
@@ -1930,7 +1950,7 @@ _0x6F:
 	MOV  R22,R30
 	CALL SUBOPT_0x9
 	ADD  R30,R22
-	RJMP _0xD0
+	RJMP _0xE4
 _0x71:
 	CALL SUBOPT_0xA
 	CPI  R30,LOW(0x1)
@@ -1944,7 +1964,7 @@ _0x71:
 	ADC  R27,R31
 	LDI  R30,LOW(1)
 	LDI  R31,HIGH(1)
-	RJMP _0xD1
+	RJMP _0xE5
 _0x73:
 	CALL SUBOPT_0xA
 	CPI  R30,LOW(0x2)
@@ -1958,7 +1978,7 @@ _0x73:
 	ADC  R27,R31
 	LDI  R30,LOW(2)
 	LDI  R31,HIGH(2)
-	RJMP _0xD1
+	RJMP _0xE5
 _0x75:
 	CALL SUBOPT_0xA
 	CPI  R30,LOW(0x3)
@@ -1972,11 +1992,11 @@ _0x75:
 	ADC  R27,R31
 	LDI  R30,LOW(3)
 	LDI  R31,HIGH(3)
-_0xD1:
+_0xE5:
 	CALL __SWAPW12
 	SUB  R30,R26
 	SBC  R31,R27
-_0xD0:
+_0xE4:
 	MOV  R17,R30
 _0x77:
 _0x6E:
@@ -1988,7 +2008,7 @@ _0x6E:
 _0x78:
 	MOV  R30,R17
 	LDD  R17,Y+0
-	RJMP _0x2060005
+	RJMP _0x2060004
 _OUTFND:
 	CALL __SAVELOCR4
 ;	t -> Y+4
@@ -2034,14 +2054,8 @@ _OUTFND:
 	CALL SUBOPT_0xC
 	__GETB1MN _Port_fnd,2
 	OUT  0x3,R30
-	CALL SUBOPT_0x7
-	SUBI R30,LOW(-_Port_char)
-	SBCI R31,HIGH(-_Port_char)
-	LD   R30,Z
-	STS  98,R30
-	LDI  R30,LOW(10)
-	LDI  R31,HIGH(10)
-	CALL SUBOPT_0x3
+	MOV  R30,R16
+	CALL SUBOPT_0xC
 	__GETB1MN _Port_fnd,4
 	OUT  0x3,R30
 	MOV  R30,R19
@@ -2050,9 +2064,9 @@ _OUTFND:
 	OUT  0x3,R30
 	MOV  R30,R18
 	CALL SUBOPT_0xC
-_0x2060007:
-	CALL __LOADLOCR4
 _0x2060006:
+	CALL __LOADLOCR4
+_0x2060005:
 	ADIW R28,6
 	RET
 _buzzer_play_function:
@@ -2140,7 +2154,7 @@ _0x83:
 	CALL SUBOPT_0xD
 _0x85:
 _0x7B:
-_0x2060005:
+_0x2060004:
 	ADIW R28,2
 	RET
 ;	num -> Y+1
@@ -2153,40 +2167,43 @@ _0x2060005:
 ;#define CHECK_PNUM 4
 ;#define CHECK_PNUM_INIT 5
 ;#define EXIT_CHOOSE 6
-;#define PHONE_NUM_CHECK 7
+;#define CHECK_PNUM_OUT 7
+;#define CHECK_PNUM_OUT_INIT 8
+;#define INPUT_PHONE_OUT 9
+;#define INPUT_PHONE_OUT_INIT 10
 ;
 ;unsigned char ti_Cnt_1ms;
 ;unsigned char LCD_DelCnt_1ms;
 ;
 ;void Timer0_Init()  //타이머 인터럽트
-; 0000 0016 {
+; 0000 0019 {
 _Timer0_Init:
-; 0000 0017     TCCR0 = (1<<WGM01)|(1<<CS00)|(1<<CS01)|(1<<CS02);
+; 0000 001A     TCCR0 = (1<<WGM01)|(1<<CS00)|(1<<CS01)|(1<<CS02);
 	LDI  R30,LOW(15)
 	OUT  0x33,R30
-; 0000 0018     TCNT0 = 0x00;
+; 0000 001B     TCNT0 = 0x00;
 	LDI  R30,LOW(0)
 	OUT  0x32,R30
-; 0000 0019     OCR0 = 100;
+; 0000 001C     OCR0 = 100;
 	LDI  R30,LOW(100)
 	OUT  0x31,R30
-; 0000 001A     TIMSK = (1<<OCIE0);
+; 0000 001D     TIMSK = (1<<OCIE0);
 	LDI  R30,LOW(2)
-_0x2060004:
+_0x2060003:
 	OUT  0x37,R30
-; 0000 001B }
+; 0000 001E }
 	RET
 ;
 ;interrupt[TIM0_COMP] void timer0_comp(void)    //실제 카운트 증가
-; 0000 001E {
+; 0000 0021 {
 _timer0_comp:
 	ST   -Y,R30
 	IN   R30,SREG
-; 0000 001F     ti_Cnt_1ms++;
+; 0000 0022     ti_Cnt_1ms++;
 	INC  R4
-; 0000 0020     LCD_DelCnt_1ms++;
+; 0000 0023     LCD_DelCnt_1ms++;
 	INC  R7
-; 0000 0021 }
+; 0000 0024 }
 	OUT  SREG,R30
 	LD   R30,Y+
 	RETI
@@ -2194,12 +2211,12 @@ _timer0_comp:
 ;
 ;
 ;int SRF_Run(char Sonar_Addr){    //SRF 주소로 값을 받아옴
-; 0000 0025 int SRF_Run(char Sonar_Addr){
+; 0000 0028 int SRF_Run(char Sonar_Addr){
 _SRF_Run:
-; 0000 0026     unsigned char res;
-; 0000 0027     unsigned int Sonar_range;
-; 0000 0028 
-; 0000 0029     res = getRange(Sonar_Addr, &Sonar_range);
+; 0000 0029     unsigned char res;
+; 0000 002A     unsigned int Sonar_range;
+; 0000 002B 
+; 0000 002C     res = getRange(Sonar_Addr, &Sonar_range);
 	CALL __SAVELOCR4
 ;	Sonar_Addr -> Y+4
 ;	res -> R17
@@ -2217,60 +2234,63 @@ _SRF_Run:
 	POP  R18
 	POP  R19
 	MOV  R17,R30
-; 0000 002A         if(res)
+; 0000 002D         if(res)
 	CPI  R17,0
 	BREQ _0x94
-; 0000 002B         {
-; 0000 002C             return 0;
+; 0000 002E         {
+; 0000 002F             return 0;
 	LDI  R30,LOW(0)
 	LDI  R31,HIGH(0)
 	CALL __LOADLOCR4
-	RJMP _0x2060002
-; 0000 002D         }
-; 0000 002E         else if(LCD_DelCnt_1ms > 100)
+	JMP  _0x2060002
+; 0000 0030         }
+; 0000 0031         else if(LCD_DelCnt_1ms > 100)
 _0x94:
 	LDI  R30,LOW(100)
 	CP   R30,R7
 	BRSH _0x96
-; 0000 002F         {
-; 0000 0030             LCD_DelCnt_1ms = 0;
+; 0000 0032         {
+; 0000 0033             LCD_DelCnt_1ms = 0;
 	CLR  R7
-; 0000 0031             return Sonar_range;
+; 0000 0034             return Sonar_range;
 	MOVW R30,R18
 	CALL __LOADLOCR4
-	RJMP _0x2060002
-; 0000 0032         }
-; 0000 0033 }
+	JMP  _0x2060002
+; 0000 0035         }
+; 0000 0036 }
 _0x96:
 	CALL __LOADLOCR4
-	RJMP _0x2060002
+	JMP  _0x2060002
 ;
 ;
 ;void main(void)
-; 0000 0037 {
+; 0000 003A {
 _main:
-; 0000 0038     unsigned char res;
-; 0000 0039     char Sonar_Addr = 0xE0;
-; 0000 003A     unsigned int Sonar_range_1 = 0,Sonar_range_2 = 0,Sonar_range_3 = 0;
-; 0000 003B     char Message[40];
-; 0000 003C     int readCnt = 0;
-; 0000 003D     int t=0; //키패드로 받은 숫자
-; 0000 003E     int count =0; //count 변수
-; 0000 003F     int finalnum=0; //FND에 출력으로 넣어줄 변수
-; 0000 0040     int fnd[12]={0,};
-; 0000 0041     signed int angle=0; // 서브모터 각도로 넣을 변수
-; 0000 0042     char STATE = START;
-; 0000 0043     char user_state[3] = {'X','X','X'};
-; 0000 0044     int i = 0;
-; 0000 0045     char user_pnumber[3][11];
-; 0000 0046     char user_name;
-; 0000 0047 
-; 0000 0048     DDRD |= 0x03;
+; 0000 003B     unsigned char res;
+; 0000 003C     char Sonar_Addr = 0xE0;
+; 0000 003D     unsigned int Sonar_range_1 = 0,Sonar_range_2 = 0,Sonar_range_3 = 0;
+; 0000 003E     char Message[40];
+; 0000 003F     int readCnt = 0;
+; 0000 0040     int t=0; //키패드로 받은 숫자
+; 0000 0041     int count =0; //count 변수
+; 0000 0042     int finalnum=0; //FND에 출력으로 넣어줄 변수
+; 0000 0043     int fnd[12]={0,};
+; 0000 0044     signed int angle=0; // 서브모터 각도로 넣을 변수
+; 0000 0045     char STATE = START;
+; 0000 0046     char user_state[3] = {'X','X','X'};
+; 0000 0047     int i = 0;
+; 0000 0048     char user_pnumber[3][11]; //유저 비밀번호 저장
+; 0000 0049     char check_pnumber[11]; //비밀번호 일치확인을위한 공간
+; 0000 004A     char user_name; //1~3번중 어느좌석 유저를 가르키는지 저장
+; 0000 004B     char num[3][11];
+; 0000 004C 
+; 0000 004D     DDRD |= 0x03;
 	SBIW R28,63
-	SBIW R28,53
+	SBIW R28,63
+	SBIW R28,34
 	LDI  R24,82
-	LDI  R26,LOW(34)
-	LDI  R27,HIGH(34)
+	LDI  R26,LOW(78)
+	LDI  R27,HIGH(78)
 	LDI  R30,LOW(_0x97*2)
 	LDI  R31,HIGH(_0x97*2)
 	CALL __INITLOCB
@@ -2278,673 +2298,884 @@ _main:
 ;	Sonar_Addr -> R16
 ;	Sonar_range_1 -> R18,R19
 ;	Sonar_range_2 -> R20,R21
-;	Sonar_range_3 -> Y+114
-;	Message -> Y+74
-;	readCnt -> Y+72
-;	t -> Y+70
-;	count -> Y+68
-;	finalnum -> Y+66
-;	fnd -> Y+42
-;	angle -> Y+40
-;	STATE -> Y+39
-;	user_state -> Y+36
-;	i -> Y+34
-;	user_pnumber -> Y+1
-;	user_name -> Y+0
+;	Sonar_range_3 -> Y+158
+;	Message -> Y+118
+;	readCnt -> Y+116
+;	t -> Y+114
+;	count -> Y+112
+;	finalnum -> Y+110
+;	fnd -> Y+86
+;	angle -> Y+84
+;	STATE -> Y+83
+;	user_state -> Y+80
+;	i -> Y+78
+;	user_pnumber -> Y+45
+;	check_pnumber -> Y+34
+;	user_name -> Y+33
+;	num -> Y+0
 	LDI  R16,224
 	__GETWRN 18,19,0
 	__GETWRN 20,21,0
 	IN   R30,0x11
 	ORI  R30,LOW(0x3)
 	OUT  0x11,R30
-; 0000 0049     LCD_Init();
+; 0000 004E     LCD_Init();
 	RCALL _LCD_Init
-; 0000 004A     Timer0_Init();
+; 0000 004F     Timer0_Init();
 	RCALL _Timer0_Init
-; 0000 004B     FND_PORT_Init(); // 포트들 입출력 초기 설정
+; 0000 0050     FND_PORT_Init(); // 포트들 입출력 초기 설정
 	RCALL _FND_PORT_Init
-; 0000 004C     Init_TWI();
+; 0000 0051     Init_TWI();
 	RCALL _Init_TWI
-; 0000 004D     Init_Timer1();
+; 0000 0052     Init_Timer1();
 	RCALL _Init_Timer1
-; 0000 004E     delay_ms(1000);
-	LDI  R30,LOW(1000)
-	LDI  R31,HIGH(1000)
-	CALL SUBOPT_0x3
-; 0000 004F     SREG |= 0x80;
+; 0000 0053     delay_ms(1000);
+	CALL SUBOPT_0xE
+; 0000 0054     SREG |= 0x80;
 	BSET 7
-; 0000 0050 
-; 0000 0051     OCR1A = 4710;
-	LDI  R30,LOW(4710)
-	LDI  R31,HIGH(4710)
-	OUT  0x2A+1,R31
-	OUT  0x2A,R30
-; 0000 0052     startRanging(Sonar_Addr);
+; 0000 0055 
+; 0000 0056     OCR1A =4710;
+	CALL SUBOPT_0x7
+; 0000 0057     startRanging(Sonar_Addr);
 	ST   -Y,R16
 	RCALL _startRanging
-; 0000 0053     ti_Cnt_1ms = 0;
+; 0000 0058     ti_Cnt_1ms = 0;
 	CLR  R4
-; 0000 0054     LCD_DelCnt_1ms = 0;
+; 0000 0059     LCD_DelCnt_1ms = 0;
 	CLR  R7
-; 0000 0055 
-; 0000 0056     while(1)
+; 0000 005A 
+; 0000 005B 
+; 0000 005C 
+; 0000 005D     while(1)
 _0x98:
-; 0000 0057     {
-; 0000 0058         if(ti_Cnt_1ms > 100)
+; 0000 005E     {
+; 0000 005F         if(ti_Cnt_1ms > 100)
 	LDI  R30,LOW(100)
 	CP   R30,R4
 	BRSH _0x9B
-; 0000 0059         {
-; 0000 005A             if (Sonar_Addr == 0xE0){
+; 0000 0060         {
+; 0000 0061             if (Sonar_Addr == 0xE0){
 	CPI  R16,224
 	BRNE _0x9C
-; 0000 005B                 Sonar_Addr = 0xEC;
+; 0000 0062                 Sonar_Addr = 0xEC;
 	LDI  R16,LOW(236)
-; 0000 005C                 startRanging(Sonar_Addr);
-	CALL SUBOPT_0xE
-; 0000 005D                 Sonar_range_1 = SRF_Run(Sonar_Addr);
+; 0000 0063                 startRanging(Sonar_Addr);
+	CALL SUBOPT_0xF
+; 0000 0064                 Sonar_range_1 = SRF_Run(Sonar_Addr);
 	MOVW R18,R30
-; 0000 005E             }
-; 0000 005F             else if (Sonar_Addr == 0xEC) {
+; 0000 0065             }
+; 0000 0066             else if (Sonar_Addr == 0xEC) {
 	RJMP _0x9D
 _0x9C:
 	CPI  R16,236
 	BRNE _0x9E
-; 0000 0060                 Sonar_Addr = 0xE2;
+; 0000 0067                 Sonar_Addr = 0xE2;
 	LDI  R16,LOW(226)
-; 0000 0061                 startRanging(Sonar_Addr);
-	CALL SUBOPT_0xE
-; 0000 0062                 Sonar_range_2 = SRF_Run(Sonar_Addr);
+; 0000 0068                 startRanging(Sonar_Addr);
+	CALL SUBOPT_0xF
+; 0000 0069                 Sonar_range_2 = SRF_Run(Sonar_Addr);
 	MOVW R20,R30
-; 0000 0063             }
-; 0000 0064             else{
+; 0000 006A             }
+; 0000 006B             else{
 	RJMP _0x9F
 _0x9E:
-; 0000 0065                 Sonar_Addr = 0xE0;
+; 0000 006C                 Sonar_Addr = 0xE0;
 	LDI  R16,LOW(224)
-; 0000 0066                 startRanging(Sonar_Addr);
-	CALL SUBOPT_0xE
-; 0000 0067                 Sonar_range_3 = SRF_Run(Sonar_Addr);
-	__PUTW1SX 114
-; 0000 0068             }
+; 0000 006D                 startRanging(Sonar_Addr);
+	CALL SUBOPT_0xF
+; 0000 006E                 Sonar_range_3 = SRF_Run(Sonar_Addr);
+	__PUTW1SX 158
+; 0000 006F             }
 _0x9F:
 _0x9D:
-; 0000 0069 
-; 0000 006A 
-; 0000 006B             /*
-; 0000 006C             LCD_Clear();
-; 0000 006D             sprintf(Message, "%03dcm", Sonar_range_1);
-; 0000 006E             LCD_Pos(0,0);
-; 0000 006F             LCD_Str(Message);
 ; 0000 0070 
-; 0000 0071             sprintf(Message, "%03dcm", Sonar_range_2);
-; 0000 0072             LCD_Pos(1,0);
-; 0000 0073             LCD_Str(Message);
-; 0000 0074 
-; 0000 0075             sprintf(Message, "%03dcm", Sonar_range_3);
-; 0000 0076             LCD_Pos(1,5);
-; 0000 0077             LCD_Str(Message); */
-; 0000 0078 
-; 0000 0079             LCD_DelCnt_1ms = 0;
+; 0000 0071 
+; 0000 0072             /*   초음파 확 인 *//*
+; 0000 0073             LCD_Clear();
+; 0000 0074             sprintf(Message, "%03dcm", Sonar_range_1);
+; 0000 0075             LCD_Pos(0,0);
+; 0000 0076             LCD_Str(Message);
+; 0000 0077 
+; 0000 0078             sprintf(Message, "%03dcm", Sonar_range_2);
+; 0000 0079             LCD_Pos(1,0);
+; 0000 007A             LCD_Str(Message);
+; 0000 007B 
+; 0000 007C             sprintf(Message, "%03dcm", Sonar_range_3);
+; 0000 007D             LCD_Pos(1,5);
+; 0000 007E             LCD_Str(Message); */
+; 0000 007F 
+; 0000 0080             LCD_DelCnt_1ms = 0;
 	CLR  R7
-; 0000 007A             ti_Cnt_1ms = 0;
+; 0000 0081             ti_Cnt_1ms = 0;
 	CLR  R4
-; 0000 007B         }
-; 0000 007C         t= Changenum(KeyScan());
+; 0000 0082         }
+; 0000 0083         t= Changenum(KeyScan());
 _0x9B:
 	RCALL _KeyScan
 	ST   -Y,R30
 	RCALL _Changenum
 	LDI  R31,0
-	__PUTW1SX 70
-; 0000 007D         if(t<11 & t>0 ) //숫자가 눌리면 새로운 값을 저장하도록 count값 설정
-	CALL SUBOPT_0xF
+	__PUTW1SX 114
+; 0000 0084         if(t<11 & t>0 ) //숫자가 눌리면 새로운 값을 저장하도록 count값 설정
+	CALL SUBOPT_0x10
 	LDI  R30,LOW(11)
 	LDI  R31,HIGH(11)
 	CALL __LTW12
 	MOV  R1,R30
-	CALL SUBOPT_0xF
+	CALL SUBOPT_0x10
 	LDI  R30,LOW(0)
 	LDI  R31,HIGH(0)
 	CALL __GTW12
 	AND  R30,R1
 	BREQ _0xA0
-; 0000 007E             {
-; 0000 007F                 count++;
-	CALL SUBOPT_0x10
-; 0000 0080                 delay_ms(50);
+; 0000 0085             {
+; 0000 0086                 count++;
 	CALL SUBOPT_0x11
-; 0000 0081             }
-; 0000 0082         else if(t==0 & zero_flag) //zero_flag가 실행된 경우에만 0으로 입력
+; 0000 0087                 delay_ms(50);
+	CALL SUBOPT_0x12
+; 0000 0088             }
+; 0000 0089         else if(t==0 & zero_flag) //zero_flag가 실행된 경우에만 0으로 입력
 	RJMP _0xA1
 _0xA0:
-	CALL SUBOPT_0xF
+	CALL SUBOPT_0x10
 	LDI  R30,LOW(0)
 	LDI  R31,HIGH(0)
 	CALL __EQW12
 	AND  R30,R5
 	BREQ _0xA2
-; 0000 0083             {
-; 0000 0084                 count++;
-	CALL SUBOPT_0x10
-; 0000 0085                 zero_flag =0; //계속 0으로 입력된 상태가 안되게 zero_flag를 다시 0으로
-	CLR  R5
-; 0000 0086                 delay_ms(50);
+; 0000 008A             {
+; 0000 008B                 count++;
 	CALL SUBOPT_0x11
-; 0000 0087             }
-; 0000 0088         else if(t==13) // FND 출력숫자 리셋버튼 기능
+; 0000 008C                 zero_flag =0; //계속 0으로 입력된 상태가 안되게 zero_flag를 다시 0으로
+	CLR  R5
+; 0000 008D                 delay_ms(50);
+	CALL SUBOPT_0x12
+; 0000 008E             }
+; 0000 008F         else if(t==13) // FND 출력숫자 리셋버튼 기능
 	RJMP _0xA3
 _0xA2:
-	CALL SUBOPT_0xF
+	CALL SUBOPT_0x10
 	SBIW R26,13
 	BRNE _0xA4
-; 0000 0089             {
-; 0000 008A                 fnd[0]=0,fnd[1]=0,fnd[2]=0,fnd[3]=0;
+; 0000 0090             {
+; 0000 0091                 fnd[0]=0,fnd[1]=0,fnd[2]=0,fnd[3]=0;
+	CALL SUBOPT_0x13
+	CALL SUBOPT_0x14
 	LDI  R30,LOW(0)
-	STD  Y+42,R30
-	STD  Y+42+1,R30
-	STD  Y+44,R30
-	STD  Y+44+1,R30
-	STD  Y+46,R30
-	STD  Y+46+1,R30
-	STD  Y+48,R30
-	STD  Y+48+1,R30
-; 0000 008B             }
-; 0000 008C         else if (t ==14)
+	__CLRW1SX 90
+	__CLRW1SX 92
+; 0000 0092             }
+; 0000 0093         else if (t ==14)
 	RJMP _0xA5
 _0xA4:
-	CALL SUBOPT_0xF
+	CALL SUBOPT_0x10
 	SBIW R26,14
 	BRNE _0xA6
-; 0000 008D             {
-; 0000 008E                STATE = START;
-	LDI  R30,LOW(1)
-	STD  Y+39,R30
-; 0000 008F             }
-; 0000 0090 
-; 0000 0091         if((count%2) ==0){ //count가 짝수일때 들어온 t값을 저장하고
+; 0000 0094             {
+; 0000 0095                STATE = START;
+	CALL SUBOPT_0x15
+; 0000 0096             }
+; 0000 0097 
+; 0000 0098         if((count%2) ==0){ //count가 짝수일때 들어온 t값을 저장하고
 _0xA6:
 _0xA5:
 _0xA3:
 _0xA1:
-	__GETW2SX 68
+	__GETW2SX 112
 	LDI  R30,LOW(2)
 	LDI  R31,HIGH(2)
 	CALL __MODW21
 	SBIW R30,0
 	BRNE _0xA7
-; 0000 0092                             //다시 count를 홀수로 만듬
-; 0000 0093             for(i=11;i>0;i--) {
+; 0000 0099                             //다시 count를 홀수로 만듬
+; 0000 009A             for(i=11;i>0;i--) {
 	LDI  R30,LOW(11)
 	LDI  R31,HIGH(11)
-	STD  Y+34,R30
-	STD  Y+34+1,R31
+	__PUTW1SX 78
 _0xA9:
-	LDD  R26,Y+34
-	LDD  R27,Y+34+1
+	CALL SUBOPT_0x16
 	CALL __CPW02
 	BRGE _0xAA
-; 0000 0094                 fnd[i] = fnd[i-1];
-	LDD  R30,Y+34
-	LDD  R31,Y+34+1
+; 0000 009B                 fnd[i] = fnd[i-1];
+	CALL SUBOPT_0x17
 	MOVW R26,R28
-	ADIW R26,42
+	SUBI R26,LOW(-(86))
+	SBCI R27,HIGH(-(86))
 	LSL  R30
 	ROL  R31
 	ADD  R30,R26
 	ADC  R31,R27
-	MOVW R0,R30
-	LDD  R30,Y+34
-	LDD  R31,Y+34+1
+	MOVW R22,R30
+	CALL SUBOPT_0x17
 	SBIW R30,1
 	MOVW R26,R28
-	ADIW R26,42
+	SUBI R26,LOW(-(86))
+	SBCI R27,HIGH(-(86))
 	LSL  R30
 	ROL  R31
 	ADD  R26,R30
 	ADC  R27,R31
 	CALL __GETW1P
-	MOVW R26,R0
+	MOVW R26,R22
 	ST   X+,R30
 	ST   X,R31
-; 0000 0095                 delay_us(10);
+; 0000 009C                 delay_us(10);
 	__DELAY_USB 49
-; 0000 0096             }
-	LDD  R30,Y+34
-	LDD  R31,Y+34+1
+; 0000 009D             }
+	MOVW R26,R28
+	SUBI R26,LOW(-(78))
+	SBCI R27,HIGH(-(78))
+	LD   R30,X+
+	LD   R31,X+
 	SBIW R30,1
-	STD  Y+34,R30
-	STD  Y+34+1,R31
+	ST   -X,R31
+	ST   -X,R30
 	RJMP _0xA9
 _0xAA:
-; 0000 0097             fnd[0] = t;
-	CALL SUBOPT_0x12
-	STD  Y+42,R30
-	STD  Y+42+1,R31
-; 0000 0098             count++;
-	CALL SUBOPT_0x10
-; 0000 0099             delay_ms(50);
+; 0000 009E             fnd[0] = t;
+	CALL SUBOPT_0x18
+	__PUTW1SX 86
+; 0000 009F             count++;
 	CALL SUBOPT_0x11
-; 0000 009A         }
-; 0000 009B         finalnum = 1000*fnd[3] + 100*fnd[2] + 10*fnd[1] + fnd[0];
+; 0000 00A0             delay_ms(50);
+	CALL SUBOPT_0x12
+; 0000 00A1         }
+; 0000 00A2         finalnum = 1000*fnd[3] + 100*fnd[2] + 10*fnd[1] + fnd[0];
 _0xA7:
-	LDD  R30,Y+48
-	LDD  R31,Y+48+1
+	__GETW1SX 92
 	LDI  R26,LOW(1000)
 	LDI  R27,HIGH(1000)
 	CALL __MULW12
 	MOVW R22,R30
-	LDD  R30,Y+46
-	LDD  R31,Y+46+1
+	__GETW1SX 90
 	LDI  R26,LOW(100)
 	LDI  R27,HIGH(100)
 	CALL __MULW12
 	__ADDWRR 22,23,30,31
-	LDD  R30,Y+44
-	LDD  R31,Y+44+1
+	CALL SUBOPT_0x19
 	LDI  R26,LOW(10)
 	LDI  R27,HIGH(10)
 	CALL __MULW12
 	ADD  R30,R22
 	ADC  R31,R23
-	LDD  R26,Y+42
-	LDD  R27,Y+42+1
+	CALL SUBOPT_0x1A
 	ADD  R30,R26
 	ADC  R31,R27
-	__PUTW1SX 66
-; 0000 009C         OUTFND(finalnum); //FND 출력
+	__PUTW1SX 110
+; 0000 00A3         OUTFND(finalnum); //FND 출력
 	ST   -Y,R31
 	ST   -Y,R30
 	RCALL _OUTFND
-; 0000 009D         buzzer_play_function(t); //숫자에 맞는 음 출력
-	CALL SUBOPT_0x12
+; 0000 00A4         buzzer_play_function(t); //숫자에 맞는 음 출력
+	CALL SUBOPT_0x18
 	ST   -Y,R31
 	ST   -Y,R30
 	RCALL _buzzer_play_function
-; 0000 009E 
-; 0000 009F         switch (STATE) {
-	LDD  R30,Y+39
+; 0000 00A5 
+; 0000 00A6         switch (STATE) {
+	__GETB1SX 83
 	LDI  R31,0
-; 0000 00A0 
-; 0000 00A1             case NONE: //기본 상태
+; 0000 00A7 
+; 0000 00A8             case NONE: //기본 상태
 	SBIW R30,0
-	BRNE _0xAE
-; 0000 00A2                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10) {
-	LDD  R26,Y+44
-	LDD  R27,Y+44+1
+	BREQ PC+3
+	JMP _0xAE
+; 0000 00A9                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10) {
+	CALL SUBOPT_0x1B
 	SBIW R26,4
 	BRGE _0xB0
-	LDD  R26,Y+44
-	LDD  R27,Y+44+1
+	CALL SUBOPT_0x1B
 	CALL __CPW02
 	BRGE _0xB0
-	LDD  R26,Y+42
-	LDD  R27,Y+42+1
+	CALL SUBOPT_0x1A
 	SBIW R26,10
 	BREQ _0xB1
 _0xB0:
 	RJMP _0xAF
 _0xB1:
-; 0000 00A3                     user_name = fnd[1]-1;
-	CALL SUBOPT_0x13
-; 0000 00A4                     STATE=INPUT_PHONE_INIT ;
+; 0000 00AA                     user_name = fnd[1]-1;
+	CALL SUBOPT_0x19
+	SBIW R30,1
+	STD  Y+33,R30
+; 0000 00AB                     STATE=INPUT_PHONE_INIT ;
 	LDI  R30,LOW(3)
-	STD  Y+39,R30
-; 0000 00A5                 }
-; 0000 00A6                 if (fnd[1]==4 && fnd[0] == 10) { //탈출 모드
+	CALL SUBOPT_0x1C
+; 0000 00AC                 }
+; 0000 00AD                 if (fnd[1]==4 && fnd[0] == 10) { //탈출 모드
 _0xAF:
-	LDD  R26,Y+44
-	LDD  R27,Y+44+1
+	CALL SUBOPT_0x1B
 	SBIW R26,4
 	BRNE _0xB3
-	LDD  R26,Y+42
-	LDD  R27,Y+42+1
+	CALL SUBOPT_0x1A
 	SBIW R26,10
 	BREQ _0xB4
 _0xB3:
 	RJMP _0xB2
 _0xB4:
-; 0000 00A7                     LCD_Clear();
-	CALL SUBOPT_0x14
-; 0000 00A8                     LCD_Pos(0,0);
-; 0000 00A9                     LCD_Str("Choose Seat");
+; 0000 00AE                     LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 00AF                     LCD_Pos(0,0);
+; 0000 00B0                     LCD_Str("Choose Seat");
 	__POINTW1MN _0xB5,0
-	CALL SUBOPT_0x15
-; 0000 00AA                     LCD_Pos(1,0);
-	CALL SUBOPT_0x16
-; 0000 00AB                     if (user_state[0] == 'X') LCD_Str("1  ");
-	LDD  R26,Y+36
-	CPI  R26,LOW(0x58)
+	CALL SUBOPT_0x1E
+; 0000 00B1                     LCD_Pos(1,0);
+	CALL SUBOPT_0x1F
+; 0000 00B2                     if (user_state[0] == 'O') LCD_Str("1  ");
+	__GETB2SX 80
+	CPI  R26,LOW(0x4F)
 	BRNE _0xB6
 	__POINTW1MN _0xB5,12
-	CALL SUBOPT_0x15
-; 0000 00AC                     if (user_state[1] == 'X') LCD_Str("2  ");
+	CALL SUBOPT_0x1E
+; 0000 00B3                     if (user_state[1] == 'O') LCD_Str("2  ");
 _0xB6:
-	LDD  R26,Y+37
-	CPI  R26,LOW(0x58)
+	__GETB2SX 81
+	CPI  R26,LOW(0x4F)
 	BRNE _0xB7
 	__POINTW1MN _0xB5,16
-	CALL SUBOPT_0x15
-; 0000 00AD                     if (user_state[2] == 'X') LCD_Str("3  ");
+	CALL SUBOPT_0x1E
+; 0000 00B4                     if (user_state[2] == 'O') LCD_Str("3  ");
 _0xB7:
-	LDD  R26,Y+38
-	CPI  R26,LOW(0x58)
+	__GETB2SX 82
+	CPI  R26,LOW(0x4F)
 	BRNE _0xB8
 	__POINTW1MN _0xB5,20
-	CALL SUBOPT_0x15
-; 0000 00AE                     STATE=EXIT_CHOOSE ;
+	CALL SUBOPT_0x1E
+; 0000 00B5                     STATE=EXIT_CHOOSE ;
 _0xB8:
 	LDI  R30,LOW(6)
-	STD  Y+39,R30
-; 0000 00AF                 }
-; 0000 00B0                 break;
+	CALL SUBOPT_0x1C
+; 0000 00B6                 }
+; 0000 00B7                 break;
 _0xB2:
 	RJMP _0xAD
-; 0000 00B1 
-; 0000 00B2             case START: //업로드
+; 0000 00B8 
+; 0000 00B9             case START: //업로드
 _0xAE:
 	CPI  R30,LOW(0x1)
 	LDI  R26,HIGH(0x1)
 	CPC  R31,R26
 	BRNE _0xB9
-; 0000 00B3                 LCD_Pos(0,0);
+; 0000 00BA                 LCD_Pos(0,0);
 	LDI  R30,LOW(0)
 	ST   -Y,R30
 	ST   -Y,R30
 	RCALL _LCD_Pos
-; 0000 00B4                 LCD_Str("StudyRoom  4:OUT");
+; 0000 00BB                 LCD_Str("StudyRoom  4:OUT");
 	__POINTW1MN _0xB5,24
-	CALL SUBOPT_0x15
-; 0000 00B5                 sprintf(Message, "1:%c 2:%c 3:%c", user_state[0],user_state[1],user_state[2]);
+	CALL SUBOPT_0x1E
+; 0000 00BC                 sprintf(Message, "1:%c 2:%c 3:%c", user_state[0],user_state[1],user_state[2]);
 	MOVW R30,R28
-	SUBI R30,LOW(-(74))
-	SBCI R31,HIGH(-(74))
+	SUBI R30,LOW(-(118))
+	SBCI R31,HIGH(-(118))
 	ST   -Y,R31
 	ST   -Y,R30
 	__POINTW1FN _0x0,62
 	ST   -Y,R31
 	ST   -Y,R30
-	LDD  R30,Y+40
-	CALL SUBOPT_0x17
-	LDD  R30,Y+45
-	CALL SUBOPT_0x17
-	LDD  R30,Y+50
-	CALL SUBOPT_0x17
+	__GETB1SX 84
+	CALL SUBOPT_0x20
+	__GETB1SX 89
+	CALL SUBOPT_0x20
+	__GETB1SX 94
+	CALL SUBOPT_0x20
 	LDI  R24,12
 	CALL _sprintf
 	ADIW R28,16
-; 0000 00B6                 LCD_Pos(1,0);
-	CALL SUBOPT_0x16
-; 0000 00B7                 LCD_Str(Message);
+; 0000 00BD                 LCD_Pos(1,0);
+	CALL SUBOPT_0x1F
+; 0000 00BE                 LCD_Str(Message);
 	MOVW R30,R28
-	SUBI R30,LOW(-(74))
-	SBCI R31,HIGH(-(74))
-	CALL SUBOPT_0x15
-; 0000 00B8                 STATE = NONE;
+	SUBI R30,LOW(-(118))
+	SBCI R31,HIGH(-(118))
+	CALL SUBOPT_0x1E
+; 0000 00BF                 STATE = NONE;
 	LDI  R30,LOW(0)
-	STD  Y+39,R30
-; 0000 00B9                 break;
-	RJMP _0xAD
-; 0000 00BA 
-; 0000 00BB             case INPUT_PHONE:
+	RJMP _0xE6
+; 0000 00C0                 break;
+; 0000 00C1 
+; 0000 00C2             case INPUT_PHONE: //입장 : 폰번호 입력
 _0xB9:
 	CPI  R30,LOW(0x2)
 	LDI  R26,HIGH(0x2)
 	CPC  R31,R26
-	BREQ PC+3
-	JMP _0xBA
-; 0000 00BC 
-; 0000 00BD                 if (fnd[0] == 10){
-	LDD  R26,Y+42
-	LDD  R27,Y+42+1
-	SBIW R26,10
-	BREQ PC+3
-	JMP _0xBB
-; 0000 00BE                     sprintf(user_pnumber[user_name], "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]);
-	CALL SUBOPT_0x18
-	ST   -Y,R31
-	ST   -Y,R30
-	__POINTW1FN _0x0,77
-	ST   -Y,R31
-	ST   -Y,R30
-	__GETW1SX 68
-	CALL SUBOPT_0x19
-	CALL SUBOPT_0x12
-	CALL SUBOPT_0x19
-	__GETW1SX 72
-	CALL SUBOPT_0x19
-	__GETW1SX 74
-	CALL SUBOPT_0x19
-	__GETW1SX 76
-	CALL SUBOPT_0x19
-	__GETW1SX 78
-	CALL SUBOPT_0x19
-	__GETW1SX 80
-	CALL SUBOPT_0x19
-	__GETW1SX 82
-	CALL SUBOPT_0x19
-	__GETW1SX 84
-	CALL SUBOPT_0x19
-	__GETW1SX 86
-	CALL SUBOPT_0x19
-	__GETW1SX 88
-	CALL SUBOPT_0x19
-	LDI  R24,44
-	CALL _sprintf
-	ADIW R28,48
-; 0000 00BF                     user_state[user_name] ='X';
-	CALL SUBOPT_0x2
+	BRNE _0xBA
+; 0000 00C3 
+; 0000 00C4                 if (fnd[0] == 10){
 	CALL SUBOPT_0x1A
+	SBIW R26,10
+	BRNE _0xBB
+; 0000 00C5                     sprintf(user_pnumber[user_name], "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]);
+	CALL SUBOPT_0x21
+	CALL SUBOPT_0x22
+	CALL SUBOPT_0x23
+; 0000 00C6                     user_state[user_name] ='X';
+	CALL SUBOPT_0x24
 	LDI  R30,LOW(88)
 	ST   X,R30
-; 0000 00C0                     STATE = CHECK_PNUM_INIT;
+; 0000 00C7                     for(i=0;i<11;i++){
+	LDI  R30,LOW(0)
+	__CLRW1SX 78
+_0xBD:
+	CALL SUBOPT_0x16
+	SBIW R26,11
+	BRGE _0xBE
+; 0000 00C8                         num[user_name][i] = user_pnumber[user_name][i];
+	CALL SUBOPT_0x21
+	MOVW R24,R30
+	MOVW R26,R28
+	ADD  R30,R26
+	ADC  R31,R27
+	CALL SUBOPT_0x16
+	ADD  R30,R26
+	ADC  R31,R27
+	MOVW R22,R30
+	MOVW R30,R24
+	CALL SUBOPT_0x22
+	CALL SUBOPT_0x16
+	ADD  R26,R30
+	ADC  R27,R31
+	LD   R30,X
+	MOVW R26,R22
+	ST   X,R30
+; 0000 00C9                     }
+	MOVW R26,R28
+	SUBI R26,LOW(-(78))
+	SBCI R27,HIGH(-(78))
+	CALL SUBOPT_0x25
+	RJMP _0xBD
+_0xBE:
+; 0000 00CA                     STATE = CHECK_PNUM_INIT;
 	LDI  R30,LOW(5)
-	STD  Y+39,R30
-; 0000 00C1                 }
-; 0000 00C2                 delay_ms(10);
+	CALL SUBOPT_0x1C
+; 0000 00CB                 }
+; 0000 00CC                 delay_ms(10);
 _0xBB:
 	LDI  R30,LOW(10)
 	LDI  R31,HIGH(10)
-	CALL SUBOPT_0x3
-; 0000 00C3                 break;
+	CALL SUBOPT_0x2
+; 0000 00CD                 break;
 	RJMP _0xAD
-; 0000 00C4 
-; 0000 00C5             case INPUT_PHONE_INIT:
+; 0000 00CE 
+; 0000 00CF             case INPUT_PHONE_INIT:
 _0xBA:
 	CPI  R30,LOW(0x3)
 	LDI  R26,HIGH(0x3)
 	CPC  R31,R26
-	BRNE _0xBC
-; 0000 00C6                 fnd[0]=0;
-	LDI  R30,LOW(0)
-	STD  Y+42,R30
-	STD  Y+42+1,R30
-; 0000 00C7                 LCD_Clear();
-	CALL SUBOPT_0x14
-; 0000 00C8                 LCD_Pos(0,0);
-; 0000 00C9                 LCD_Str("Input PhoneNum") ;
+	BRNE _0xBF
+; 0000 00D0                 fnd[0]=0;
+	CALL SUBOPT_0x13
+; 0000 00D1                 LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 00D2                 LCD_Pos(0,0);
+; 0000 00D3                 LCD_Str("Input PhoneNum") ;
 	__POINTW1MN _0xB5,41
-	CALL SUBOPT_0x15
-; 0000 00CA                 STATE = INPUT_PHONE;
+	CALL SUBOPT_0x1E
+; 0000 00D4                 STATE = INPUT_PHONE;
 	LDI  R30,LOW(2)
-	STD  Y+39,R30
-; 0000 00CB 
-; 0000 00CC                 if (user_state[user_name] == 'O'){
-	CALL SUBOPT_0x2
-	CALL SUBOPT_0x1A
+	CALL SUBOPT_0x1C
+; 0000 00D5 
+; 0000 00D6                 if (user_state[user_name] == 'O'){
+	CALL SUBOPT_0x24
 	LD   R26,X
 	CPI  R26,LOW(0x4F)
-	BRNE _0xBD
-; 0000 00CD                     LCD_Clear();
-	CALL SUBOPT_0x14
-; 0000 00CE                     LCD_Pos(0,0);
-; 0000 00CF                     LCD_Str("Someone Used");
+	BRNE _0xC0
+; 0000 00D7                     LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 00D8                     LCD_Pos(0,0);
+; 0000 00D9                     LCD_Str("Someone Used");
 	__POINTW1MN _0xB5,56
+	CALL SUBOPT_0x1E
+; 0000 00DA                     delay_ms(1000);
+	CALL SUBOPT_0xE
+; 0000 00DB                     STATE = START;
 	CALL SUBOPT_0x15
-; 0000 00D0                     delay_ms(1000);
-	LDI  R30,LOW(1000)
-	LDI  R31,HIGH(1000)
-	CALL SUBOPT_0x3
-; 0000 00D1                     STATE = START;
-	LDI  R30,LOW(1)
-	STD  Y+39,R30
-; 0000 00D2                 }
-; 0000 00D3 
-; 0000 00D4                 break;
-_0xBD:
+; 0000 00DC                 }
+; 0000 00DD 
+; 0000 00DE                 break;
+_0xC0:
 	RJMP _0xAD
-; 0000 00D5             case CHECK_PNUM:
-_0xBC:
+; 0000 00DF             case CHECK_PNUM:
+_0xBF:
 	CPI  R30,LOW(0x4)
 	LDI  R26,HIGH(0x4)
 	CPC  R31,R26
-	BRNE _0xBE
-; 0000 00D6 
-; 0000 00D7                 if (fnd[1] == 1 && fnd[0] == 10){
-	LDD  R26,Y+44
-	LDD  R27,Y+44+1
+	BRNE _0xC1
+; 0000 00E0 
+; 0000 00E1                 if (fnd[1] == 1 && fnd[0] == 10){
+	CALL SUBOPT_0x1B
 	SBIW R26,1
-	BRNE _0xC0
-	LDD  R26,Y+42
-	LDD  R27,Y+42+1
-	SBIW R26,10
-	BREQ _0xC1
-_0xC0:
-	RJMP _0xBF
-_0xC1:
-; 0000 00D8                     user_state[user_name] = 'O';
-	CALL SUBOPT_0x2
+	BRNE _0xC3
 	CALL SUBOPT_0x1A
+	SBIW R26,10
+	BREQ _0xC4
+_0xC3:
+	RJMP _0xC2
+_0xC4:
+; 0000 00E2                     user_state[user_name] = 'O';
+	CALL SUBOPT_0x24
 	LDI  R30,LOW(79)
 	ST   X,R30
-; 0000 00D9                     OCR1A = 3000;
+; 0000 00E3                     /*OCR1A = 3000;
+; 0000 00E4                     LCD_Clear();
+; 0000 00E5                     LCD_Pos(0,0);
+; 0000 00E6                     LCD_Str("Door Open") ;
+; 0000 00E7                     delay_ms(5000);
+; 0000 00E8                     OCR1A = 4710;*/
+; 0000 00E9                     STATE = START;
+	CALL SUBOPT_0x15
+; 0000 00EA                     fnd[0]=0;
+	CALL SUBOPT_0x13
+; 0000 00EB                     user_name = 4;
+	LDI  R30,LOW(4)
+	STD  Y+33,R30
+; 0000 00EC                 }
+; 0000 00ED                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_INIT;
+	RJMP _0xC5
+_0xC2:
+	CALL SUBOPT_0x1B
+	SBIW R26,2
+	BRNE _0xC7
+	CALL SUBOPT_0x1A
+	SBIW R26,10
+	BREQ _0xC8
+_0xC7:
+	RJMP _0xC6
+_0xC8:
+	LDI  R30,LOW(3)
+	CALL SUBOPT_0x1C
+; 0000 00EE             break;
+_0xC6:
+_0xC5:
+	RJMP _0xAD
+; 0000 00EF             case CHECK_PNUM_INIT:
+_0xC1:
+	CPI  R30,LOW(0x5)
+	LDI  R26,HIGH(0x5)
+	CPC  R31,R26
+	BRNE _0xC9
+; 0000 00F0                 fnd[0]=0;
+	CALL SUBOPT_0x13
+; 0000 00F1                 LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 00F2                 LCD_Pos(0,0);
+; 0000 00F3                 LCD_Str(user_pnumber[user_name]);
+	CALL SUBOPT_0x21
+	CALL SUBOPT_0x22
+	CALL SUBOPT_0x1E
+; 0000 00F4                 LCD_Pos(1,0);
+	CALL SUBOPT_0x1F
+; 0000 00F5                 LCD_Str("1:Yes  2:No");
+	__POINTW1MN _0xB5,69
+	CALL SUBOPT_0x1E
+; 0000 00F6                 fnd[1] = 0;
+	CALL SUBOPT_0x14
+; 0000 00F7                 STATE = CHECK_PNUM;
+	LDI  R30,LOW(4)
+	RJMP _0xE6
+; 0000 00F8             break;
+; 0000 00F9 
+; 0000 00FA             case EXIT_CHOOSE:
+_0xC9:
+	CPI  R30,LOW(0x6)
+	LDI  R26,HIGH(0x6)
+	CPC  R31,R26
+	BRNE _0xCA
+; 0000 00FB 
+; 0000 00FC                 user_name = fnd[1]-1;
+	CALL SUBOPT_0x19
+	SBIW R30,1
+	STD  Y+33,R30
+; 0000 00FD                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10){
+	CALL SUBOPT_0x1B
+	SBIW R26,4
+	BRGE _0xCC
+	CALL SUBOPT_0x1B
+	CALL __CPW02
+	BRGE _0xCC
+	CALL SUBOPT_0x1A
+	SBIW R26,10
+	BREQ _0xCD
+_0xCC:
+	RJMP _0xCB
+_0xCD:
+; 0000 00FE 
+; 0000 00FF                     STATE = INPUT_PHONE_OUT_INIT;
+	LDI  R30,LOW(10)
+	CALL SUBOPT_0x1C
+; 0000 0100 
+; 0000 0101                     if (user_state[user_name] == 'X'){
+	CALL SUBOPT_0x24
+	LD   R26,X
+	CPI  R26,LOW(0x58)
+	BRNE _0xCE
+; 0000 0102                         LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 0103                         LCD_Pos(0,0);
+; 0000 0104                         LCD_Str("Empty Seat");
+	__POINTW1MN _0xB5,81
+	CALL SUBOPT_0x1E
+; 0000 0105                         delay_ms(1000);
+	CALL SUBOPT_0xE
+; 0000 0106                         fnd[0]=0;
+	CALL SUBOPT_0x13
+; 0000 0107                         STATE = START;
+	CALL SUBOPT_0x15
+; 0000 0108                     }
+; 0000 0109                 }
+_0xCE:
+; 0000 010A 
+; 0000 010B 
+; 0000 010C 
+; 0000 010D             break;
+_0xCB:
+	RJMP _0xAD
+; 0000 010E              case CHECK_PNUM_OUT_INIT:
+_0xCA:
+	CPI  R30,LOW(0x8)
+	LDI  R26,HIGH(0x8)
+	CPC  R31,R26
+	BRNE _0xCF
+; 0000 010F                  fnd[0]=0;
+	CALL SUBOPT_0x13
+; 0000 0110                  fnd[1] = 0;
+	CALL SUBOPT_0x14
+; 0000 0111                  LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 0112                  LCD_Pos(0,0);
+; 0000 0113                  LCD_Str(check_pnumber);
+	MOVW R30,R28
+	ADIW R30,34
+	CALL SUBOPT_0x1E
+; 0000 0114                  LCD_Pos(1,0);
+	CALL SUBOPT_0x1F
+; 0000 0115 
+; 0000 0116                  LCD_Str("1:Yes  2:No");
+	__POINTW1MN _0xB5,92
+	CALL SUBOPT_0x1E
+; 0000 0117                  STATE = CHECK_PNUM_OUT;
+	LDI  R30,LOW(7)
+	RJMP _0xE6
+; 0000 0118 
+; 0000 0119 
+; 0000 011A             break;
+; 0000 011B             case CHECK_PNUM_OUT:
+_0xCF:
+	CPI  R30,LOW(0x7)
+	LDI  R26,HIGH(0x7)
+	CPC  R31,R26
+	BREQ PC+3
+	JMP _0xD0
+; 0000 011C 
+; 0000 011D                  if (fnd[1] == 1 && fnd[0] == 10){
+	CALL SUBOPT_0x1B
+	SBIW R26,1
+	BRNE _0xD2
+	CALL SUBOPT_0x1A
+	SBIW R26,10
+	BREQ _0xD3
+_0xD2:
+	RJMP _0xD1
+_0xD3:
+; 0000 011E                    int cnt=0;
+; 0000 011F                    LCD_Clear();
+	SBIW R28,2
+	LDI  R30,LOW(0)
+	ST   Y,R30
+	STD  Y+1,R30
+;	Sonar_range_3 -> Y+160
+;	Message -> Y+120
+;	readCnt -> Y+118
+;	t -> Y+116
+;	count -> Y+114
+;	finalnum -> Y+112
+;	fnd -> Y+88
+;	angle -> Y+86
+;	STATE -> Y+85
+;	user_state -> Y+82
+;	i -> Y+80
+;	user_pnumber -> Y+47
+;	check_pnumber -> Y+36
+;	user_name -> Y+35
+;	num -> Y+2
+;	cnt -> Y+0
+	CALL SUBOPT_0x1D
+; 0000 0120                    LCD_Pos(0,0);
+; 0000 0121                    for(i=0;i<11;i++){
+	LDI  R30,LOW(0)
+	__CLRW1SX 80
+_0xD5:
+	CALL SUBOPT_0x26
+	SBIW R26,11
+	BRGE _0xD6
+; 0000 0122                       if(num[user_name][i] == check_pnumber[i] ) cnt ++;  }
+	LDD  R30,Y+35
+	LDI  R26,LOW(11)
+	MUL  R30,R26
+	MOVW R30,R0
+	MOVW R26,R28
+	ADIW R26,2
+	ADD  R30,R26
+	ADC  R31,R27
+	CALL SUBOPT_0x26
+	ADD  R26,R30
+	ADC  R27,R31
+	LD   R1,X
+	__GETW1SX 80
+	MOVW R26,R28
+	ADIW R26,36
+	ADD  R26,R30
+	ADC  R27,R31
+	LD   R30,X
+	CP   R30,R1
+	BRNE _0xD7
+	LD   R30,Y
+	LDD  R31,Y+1
+	ADIW R30,1
+	ST   Y,R30
+	STD  Y+1,R31
+_0xD7:
+	MOVW R26,R28
+	SUBI R26,LOW(-(80))
+	SBCI R27,HIGH(-(80))
+	CALL SUBOPT_0x25
+	RJMP _0xD5
+_0xD6:
+; 0000 0123 
+; 0000 0124                     if (cnt == 11 ){
+	LD   R26,Y
+	LDD  R27,Y+1
+	SBIW R26,11
+	BRNE _0xD8
+; 0000 0125                        LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 0126                        LCD_Pos(0,0);
+; 0000 0127                        LCD_Str("User Check") ;
+	__POINTW1MN _0xB5,104
+	CALL SUBOPT_0x1E
+; 0000 0128                        LCD_Pos(1,0);
+	CALL SUBOPT_0x1F
+; 0000 0129                        LCD_Str("Good Bye") ;
+	__POINTW1MN _0xB5,115
+	CALL SUBOPT_0x1E
+; 0000 012A                        OCR1A = 3000;
 	LDI  R30,LOW(3000)
 	LDI  R31,HIGH(3000)
 	OUT  0x2A+1,R31
 	OUT  0x2A,R30
-; 0000 00DA                     delay_ms(5000);
+; 0000 012B                         LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 012C                         LCD_Pos(0,0);
+; 0000 012D                         LCD_Str("Door Open") ;
+	__POINTW1MN _0xB5,124
+	CALL SUBOPT_0x1E
+; 0000 012E                         delay_ms(5000);
 	LDI  R30,LOW(5000)
 	LDI  R31,HIGH(5000)
-	CALL SUBOPT_0x3
-; 0000 00DB                     OCR1A = 4710;
-	LDI  R30,LOW(4710)
-	LDI  R31,HIGH(4710)
-	OUT  0x2A+1,R31
-	OUT  0x2A,R30
-; 0000 00DC                     STATE = START;
+	CALL SUBOPT_0x2
+; 0000 012F                         OCR1A = 4710;
+	CALL SUBOPT_0x7
+; 0000 0130                       user_state[user_name] ='X';
+	LDD  R30,Y+35
+	LDI  R31,0
+	MOVW R26,R28
+	SUBI R26,LOW(-(82))
+	SBCI R27,HIGH(-(82))
+	ADD  R26,R30
+	ADC  R27,R31
+	LDI  R30,LOW(88)
+	ST   X,R30
+; 0000 0131                       STATE = START;
 	LDI  R30,LOW(1)
-	STD  Y+39,R30
-; 0000 00DD                     fnd[0]=0;
-	LDI  R30,LOW(0)
-	STD  Y+42,R30
-	STD  Y+42+1,R30
-; 0000 00DE                 }
-; 0000 00DF                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_INIT;
-	RJMP _0xC2
-_0xBF:
-	LDD  R26,Y+44
-	LDD  R27,Y+44+1
+	__PUTB1SX 85
+; 0000 0132                       fnd[0] = 0;
+	CALL SUBOPT_0x14
+; 0000 0133                     }
+; 0000 0134                 }
+_0xD8:
+	ADIW R28,2
+; 0000 0135                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_OUT_INIT;
+	RJMP _0xD9
+_0xD1:
+	CALL SUBOPT_0x1B
 	SBIW R26,2
-	BRNE _0xC4
-	LDD  R26,Y+42
-	LDD  R27,Y+42+1
+	BRNE _0xDB
+	CALL SUBOPT_0x1A
 	SBIW R26,10
-	BREQ _0xC5
-_0xC4:
-	RJMP _0xC3
-_0xC5:
-	LDI  R30,LOW(3)
-	STD  Y+39,R30
-; 0000 00E0             break;
-_0xC3:
-_0xC2:
+	BREQ _0xDC
+_0xDB:
+	RJMP _0xDA
+_0xDC:
+	LDI  R30,LOW(10)
+	CALL SUBOPT_0x1C
+; 0000 0136 
+; 0000 0137 
+; 0000 0138             break;
+_0xDA:
+_0xD9:
 	RJMP _0xAD
-; 0000 00E1             case CHECK_PNUM_INIT:
-_0xBE:
-	CPI  R30,LOW(0x5)
-	LDI  R26,HIGH(0x5)
+; 0000 0139             case INPUT_PHONE_OUT: //입장 : 폰번호 입력
+_0xD0:
+	CPI  R30,LOW(0x9)
+	LDI  R26,HIGH(0x9)
 	CPC  R31,R26
-	BRNE _0xC6
-; 0000 00E2                 LCD_Clear();
-	CALL SUBOPT_0x14
-; 0000 00E3                 LCD_Pos(0,0);
-; 0000 00E4                 LCD_Str(user_pnumber[user_name]);
-	CALL SUBOPT_0x18
-	CALL SUBOPT_0x15
-; 0000 00E5                 LCD_Pos(1,0);
-	CALL SUBOPT_0x16
-; 0000 00E6                 LCD_Str("1:Yes  2:No");
-	__POINTW1MN _0xB5,69
-	CALL SUBOPT_0x15
-; 0000 00E7                 fnd[1] = 0;
-	LDI  R30,LOW(0)
-	STD  Y+44,R30
-	STD  Y+44+1,R30
-; 0000 00E8                 STATE = CHECK_PNUM;
-	LDI  R30,LOW(4)
-	STD  Y+39,R30
-; 0000 00E9             break;
-	RJMP _0xAD
-; 0000 00EA 
-; 0000 00EB             case EXIT_CHOOSE:
-_0xC6:
-	CPI  R30,LOW(0x6)
-	LDI  R26,HIGH(0x6)
-	CPC  R31,R26
-	BRNE _0xC7
-; 0000 00EC 
-; 0000 00ED                 user_name = fnd[1]-1;
-	CALL SUBOPT_0x13
-; 0000 00EE                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10){
-	LDD  R26,Y+44
-	LDD  R27,Y+44+1
-	SBIW R26,4
-	BRGE _0xC9
-	LDD  R26,Y+44
-	LDD  R27,Y+44+1
-	CALL __CPW02
-	BRGE _0xC9
-	LDD  R26,Y+42
-	LDD  R27,Y+42+1
+	BRNE _0xDD
+; 0000 013A 
+; 0000 013B                 if (fnd[0] == 10){
+	CALL SUBOPT_0x1A
 	SBIW R26,10
-	BREQ _0xCA
-_0xC9:
-	RJMP _0xC8
-_0xCA:
-; 0000 00EF                     user_name = fnd[1]-1;
+	BRNE _0xDE
+; 0000 013C                     sprintf(check_pnumber, "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]);
+	MOVW R30,R28
+	ADIW R30,34
+	CALL SUBOPT_0x23
+; 0000 013D 
+; 0000 013E                     STATE = CHECK_PNUM_OUT_INIT;
+	LDI  R30,LOW(8)
+	CALL SUBOPT_0x1C
+; 0000 013F                 }
+; 0000 0140                 delay_ms(10);
+_0xDE:
+	LDI  R30,LOW(10)
+	LDI  R31,HIGH(10)
+	CALL SUBOPT_0x2
+; 0000 0141                 break;
+	RJMP _0xAD
+; 0000 0142 
+; 0000 0143              case INPUT_PHONE_OUT_INIT: //입장 : 폰번호 입력
+_0xDD:
+	CPI  R30,LOW(0xA)
+	LDI  R26,HIGH(0xA)
+	CPC  R31,R26
+	BRNE _0xAD
+; 0000 0144 
+; 0000 0145 
+; 0000 0146                 fnd[0]=0;
 	CALL SUBOPT_0x13
-; 0000 00F0                     fnd[0]=0;
-	LDI  R30,LOW(0)
-	STD  Y+42,R30
-	STD  Y+42+1,R30
-; 0000 00F1                     LCD_Clear();
-	CALL SUBOPT_0x14
-; 0000 00F2                     LCD_Pos(0,0);
-; 0000 00F3                     LCD_Str("Input PhoneNum") ;
-	__POINTW1MN _0xB5,81
-	CALL SUBOPT_0x15
-; 0000 00F4                     STATE = PHONE_NUM_CHECK;
-	LDI  R30,LOW(7)
-	STD  Y+39,R30
-; 0000 00F5                 }
-; 0000 00F6 
-; 0000 00F7             break;
-_0xC8:
-; 0000 00F8             case PHONE_NUM_CHECK:
-_0xC7:
-; 0000 00F9             break;
-; 0000 00FA         }
+; 0000 0147                 LCD_Clear();
+	CALL SUBOPT_0x1D
+; 0000 0148                 LCD_Pos(0,0);
+; 0000 0149                 LCD_Str("Input PhoneNum") ;
+	__POINTW1MN _0xB5,134
+	CALL SUBOPT_0x1E
+; 0000 014A                 STATE = INPUT_PHONE_OUT;
+	LDI  R30,LOW(9)
+_0xE6:
+	__PUTB1SX 83
+; 0000 014B                 break;
+; 0000 014C 
+; 0000 014D 
+; 0000 014E         }
 _0xAD:
-; 0000 00FB 
-; 0000 00FC     }
+; 0000 014F 
+; 0000 0150     }
 	RJMP _0x98
-; 0000 00FD }
-_0xCC:
-	RJMP _0xCC
+; 0000 0151 }
+_0xE0:
+	RJMP _0xE0
 
 	.DSEG
 _0xB5:
-	.BYTE 0x60
+	.BYTE 0x95
 	#ifndef __SLEEP_DEFINED__
 	#define __SLEEP_DEFINED__
 	.EQU __se_bit=0x20
@@ -2984,11 +3215,7 @@ _0x2000012:
 	LDD  R26,Y+2
 	LDD  R27,Y+2+1
 	ADIW R26,2
-	LD   R30,X+
-	LD   R31,X+
-	ADIW R30,1
-	ST   -X,R31
-	ST   -X,R30
+	CALL SUBOPT_0x25
 	SBIW R30,1
 	LDD  R26,Y+4
 	STD  Z+0,R26
@@ -2997,11 +3224,7 @@ _0x2000012:
 	CALL __GETW1P
 	TST  R31
 	BRMI _0x2000014
-	LD   R30,X+
-	LD   R31,X+
-	ADIW R30,1
-	ST   -X,R31
-	ST   -X,R30
+	CALL SUBOPT_0x25
 _0x2000014:
 _0x2000013:
 	RJMP _0x2000015
@@ -3013,7 +3236,6 @@ _0x2000010:
 	ST   X+,R30
 	ST   X,R31
 _0x2000015:
-_0x2060003:
 	LDD  R17,Y+1
 	LDD  R16,Y+0
 _0x2060002:
@@ -3049,7 +3271,7 @@ _0x2000016:
 	LDI  R17,LOW(1)
 	RJMP _0x200001E
 _0x200001D:
-	CALL SUBOPT_0x1B
+	CALL SUBOPT_0x27
 _0x200001E:
 	RJMP _0x200001B
 _0x200001C:
@@ -3057,7 +3279,7 @@ _0x200001C:
 	BRNE _0x200001F
 	CPI  R18,37
 	BRNE _0x2000020
-	CALL SUBOPT_0x1B
+	CALL SUBOPT_0x27
 	RJMP _0x20000C9
 _0x2000020:
 	LDI  R17,LOW(2)
@@ -3114,26 +3336,26 @@ _0x2000029:
 	MOV  R30,R18
 	CPI  R30,LOW(0x63)
 	BRNE _0x200002F
-	CALL SUBOPT_0x1C
+	CALL SUBOPT_0x28
 	LDD  R30,Y+16
 	LDD  R31,Y+16+1
 	LDD  R26,Z+4
 	ST   -Y,R26
-	CALL SUBOPT_0x1D
+	CALL SUBOPT_0x29
 	RJMP _0x2000030
 _0x200002F:
 	CPI  R30,LOW(0x73)
 	BRNE _0x2000032
-	CALL SUBOPT_0x1C
-	CALL SUBOPT_0x1E
+	CALL SUBOPT_0x28
+	CALL SUBOPT_0x2A
 	CALL _strlen
 	MOV  R17,R30
 	RJMP _0x2000033
 _0x2000032:
 	CPI  R30,LOW(0x70)
 	BRNE _0x2000035
-	CALL SUBOPT_0x1C
-	CALL SUBOPT_0x1E
+	CALL SUBOPT_0x28
+	CALL SUBOPT_0x2A
 	CALL _strlenf
 	MOV  R17,R30
 	ORI  R16,LOW(8)
@@ -3178,8 +3400,8 @@ _0x2000040:
 _0x200003D:
 	SBRS R16,2
 	RJMP _0x2000042
-	CALL SUBOPT_0x1C
-	CALL SUBOPT_0x1F
+	CALL SUBOPT_0x28
+	CALL SUBOPT_0x2B
 	LDD  R26,Y+11
 	TST  R26
 	BRPL _0x2000043
@@ -3199,8 +3421,8 @@ _0x2000044:
 _0x2000045:
 	RJMP _0x2000046
 _0x2000042:
-	CALL SUBOPT_0x1C
-	CALL SUBOPT_0x1F
+	CALL SUBOPT_0x28
+	CALL SUBOPT_0x2B
 _0x2000046:
 _0x2000036:
 	SBRC R16,0
@@ -3223,7 +3445,7 @@ _0x200004D:
 _0x200004B:
 	LDI  R18,LOW(32)
 _0x200004E:
-	CALL SUBOPT_0x1B
+	CALL SUBOPT_0x27
 	SUBI R21,LOW(1)
 	RJMP _0x2000048
 _0x200004A:
@@ -3249,7 +3471,7 @@ _0x2000053:
 	STD  Y+6,R26
 	STD  Y+6+1,R27
 _0x2000054:
-	CALL SUBOPT_0x1B
+	CALL SUBOPT_0x27
 	CPI  R21,0
 	BREQ _0x2000055
 	SUBI R21,LOW(1)
@@ -3328,7 +3550,7 @@ _0x20000CA:
 	RJMP _0x200006A
 	ANDI R16,LOW(251)
 	ST   -Y,R20
-	CALL SUBOPT_0x1D
+	CALL SUBOPT_0x29
 	CPI  R21,0
 	BREQ _0x200006B
 	SUBI R21,LOW(1)
@@ -3336,7 +3558,7 @@ _0x200006B:
 _0x200006A:
 _0x2000069:
 _0x2000061:
-	CALL SUBOPT_0x1B
+	CALL SUBOPT_0x27
 	CPI  R21,0
 	BREQ _0x200006C
 	SUBI R21,LOW(1)
@@ -3358,7 +3580,7 @@ _0x200006E:
 	SUBI R21,LOW(1)
 	LDI  R30,LOW(32)
 	ST   -Y,R30
-	CALL SUBOPT_0x1D
+	CALL SUBOPT_0x29
 	RJMP _0x200006E
 _0x2000070:
 _0x200006D:
@@ -3380,7 +3602,7 @@ _sprintf:
 	MOV  R15,R24
 	SBIW R28,6
 	CALL __SAVELOCR4
-	CALL SUBOPT_0x20
+	CALL SUBOPT_0x2C
 	SBIW R30,0
 	BRNE _0x2000072
 	LDI  R30,LOW(65535)
@@ -3391,7 +3613,7 @@ _0x2000072:
 	ADIW R26,6
 	CALL __ADDW2R15
 	MOVW R16,R26
-	CALL SUBOPT_0x20
+	CALL SUBOPT_0x2C
 	STD  Y+6,R30
 	STD  Y+6+1,R31
 	LDI  R30,LOW(0)
@@ -3483,17 +3705,17 @@ SUBOPT_0x1:
 	STS  101,R30
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:3 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 15 TIMES, CODE SIZE REDUCTION:25 WORDS
 SUBOPT_0x2:
-	LD   R30,Y
-	LDI  R31,0
-	RET
-
-;OPTIMIZER ADDED SUBROUTINE, CALLED 13 TIMES, CODE SIZE REDUCTION:21 WORDS
-SUBOPT_0x3:
 	ST   -Y,R31
 	ST   -Y,R30
 	JMP  _delay_ms
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:5 WORDS
+SUBOPT_0x3:
+	LDI  R30,LOW(1)
+	LDI  R31,HIGH(1)
+	RJMP SUBOPT_0x2
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:9 WORDS
 SUBOPT_0x4:
@@ -3520,10 +3742,12 @@ SUBOPT_0x6:
 	STS  116,R30
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:3 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
 SUBOPT_0x7:
-	MOV  R30,R16
-	LDI  R31,0
+	LDI  R30,LOW(4710)
+	LDI  R31,HIGH(4710)
+	OUT  0x2A+1,R31
+	OUT  0x2A,R30
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:3 WORDS
@@ -3559,15 +3783,13 @@ SUBOPT_0xB:
 	MOVW R22,R30
 	RJMP SUBOPT_0x9
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:17 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:21 WORDS
 SUBOPT_0xC:
 	LDI  R31,0
 	SUBI R30,LOW(-_Port_char)
 	SBCI R31,HIGH(-_Port_char)
 	LD   R30,Z
 	STS  98,R30
-	LDI  R30,LOW(10)
-	LDI  R31,HIGH(10)
 	RJMP SUBOPT_0x3
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 9 TIMES, CODE SIZE REDUCTION:13 WORDS
@@ -3576,23 +3798,29 @@ SUBOPT_0xD:
 	ST   -Y,R30
 	JMP  _Buzzer_play
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:5 WORDS
+;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
 SUBOPT_0xE:
+	LDI  R30,LOW(1000)
+	LDI  R31,HIGH(1000)
+	RJMP SUBOPT_0x2
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:5 WORDS
+SUBOPT_0xF:
 	ST   -Y,R16
 	CALL _startRanging
 	ST   -Y,R16
 	JMP  _SRF_Run
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:13 WORDS
-SUBOPT_0xF:
-	__GETW2SX 70
+SUBOPT_0x10:
+	__GETW2SX 114
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:9 WORDS
-SUBOPT_0x10:
+SUBOPT_0x11:
 	MOVW R26,R28
-	SUBI R26,LOW(-(68))
-	SBCI R27,HIGH(-(68))
+	SUBI R26,LOW(-(112))
+	SBCI R27,HIGH(-(112))
 	LD   R30,X+
 	LD   R31,X+
 	ADIW R30,1
@@ -3601,40 +3829,80 @@ SUBOPT_0x10:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x11:
+SUBOPT_0x12:
 	LDI  R30,LOW(50)
 	LDI  R31,HIGH(50)
-	RJMP SUBOPT_0x3
+	RJMP SUBOPT_0x2
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 7 TIMES, CODE SIZE REDUCTION:21 WORDS
+SUBOPT_0x13:
+	LDI  R30,LOW(0)
+	__CLRW1SX 86
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:9 WORDS
+SUBOPT_0x14:
+	LDI  R30,LOW(0)
+	__CLRW1SX 88
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:6 WORDS
+SUBOPT_0x15:
+	LDI  R30,LOW(1)
+	__PUTB1SX 83
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:9 WORDS
+SUBOPT_0x16:
+	__GETW2SX 78
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
+SUBOPT_0x17:
+	__GETW1SX 78
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:9 WORDS
+SUBOPT_0x18:
+	__GETW1SX 114
+	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:5 WORDS
-SUBOPT_0x12:
-	__GETW1SX 70
+SUBOPT_0x19:
+	__GETW1SX 88
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x13:
-	LDD  R30,Y+44
-	LDD  R31,Y+44+1
-	SBIW R30,1
-	ST   Y,R30
+;OPTIMIZER ADDED SUBROUTINE, CALLED 10 TIMES, CODE SIZE REDUCTION:33 WORDS
+SUBOPT_0x1A:
+	__GETW2SX 86
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:21 WORDS
-SUBOPT_0x14:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 9 TIMES, CODE SIZE REDUCTION:29 WORDS
+SUBOPT_0x1B:
+	__GETW2SX 88
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 8 TIMES, CODE SIZE REDUCTION:11 WORDS
+SUBOPT_0x1C:
+	__PUTB1SX 83
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 10 TIMES, CODE SIZE REDUCTION:51 WORDS
+SUBOPT_0x1D:
 	CALL _LCD_Clear
 	LDI  R30,LOW(0)
 	ST   -Y,R30
 	ST   -Y,R30
 	JMP  _LCD_Pos
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 11 TIMES, CODE SIZE REDUCTION:17 WORDS
-SUBOPT_0x15:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 17 TIMES, CODE SIZE REDUCTION:29 WORDS
+SUBOPT_0x1E:
 	ST   -Y,R31
 	ST   -Y,R30
 	JMP  _LCD_Str
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:5 WORDS
-SUBOPT_0x16:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:13 WORDS
+SUBOPT_0x1F:
 	LDI  R30,LOW(1)
 	ST   -Y,R30
 	LDI  R30,LOW(0)
@@ -3642,41 +3910,101 @@ SUBOPT_0x16:
 	JMP  _LCD_Pos
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:3 WORDS
-SUBOPT_0x17:
+SUBOPT_0x20:
 	CLR  R31
 	CLR  R22
 	CLR  R23
 	CALL __PUTPARD1
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:3 WORDS
-SUBOPT_0x18:
-	LD   R30,Y
+;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
+SUBOPT_0x21:
+	LDD  R30,Y+33
 	LDI  R26,LOW(11)
 	MUL  R30,R26
 	MOVW R30,R0
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
+SUBOPT_0x22:
 	MOVW R26,R28
-	ADIW R26,1
+	ADIW R26,45
 	ADD  R30,R26
 	ADC  R31,R27
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 11 TIMES, CODE SIZE REDUCTION:17 WORDS
-SUBOPT_0x19:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:111 WORDS
+SUBOPT_0x23:
+	ST   -Y,R31
+	ST   -Y,R30
+	__POINTW1FN _0x0,77
+	ST   -Y,R31
+	ST   -Y,R30
+	__GETW1SX 112
 	CALL __CWD1
 	CALL __PUTPARD1
+	RCALL SUBOPT_0x18
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 116
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 118
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 120
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 122
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 124
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 126
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 128
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 130
+	CALL __CWD1
+	CALL __PUTPARD1
+	__GETW1SX 132
+	CALL __CWD1
+	CALL __PUTPARD1
+	LDI  R24,44
+	CALL _sprintf
+	ADIW R28,48
 	RET
 
-;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x1A:
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:18 WORDS
+SUBOPT_0x24:
+	LDD  R30,Y+33
+	LDI  R31,0
 	MOVW R26,R28
-	ADIW R26,36
+	SUBI R26,LOW(-(80))
+	SBCI R27,HIGH(-(80))
 	ADD  R26,R30
 	ADC  R27,R31
 	RET
 
+;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:6 WORDS
+SUBOPT_0x25:
+	LD   R30,X+
+	LD   R31,X+
+	ADIW R30,1
+	ST   -X,R31
+	ST   -X,R30
+	RET
+
+;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
+SUBOPT_0x26:
+	__GETW2SX 80
+	RET
+
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:21 WORDS
-SUBOPT_0x1B:
+SUBOPT_0x27:
 	ST   -Y,R18
 	LDD  R30,Y+13
 	LDD  R31,Y+13+1
@@ -3688,7 +4016,7 @@ SUBOPT_0x1B:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:9 WORDS
-SUBOPT_0x1C:
+SUBOPT_0x28:
 	LDD  R30,Y+16
 	LDD  R31,Y+16+1
 	SBIW R30,4
@@ -3697,7 +4025,7 @@ SUBOPT_0x1C:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:7 WORDS
-SUBOPT_0x1D:
+SUBOPT_0x29:
 	LDD  R30,Y+13
 	LDD  R31,Y+13+1
 	ST   -Y,R31
@@ -3708,7 +4036,7 @@ SUBOPT_0x1D:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:6 WORDS
-SUBOPT_0x1E:
+SUBOPT_0x2A:
 	LDD  R26,Y+16
 	LDD  R27,Y+16+1
 	ADIW R26,4
@@ -3720,7 +4048,7 @@ SUBOPT_0x1E:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
-SUBOPT_0x1F:
+SUBOPT_0x2B:
 	LDD  R26,Y+16
 	LDD  R27,Y+16+1
 	ADIW R26,4
@@ -3730,7 +4058,7 @@ SUBOPT_0x1F:
 	RET
 
 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
-SUBOPT_0x20:
+SUBOPT_0x2C:
 	MOVW R26,R28
 	ADIW R26,12
 	CALL __ADDW2R15
