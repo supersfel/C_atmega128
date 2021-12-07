@@ -6,6 +6,7 @@
 #include "srf02.h"
 #include "Keypad.h"
 
+/*상태 정의*/
 #define NONE 0
 #define START 1
 #define INPUT_PHONE 2
@@ -18,10 +19,11 @@
 #define INPUT_PHONE_OUT 9
 #define INPUT_PHONE_OUT_INIT 10
 
-unsigned char ti_Cnt_1ms;
+unsigned char ti_Cnt_1ms;  //초음파 센서구동을위한 cnt 
 unsigned char LCD_DelCnt_1ms;
+unsigned char Distance_cnt_1ms; // 시간지나면 자리비움처리를 위한 cnt
 
-void Timer0_Init()  //타이머 인터럽트
+void Timer0_Init()  //초음파 센서구동 타이머 인터럽트
 {
     TCCR0 = (1<<WGM01)|(1<<CS00)|(1<<CS01)|(1<<CS02);
     TCNT0 = 0x00;
@@ -33,9 +35,13 @@ interrupt[TIM0_COMP] void timer0_comp(void)    //실제 카운트 증가
 {
     ti_Cnt_1ms++;
     LCD_DelCnt_1ms++;
+    
 }
 
 
+   
+    
+    
 
 int SRF_Run(char Sonar_Addr){    //SRF 주소로 값을 받아옴
     unsigned char res;    
@@ -73,6 +79,7 @@ void main(void)
     char check_pnumber[11]; //비밀번호 일치확인을위한 공간
     char user_name; //1~3번중 어느좌석 유저를 가르키는지 저장
     char num[3][11];
+    char empty_cnt[3]={0,};
     
     DDRD |= 0x03;    
     LCD_Init();
@@ -92,22 +99,41 @@ void main(void)
     
     while(1)
     {     
-        if(ti_Cnt_1ms > 100)
+        if(ti_Cnt_1ms > 100)  //2초에 한번정도 한센서씩 갱신
         {               
             if (Sonar_Addr == 0xE0){
                 Sonar_Addr = 0xEC;
                 startRanging(Sonar_Addr);
                 Sonar_range_1 = SRF_Run(Sonar_Addr);
+                if (Sonar_range_1 > 30){
+                    empty_cnt[0] ++; 
+                }
+                else{
+                    empty_cnt[0] =0; 
+                }
+                
             } 
             else if (Sonar_Addr == 0xEC) {
                 Sonar_Addr = 0xE2;
                 startRanging(Sonar_Addr);
                 Sonar_range_2 = SRF_Run(Sonar_Addr);
+                if (Sonar_range_1 > 30){
+                    empty_cnt[1] ++; 
+                }
+                else{
+                    empty_cnt[1] =0; 
+                }
             }
             else{
                 Sonar_Addr = 0xE0;
                 startRanging(Sonar_Addr);
                 Sonar_range_3 = SRF_Run(Sonar_Addr);
+                if (Sonar_range_1 > 30){
+                    empty_cnt[2] ++; 
+                }
+                else{
+                    empty_cnt[2] =0; 
+                }
             }
             
              
@@ -162,8 +188,19 @@ void main(void)
         finalnum = 1000*fnd[3] + 100*fnd[2] + 10*fnd[1] + fnd[0];
         OUTFND(finalnum); //FND 출력
         buzzer_play_function(t); //숫자에 맞는 음 출력
+        
+        
+        
+       
+        
+       
+        if ( (user_state[0] == 'O') && (empty_cnt[0] >= 15 )){
+            user_state[0] == 'E';
+        }
      
-        switch (STATE) {
+        
+        
+        switch (STATE) {  //LCD처
         
             case NONE: //기본 상태
                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10) {
@@ -247,7 +284,7 @@ void main(void)
                 STATE = CHECK_PNUM;
             break;
             
-            case EXIT_CHOOSE:  
+            case EXIT_CHOOSE:  //퇴장 번호 선  
             
                 user_name = fnd[1]-1;
                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10){
@@ -280,37 +317,40 @@ void main(void)
                
                 
             break;
-            case CHECK_PNUM_OUT: 
+            case CHECK_PNUM_OUT:   //비밀번호 일치시 탈출
             
                  if (fnd[1] == 1 && fnd[0] == 10){
                    int cnt=0;
-                   LCD_Clear();
-                   LCD_Pos(0,0);
                    for(i=0;i<11;i++){
                       if(num[user_name][i] == check_pnumber[i] ) cnt ++;  } 
                    
-                    if (cnt == 11 ){
+                    if (cnt == 11 ){  //비밀번호 일치
                        LCD_Clear();
                        LCD_Pos(0,0);
                        LCD_Str("User Check") ; 
                        LCD_Pos(1,0);
                        LCD_Str("Good Bye") ;
-                       OCR1A = 3000;
-                        LCD_Clear();
-                        LCD_Pos(0,0);
-                        LCD_Str("Door Open") ;    
+                       /*OCR1A = 3000;
                         delay_ms(5000);
-                        OCR1A = 4710; 
+                        OCR1A = 4710;    */
                       user_state[user_name] ='X';
                       STATE = START;
                       fnd[0] = 0;
+                    }
+                    else{ //비밀번호 불일치
+                      LCD_Clear();
+                      LCD_Pos(0,0);
+                      LCD_Str("Wrong Password") ; 
+                      delay_ms(2000);
+                      fnd[0] = 0;
+                      STATE = START;
                     } 
                 }
                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_OUT_INIT;
                 
                 
             break;
-            case INPUT_PHONE_OUT: //입장 : 폰번호 입력
+            case INPUT_PHONE_OUT: //퇴장 : 폰번호 입력
                 
                 if (fnd[0] == 10){
                     sprintf(check_pnumber, "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]); 
@@ -320,7 +360,7 @@ void main(void)
                 delay_ms(10);                 
                 break;  
              
-             case INPUT_PHONE_OUT_INIT: //입장 : 폰번호 입력
+             case INPUT_PHONE_OUT_INIT: //퇴장 : 폰번호 입력
                 
                 
                 fnd[0]=0;
