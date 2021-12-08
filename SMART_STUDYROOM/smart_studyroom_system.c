@@ -64,7 +64,7 @@ void main(void)
 {
     unsigned char res;
     char Sonar_Addr = 0xE0;
-    unsigned int Sonar_range_1 = 0,Sonar_range_2 = 0,Sonar_range_3 = 0;   
+    unsigned int Sonar_range[3]={0,};   
     char Message[40];
     int readCnt = 0;  
     int t=0; //키패드로 받은 숫자 
@@ -104,52 +104,55 @@ void main(void)
             if (Sonar_Addr == 0xE0){
                 Sonar_Addr = 0xEC;
                 startRanging(Sonar_Addr);
-                Sonar_range_1 = SRF_Run(Sonar_Addr);
-                if (Sonar_range_1 > 30){
-                    empty_cnt[0] ++; 
-                }
-                else{
-                    empty_cnt[0] =0; 
-                }
+                Sonar_range[0] = SRF_Run(Sonar_Addr);
+                
                 
             } 
             else if (Sonar_Addr == 0xEC) {
                 Sonar_Addr = 0xE2;
                 startRanging(Sonar_Addr);
-                Sonar_range_2 = SRF_Run(Sonar_Addr);
-                if (Sonar_range_1 > 30){
-                    empty_cnt[1] ++; 
-                }
-                else{
-                    empty_cnt[1] =0; 
-                }
+                Sonar_range[1] = SRF_Run(Sonar_Addr);
+                
             }
             else{
                 Sonar_Addr = 0xE0;
                 startRanging(Sonar_Addr);
-                Sonar_range_3 = SRF_Run(Sonar_Addr);
-                if (Sonar_range_1 > 30){
-                    empty_cnt[2] ++; 
-                }
-                else{
-                    empty_cnt[2] =0; 
-                }
+                Sonar_range[2] = SRF_Run(Sonar_Addr);
+                
             }
             
              
-            /*   초음파 확 인 *//* 
+            /*   초음파 확 인 *//*
             LCD_Clear();
-            sprintf(Message, "%03dcm", Sonar_range_1);
+            sprintf(Message, "%03dcm", Sonar_range[0]);
             LCD_Pos(0,0);
             LCD_Str(Message);
                 
-            sprintf(Message, "%03dcm", Sonar_range_2);
+            sprintf(Message, "%03dcm", Sonar_range[1]);
             LCD_Pos(1,0);
             LCD_Str(Message); 
             
-            sprintf(Message, "%03dcm", Sonar_range_3);
+            sprintf(Message, "%03dcm", Sonar_range[2]);
             LCD_Pos(1,5);
             LCD_Str(Message); */ 
+            
+            
+            for (i=0;i<3;i++){
+                if ( (Sonar_range[i] > 30)&&(user_state[i] == 'O') ){
+                   empty_cnt[i] ++;
+                sprintf(Message, "%03dcm", empty_cnt[i]); 
+                LCD_Clear();
+                LCD_Pos(0,0);
+                LCD_Str(Message);
+                }
+                else empty_cnt[i] =0;
+            
+                if (empty_cnt[i] > 15 ) {
+                 user_state[i] ='E';
+                }
+            }
+            
+            
                 
             LCD_DelCnt_1ms = 0;             
             ti_Cnt_1ms = 0;
@@ -192,12 +195,6 @@ void main(void)
         
         
        
-        
-       
-        if ( (user_state[0] == 'O') && (empty_cnt[0] >= 15 )){
-            user_state[0] == 'E';
-        }
-     
         
         
         switch (STATE) {  //LCD처
@@ -291,7 +288,7 @@ void main(void)
                     
                     STATE = INPUT_PHONE_OUT_INIT;
                     
-                    if (user_state[user_name] == 'X'){
+                    if (user_state[user_name] != 'O'){
                         LCD_Clear();
                         LCD_Pos(0,0);
                         LCD_Str("Empty Seat");
