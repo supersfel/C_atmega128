@@ -1804,6 +1804,137 @@ _0xA:
 ;PCODE: $000006A2 VOL: 0
 ;PCODE: $000006A3 VOL: 0
 ;PCODE: $000006A4 VOL: 0
+;#include "usart.h"
+;PCODE: $000006A5 VOL: 0
+;PCODE: $000006A6 VOL: 0
+;	baud -> Y+0
+;PCODE: $000006A7 VOL: 0
+;PCODE: $000006A8 VOL: 0
+;PCODE: $000006A9 VOL: 0
+;PCODE: $000006AA VOL: 0
+;PCODE: $000006AB VOL: 0
+;PCODE: $000006AC VOL: 0
+;PCODE: $000006AD VOL: 0
+;PCODE: $000006AE VOL: 0
+;PCODE: $000006AF VOL: 0
+;PCODE: $000006B0 VOL: 0
+;PCODE: $000006B1 VOL: 0
+;PCODE: $000006B2 VOL: 0
+;PCODE: $000006B3 VOL: 0
+;PCODE: $000006B4 VOL: 0
+;PCODE: $000006B5 VOL: 0
+;PCODE: $000006B6 VOL: 0
+;PCODE: $000006B7 VOL: 0
+;PCODE: $000006B8 VOL: 0
+;PCODE: $000006B9 VOL: 0
+;PCODE: $000006BA VOL: 0
+;PCODE: $000006BB VOL: 0
+;PCODE: $000006BC VOL: 0
+;PCODE: $000006BD VOL: 0
+;PCODE: $000006BE VOL: 0
+;PCODE: $000006BF VOL: 0
+;PCODE: $000006C0 VOL: 0
+;PCODE: $000006C1 VOL: 0
+;PCODE: $000006C2 VOL: 0
+;PCODE: $000006C3 VOL: 0
+;PCODE: $000006C4 VOL: 0
+;PCODE: $000006C5 VOL: 0
+;	baud -> Y+1
+;	Int_type -> Y+0
+;PCODE: $000006C6 VOL: 0
+;PCODE: $000006C7 VOL: 0
+;PCODE: $000006C8 VOL: 0
+;PCODE: $000006C9 VOL: 0
+;PCODE: $000006CA VOL: 0
+;PCODE: $000006CB VOL: 0
+;PCODE: $000006CC VOL: 0
+;PCODE: $000006CD VOL: 0
+;PCODE: $000006CE VOL: 0
+;PCODE: $000006CF VOL: 0
+;PCODE: $000006D0 VOL: 0
+;PCODE: $000006D1 VOL: 0
+;PCODE: $000006D2 VOL: 0
+;PCODE: $000006D3 VOL: 0
+;PCODE: $000006D4 VOL: 0
+;PCODE: $000006D5 VOL: 0
+;PCODE: $000006D6 VOL: 0
+;PCODE: $000006D7 VOL: 0
+;PCODE: $000006D8 VOL: 0
+;PCODE: $000006D9 VOL: 0
+;PCODE: $000006DA VOL: 0
+;PCODE: $000006DB VOL: 0
+;PCODE: $000006DC VOL: 0
+;PCODE: $000006DD VOL: 0
+;PCODE: $000006DE VOL: 0
+;PCODE: $000006DF VOL: 0
+;PCODE: $000006E0 VOL: 0
+;PCODE: $000006E1 VOL: 0
+;PCODE: $000006E2 VOL: 0
+;PCODE: $000006E3 VOL: 0
+;PCODE: $000006E4 VOL: 0
+;PCODE: $000006E5 VOL: 0
+;PCODE: $000006E6 VOL: 0
+;PCODE: $000006E7 VOL: 0
+;PCODE: $000006E8 VOL: 0
+;PCODE: $000006E9 VOL: 0
+;PCODE: $000006EA VOL: 0
+;PCODE: $000006EB VOL: 0
+;PCODE: $000006EC VOL: 0
+;PCODE: $000006ED VOL: 0
+;PCODE: $000006EE VOL: 0
+;PCODE: $000006EF VOL: 0
+;PCODE: $000006F0 VOL: 0
+;PCODE: $000006F1 VOL: 0
+;PCODE: $000006F2 VOL: 0
+;PCODE: $000006F3 VOL: 0
+;PCODE: $000006F4 VOL: 0
+;PCODE: $000006F5 VOL: 0
+;PCODE: $000006F6 VOL: 0
+;PCODE: $000006F7 VOL: 0
+;PCODE: $000006F8 VOL: 0
+;	data -> Y+0
+;PCODE: $000006F9 VOL: 0
+;PCODE: $000006FA VOL: 0
+;PCODE: $000006FB VOL: 0
+;PCODE: $000006FC VOL: 0
+;PCODE: $000006FD VOL: 0
+;PCODE: $000006FE VOL: 0
+;PCODE: $000006FF VOL: 0
+;PCODE: $00000700 VOL: 0
+;PCODE: $00000701 VOL: 0
+;PCODE: $00000702 VOL: 0
+;PCODE: $00000703 VOL: 0
+;PCODE: $00000704 VOL: 0
+;PCODE: $00000705 VOL: 0
+;	*str -> Y+0
+;PCODE: $00000706 VOL: 0
+;PCODE: $00000707 VOL: 0
+;PCODE: $00000708 VOL: 0
+;PCODE: $00000709 VOL: 0
+;PCODE: $0000070A VOL: 0
+;PCODE: $0000070B VOL: 0
+;PCODE: $0000070C VOL: 0
+;PCODE: $0000070D VOL: 0
+;PCODE: $0000070E VOL: 0
+;PCODE: $0000070F VOL: 0
+;PCODE: $00000710 VOL: 0
+;PCODE: $00000711 VOL: 0
+;PCODE: $00000712 VOL: 0
+;PCODE: $00000713 VOL: 0
+;PCODE: $00000714 VOL: 0
+;PCODE: $00000715 VOL: 0
+;PCODE: $00000716 VOL: 0
+;PCODE: $00000717 VOL: 0
+;PCODE: $00000718 VOL: 0
+;PCODE: $00000719 VOL: 0
+;PCODE: $0000071A VOL: 0
+;PCODE: $0000071B VOL: 0
+;PCODE: $0000071C VOL: 0
+;PCODE: $0000071D VOL: 0
+;PCODE: $0000071E VOL: 0
+;PCODE: $0000071F VOL: 0
+;PCODE: $00000720 VOL: 0
+;PCODE: $00000721 VOL: 0
 ;
 ;/*상태 정의*/
 ;#define NONE 0
@@ -1818,290 +1949,51 @@ _0xA:
 ;#define INPUT_PHONE_OUT 9
 ;#define INPUT_PHONE_OUT_INIT 10
 ;
+;/*usart 정의*/
+;#define ENTER '\r'
+;#define MAXLEN 17
+;unsigned char str[MAXLEN], str2[MAXLEN];
+;unsigned char master_password[] = "1mingyu";
+
+	.DSEG
+;char num[3][11];
+;
 ;unsigned char ti_Cnt_1ms;  //초음파 센서구동을위한 cnt
 ;unsigned char LCD_DelCnt_1ms;
 ;unsigned char Distance_cnt_1ms; // 시간지나면 자리비움처리를 위한 cnt
+;unsigned char ch=0;
 ;
-;void Timer0_Init()  //초음파 센서구동 타이머 인터럽트
-; 0000 001B {
-;PCODE: $000006A5 VOL: 0
-;PCODE: $000006A6 VOL: 0
-; 0000 001C     TCCR0 = (1<<WGM01)|(1<<CS00)|(1<<CS01)|(1<<CS02);
-;PCODE: $000006A7 VOL: 0
-;PCODE: $000006A8 VOL: 0
-; 0000 001D     TCNT0 = 0x00;
-;PCODE: $000006A9 VOL: 0
-;PCODE: $000006AA VOL: 0
-; 0000 001E     OCR0 = 100;
-;PCODE: $000006AB VOL: 0
-;PCODE: $000006AC VOL: 0
-; 0000 001F     TIMSK = (1<<OCIE0);
-;PCODE: $000006AD VOL: 0
-;PCODE: $000006AE VOL: 0
-; 0000 0020 }
-;PCODE: $000006AF VOL: 0
-;PCODE: $000006B0 VOL: 0
-;
-;interrupt[TIM0_COMP] void timer0_comp(void)    //실제 카운트 증가
-; 0000 0023 {
-;PCODE: $000006B1 VOL: 0
-;PCODE: $000006B2 VOL: 0
-; 0000 0024     ti_Cnt_1ms++;
-;PCODE: $000006B3 VOL: 0
-; 0000 0025     LCD_DelCnt_1ms++;
-;PCODE: $000006B4 VOL: 0
-; 0000 0026 
-; 0000 0027 }
-;PCODE: $000006B5 VOL: 0
-;PCODE: $000006B6 VOL: 0
-;PCODE: $000006B7 VOL: 0
-;
-;
-;
-;
-;
-;
-;int SRF_Run(char Sonar_Addr){    //SRF 주소로 값을 받아옴
-; 0000 002E int SRF_Run(char Sonar_Addr){
-;PCODE: $000006B8 VOL: 0
-;PCODE: $000006B9 VOL: 0
-; 0000 002F     unsigned char res;
-; 0000 0030     unsigned int Sonar_range;
-; 0000 0031 
-; 0000 0032     res = getRange(Sonar_Addr, &Sonar_range);
-;PCODE: $000006BA VOL: 0
-;	Sonar_Addr -> Y+4
-;	res -> R17
-;	Sonar_range -> R18,R19
-;PCODE: $000006BB VOL: 0
-;PCODE: $000006BC VOL: 0
-;PCODE: $000006BD VOL: 0
-;PCODE: $000006BE VOL: 0
-;PCODE: $000006BF VOL: 0
-;PCODE: $000006C0 VOL: 0
-;PCODE: $000006C1 VOL: 0
-;PCODE: $000006C2 VOL: 0
-;PCODE: $000006C3 VOL: 0
-;PCODE: $000006C4 VOL: 0
-;PCODE: $000006C5 VOL: 0
-; 0000 0033         if(res)
-;PCODE: $000006C6 VOL: 0
-;PCODE: $000006C7 VOL: 0
-; 0000 0034         {
-; 0000 0035             return 0;
-;PCODE: $000006C8 VOL: 0
-;PCODE: $000006C9 VOL: 0
-;PCODE: $000006CA VOL: 0
-;PCODE: $000006CB VOL: 0
-; 0000 0036         }
-; 0000 0037         else if(LCD_DelCnt_1ms > 100)
-;PCODE: $000006CC VOL: 0
-;PCODE: $000006CD VOL: 0
-;PCODE: $000006CE VOL: 0
-;PCODE: $000006CF VOL: 0
-; 0000 0038         {
-; 0000 0039             LCD_DelCnt_1ms = 0;
-;PCODE: $000006D0 VOL: 0
-; 0000 003A             return Sonar_range;
-;PCODE: $000006D1 VOL: 0
-;PCODE: $000006D2 VOL: 0
-;PCODE: $000006D3 VOL: 0
-;PCODE: $000006D4 VOL: 0
-; 0000 003B         }
-; 0000 003C }
-;PCODE: $000006D5 VOL: 0
-;PCODE: $000006D6 VOL: 0
-;PCODE: $000006D7 VOL: 0
-;PCODE: $000006D8 VOL: 0
-;PCODE: $000006D9 VOL: 0
-;PCODE: $000006DA VOL: 0
-;
-;
-;void main(void)
-; 0000 0040 {
-;PCODE: $000006DB VOL: 0
-; 0000 0041     unsigned char res;
-; 0000 0042     char Sonar_Addr = 0xE0;
-; 0000 0043     unsigned int Sonar_range[3]={0,};
-; 0000 0044     char Message[40];
-; 0000 0045     int readCnt = 0;
-; 0000 0046     int t=0; //키패드로 받은 숫자
-; 0000 0047     int count =0; //count 변수
-; 0000 0048     int finalnum=0; //FND에 출력으로 넣어줄 변수
-; 0000 0049     int fnd[12]={0,};
-; 0000 004A     signed int angle=0; // 서브모터 각도로 넣을 변수
-; 0000 004B     char STATE = START;
-; 0000 004C     char user_state[3] = {'X','X','X'};
-; 0000 004D     int i = 0;
-; 0000 004E     char user_pnumber[3][11]; //유저 비밀번호 저장
-; 0000 004F     char check_pnumber[11]; //비밀번호 일치확인을위한 공간
-; 0000 0050     char user_name; //1~3번중 어느좌석 유저를 가르키는지 저장
-; 0000 0051     char num[3][11];
-; 0000 0052     char empty_cnt[3]={0,};
-; 0000 0053 
-; 0000 0054     DDRD |= 0x03;
-;PCODE: $000006DC VOL: 0
-;PCODE: $000006DD VOL: 0
-;PCODE: $000006DE VOL: 0
-;PCODE: $000006DF VOL: 0
-;PCODE: $000006E0 VOL: 0
-;	res -> R17
-;	Sonar_Addr -> R16
-;	Sonar_range -> Y+157
-;	Message -> Y+117
-;	readCnt -> R18,R19
-;	t -> R20,R21
-;	count -> Y+115
-;	finalnum -> Y+113
-;	fnd -> Y+89
-;	angle -> Y+87
-;	STATE -> Y+86
-;	user_state -> Y+83
-;	i -> Y+81
-;	user_pnumber -> Y+48
-;	check_pnumber -> Y+37
-;	user_name -> Y+36
-;	num -> Y+3
-;	empty_cnt -> Y+0
-;PCODE: $000006E1 VOL: 0
-;PCODE: $000006E2 VOL: 0
-;PCODE: $000006E3 VOL: 0
-;PCODE: $000006E4 VOL: 0
-;PCODE: $000006E5 VOL: 0
-;PCODE: $000006E6 VOL: 0
-;PCODE: $000006E7 VOL: 0
-;PCODE: $000006E8 VOL: 0
-;PCODE: $000006E9 VOL: 0
-; 0000 0055     LCD_Init();
-;PCODE: $000006EA VOL: 0
-; 0000 0056     Timer0_Init();
-;PCODE: $000006EB VOL: 0
-; 0000 0057     FND_PORT_Init(); // 포트들 입출력 초기 설정
-;PCODE: $000006EC VOL: 0
-; 0000 0058     Init_TWI();
-;PCODE: $000006ED VOL: 0
-; 0000 0059     Init_Timer1();
-;PCODE: $000006EE VOL: 0
-; 0000 005A     delay_ms(1000);
-;PCODE: $000006EF VOL: 0
-;PCODE: $000006F0 VOL: 0
-;PCODE: $000006F1 VOL: 0
-; 0000 005B     SREG |= 0x80;
-;PCODE: $000006F2 VOL: 0
-; 0000 005C 
-; 0000 005D     OCR1A =4710;
-;PCODE: $000006F3 VOL: 0
-;PCODE: $000006F4 VOL: 0
-; 0000 005E     startRanging(Sonar_Addr);
-;PCODE: $000006F5 VOL: 0
-;PCODE: $000006F6 VOL: 0
-; 0000 005F     ti_Cnt_1ms = 0;
-;PCODE: $000006F7 VOL: 0
-; 0000 0060     LCD_DelCnt_1ms = 0;
-;PCODE: $000006F8 VOL: 0
-; 0000 0061 
-; 0000 0062 
-; 0000 0063 
-; 0000 0064     while(1)
-;PCODE: $000006F9 VOL: 0
-; 0000 0065     {
-; 0000 0066         if(ti_Cnt_1ms > 100)  //2초에 한번정도 한센서씩 갱신
-;PCODE: $000006FA VOL: 0
-;PCODE: $000006FB VOL: 0
-;PCODE: $000006FC VOL: 0
-; 0000 0067         {
-; 0000 0068             if (Sonar_Addr == 0xE0){
-;PCODE: $000006FD VOL: 0
-;PCODE: $000006FE VOL: 0
-;PCODE: $000006FF VOL: 0
-; 0000 0069                 Sonar_Addr = 0xEC;
-;PCODE: $00000700 VOL: 0
-;PCODE: $00000701 VOL: 0
-; 0000 006A                 startRanging(Sonar_Addr);
-;PCODE: $00000702 VOL: 0
-;PCODE: $00000703 VOL: 0
-; 0000 006B                 Sonar_range[0] = SRF_Run(Sonar_Addr);
-;PCODE: $00000704 VOL: 0
-;PCODE: $00000705 VOL: 0
-;PCODE: $00000706 VOL: 0
-; 0000 006C 
-; 0000 006D 
-; 0000 006E             }
-; 0000 006F             else if (Sonar_Addr == 0xEC) {
-;PCODE: $00000707 VOL: 0
-;PCODE: $00000708 VOL: 0
-;PCODE: $00000709 VOL: 0
-;PCODE: $0000070A VOL: 0
-;PCODE: $0000070B VOL: 0
-; 0000 0070                 Sonar_Addr = 0xE2;
-;PCODE: $0000070C VOL: 0
-;PCODE: $0000070D VOL: 0
-; 0000 0071                 startRanging(Sonar_Addr);
-;PCODE: $0000070E VOL: 0
-;PCODE: $0000070F VOL: 0
-; 0000 0072                 Sonar_range[1] = SRF_Run(Sonar_Addr);
-;PCODE: $00000710 VOL: 0
-;PCODE: $00000711 VOL: 0
-;PCODE: $00000712 VOL: 0
-;PCODE: $00000713 VOL: 0
-;PCODE: $00000714 VOL: 0
-;PCODE: $00000715 VOL: 0
-;PCODE: $00000716 VOL: 0
-; 0000 0073 
-; 0000 0074             }
-; 0000 0075             else{
-;PCODE: $00000717 VOL: 0
-;PCODE: $00000718 VOL: 0
-; 0000 0076                 Sonar_Addr = 0xE0;
-;PCODE: $00000719 VOL: 0
-;PCODE: $0000071A VOL: 0
-; 0000 0077                 startRanging(Sonar_Addr);
-;PCODE: $0000071B VOL: 0
-;PCODE: $0000071C VOL: 0
-; 0000 0078                 Sonar_range[2] = SRF_Run(Sonar_Addr);
-;PCODE: $0000071D VOL: 0
-;PCODE: $0000071E VOL: 0
-;PCODE: $0000071F VOL: 0
-;PCODE: $00000720 VOL: 0
-;PCODE: $00000721 VOL: 0
+;interrupt [USART1_RXC] void usart1_receive(void)
+; 0000 0024 {
+
+	.CSEG
 ;PCODE: $00000722 VOL: 0
 ;PCODE: $00000723 VOL: 0
-; 0000 0079 
-; 0000 007A             }
+; 0000 0025     unsigned char i;
+; 0000 0026 
+; 0000 0027     str[ch] = UDR1;          //인터럽트 발생 시 수신된 문자를 str[ch]에 저장
 ;PCODE: $00000724 VOL: 0
+;	i -> R17
 ;PCODE: $00000725 VOL: 0
-; 0000 007B 
-; 0000 007C 
-; 0000 007D             /*   초음파 확 인 *//*
-; 0000 007E             LCD_Clear();
-; 0000 007F             sprintf(Message, "%03dcm", Sonar_range[0]);
-; 0000 0080             LCD_Pos(0,0);
-; 0000 0081             LCD_Str(Message);
-; 0000 0082 
-; 0000 0083             sprintf(Message, "%03dcm", Sonar_range[1]);
-; 0000 0084             LCD_Pos(1,0);
-; 0000 0085             LCD_Str(Message);
-; 0000 0086 
-; 0000 0087             sprintf(Message, "%03dcm", Sonar_range[2]);
-; 0000 0088             LCD_Pos(1,5);
-; 0000 0089             LCD_Str(Message); */
-; 0000 008A 
-; 0000 008B 
-; 0000 008C             for (i=0;i<3;i++){
 ;PCODE: $00000726 VOL: 0
 ;PCODE: $00000727 VOL: 0
 ;PCODE: $00000728 VOL: 0
 ;PCODE: $00000729 VOL: 0
+; 0000 0028 
+; 0000 0029 
+; 0000 002A      if(str[ch] == ENTER){
 ;PCODE: $0000072A VOL: 0
 ;PCODE: $0000072B VOL: 0
 ;PCODE: $0000072C VOL: 0
 ;PCODE: $0000072D VOL: 0
 ;PCODE: $0000072E VOL: 0
 ;PCODE: $0000072F VOL: 0
+; 0000 002B         char access_cnt = 0;
+; 0000 002C         for(i=0;i<MAXLEN;i++) str2[i] = 'a';
 ;PCODE: $00000730 VOL: 0
-; 0000 008D                 if ( (Sonar_range[i] > 30)&&(user_state[i] == 'O') ){
 ;PCODE: $00000731 VOL: 0
 ;PCODE: $00000732 VOL: 0
+;	access_cnt -> Y+0
 ;PCODE: $00000733 VOL: 0
 ;PCODE: $00000734 VOL: 0
 ;PCODE: $00000735 VOL: 0
@@ -2117,14 +2009,13 @@ _0xA:
 ;PCODE: $0000073F VOL: 0
 ;PCODE: $00000740 VOL: 0
 ;PCODE: $00000741 VOL: 0
-; 0000 008E                    empty_cnt[i] ++;
 ;PCODE: $00000742 VOL: 0
 ;PCODE: $00000743 VOL: 0
 ;PCODE: $00000744 VOL: 0
 ;PCODE: $00000745 VOL: 0
+; 0000 002D for(i=0;i<17;i++) str2[i] = str[i];
 ;PCODE: $00000746 VOL: 0
 ;PCODE: $00000747 VOL: 0
-; 0000 008F                 sprintf(Message, "%03dcm", empty_cnt[i]);
 ;PCODE: $00000748 VOL: 0
 ;PCODE: $00000749 VOL: 0
 ;PCODE: $0000074A VOL: 0
@@ -2140,89 +2031,75 @@ _0xA:
 ;PCODE: $00000754 VOL: 0
 ;PCODE: $00000755 VOL: 0
 ;PCODE: $00000756 VOL: 0
-; 0000 0090                 LCD_Clear();
 ;PCODE: $00000757 VOL: 0
-; 0000 0091                 LCD_Pos(0,0);
 ;PCODE: $00000758 VOL: 0
 ;PCODE: $00000759 VOL: 0
 ;PCODE: $0000075A VOL: 0
 ;PCODE: $0000075B VOL: 0
+; 0000 002F str[ch-1] = 0x00;
 ;PCODE: $0000075C VOL: 0
-; 0000 0092                 LCD_Str(Message);
 ;PCODE: $0000075D VOL: 0
 ;PCODE: $0000075E VOL: 0
 ;PCODE: $0000075F VOL: 0
-; 0000 0093                 }
-; 0000 0094                 else empty_cnt[i] =0;
 ;PCODE: $00000760 VOL: 0
 ;PCODE: $00000761 VOL: 0
+; 0000 0030         ch = 0;             //문자열 초기화
 ;PCODE: $00000762 VOL: 0
+; 0000 0031 
+; 0000 0032         for (i=1;i<7;i++) {
 ;PCODE: $00000763 VOL: 0
 ;PCODE: $00000764 VOL: 0
 ;PCODE: $00000765 VOL: 0
 ;PCODE: $00000766 VOL: 0
-; 0000 0095 
-; 0000 0096                 if (empty_cnt[i] > 15 ) {
 ;PCODE: $00000767 VOL: 0
 ;PCODE: $00000768 VOL: 0
 ;PCODE: $00000769 VOL: 0
 ;PCODE: $0000076A VOL: 0
 ;PCODE: $0000076B VOL: 0
+; 0000 0033             if (master_password[i] == str2[i]) access_cnt ++;
 ;PCODE: $0000076C VOL: 0
 ;PCODE: $0000076D VOL: 0
-; 0000 0097                  user_state[i] ='E';
 ;PCODE: $0000076E VOL: 0
 ;PCODE: $0000076F VOL: 0
 ;PCODE: $00000770 VOL: 0
 ;PCODE: $00000771 VOL: 0
 ;PCODE: $00000772 VOL: 0
-; 0000 0098                 }
-; 0000 0099             }
 ;PCODE: $00000773 VOL: 0
 ;PCODE: $00000774 VOL: 0
 ;PCODE: $00000775 VOL: 0
 ;PCODE: $00000776 VOL: 0
 ;PCODE: $00000777 VOL: 0
 ;PCODE: $00000778 VOL: 0
+; 0000 0034         }
 ;PCODE: $00000779 VOL: 0
 ;PCODE: $0000077A VOL: 0
-; 0000 009A 
-; 0000 009B 
-; 0000 009C 
-; 0000 009D             LCD_DelCnt_1ms = 0;
 ;PCODE: $0000077B VOL: 0
-; 0000 009E             ti_Cnt_1ms = 0;
 ;PCODE: $0000077C VOL: 0
-; 0000 009F         }
-; 0000 00A0         t= Changenum(KeyScan());
 ;PCODE: $0000077D VOL: 0
 ;PCODE: $0000077E VOL: 0
+; 0000 0035         if (access_cnt == 6) {
 ;PCODE: $0000077F VOL: 0
 ;PCODE: $00000780 VOL: 0
 ;PCODE: $00000781 VOL: 0
+; 0000 0036             puts_USART1("\n first seat : \n");
 ;PCODE: $00000782 VOL: 0
-; 0000 00A1         if(t<11 & t>0 ) //숫자가 눌리면 새로운 값을 저장하도록 count값 설정
 ;PCODE: $00000783 VOL: 0
 ;PCODE: $00000784 VOL: 0
 ;PCODE: $00000785 VOL: 0
+; 0000 0037             for(i=0;i<11;i++)  putch_USART1(num[0][i]);
 ;PCODE: $00000786 VOL: 0
 ;PCODE: $00000787 VOL: 0
 ;PCODE: $00000788 VOL: 0
 ;PCODE: $00000789 VOL: 0
 ;PCODE: $0000078A VOL: 0
 ;PCODE: $0000078B VOL: 0
-; 0000 00A2             {
-; 0000 00A3                 count++;
 ;PCODE: $0000078C VOL: 0
 ;PCODE: $0000078D VOL: 0
 ;PCODE: $0000078E VOL: 0
 ;PCODE: $0000078F VOL: 0
-; 0000 00A4                 delay_ms(50);
 ;PCODE: $00000790 VOL: 0
 ;PCODE: $00000791 VOL: 0
 ;PCODE: $00000792 VOL: 0
-; 0000 00A5             }
-; 0000 00A6         else if(t==0 & zero_flag) //zero_flag가 실행된 경우에만 0으로 입력
 ;PCODE: $00000793 VOL: 0
 ;PCODE: $00000794 VOL: 0
 ;PCODE: $00000795 VOL: 0
@@ -2230,27 +2107,21 @@ _0xA:
 ;PCODE: $00000797 VOL: 0
 ;PCODE: $00000798 VOL: 0
 ;PCODE: $00000799 VOL: 0
-; 0000 00A7             {
-; 0000 00A8                 count++;
+; 0000 0038 puts_USART1("\n Second seat : \n");
 ;PCODE: $0000079A VOL: 0
 ;PCODE: $0000079B VOL: 0
 ;PCODE: $0000079C VOL: 0
 ;PCODE: $0000079D VOL: 0
-; 0000 00A9                 zero_flag =0; //계속 0으로 입력된 상태가 안되게 zero_flag를 다시 0으로
+; 0000 0039             for(i=0;i<11;i++)  putch_USART1(num[1][i]);
 ;PCODE: $0000079E VOL: 0
-; 0000 00AA                 delay_ms(50);
 ;PCODE: $0000079F VOL: 0
 ;PCODE: $000007A0 VOL: 0
 ;PCODE: $000007A1 VOL: 0
-; 0000 00AB             }
-; 0000 00AC         else if(t==13) // FND 출력숫자 리셋버튼 기능
 ;PCODE: $000007A2 VOL: 0
 ;PCODE: $000007A3 VOL: 0
 ;PCODE: $000007A4 VOL: 0
 ;PCODE: $000007A5 VOL: 0
 ;PCODE: $000007A6 VOL: 0
-; 0000 00AD             {
-; 0000 00AE                 fnd[0]=0,fnd[1]=0,fnd[2]=0,fnd[3]=0;
 ;PCODE: $000007A7 VOL: 0
 ;PCODE: $000007A8 VOL: 0
 ;PCODE: $000007A9 VOL: 0
@@ -2259,20 +2130,15 @@ _0xA:
 ;PCODE: $000007AC VOL: 0
 ;PCODE: $000007AD VOL: 0
 ;PCODE: $000007AE VOL: 0
-; 0000 00AF             }
-; 0000 00B0         else if (t ==14)
 ;PCODE: $000007AF VOL: 0
 ;PCODE: $000007B0 VOL: 0
 ;PCODE: $000007B1 VOL: 0
+; 0000 003A puts_USART1("\n Third seat : \n");
 ;PCODE: $000007B2 VOL: 0
 ;PCODE: $000007B3 VOL: 0
-; 0000 00B1             {
-; 0000 00B2                STATE = START;
 ;PCODE: $000007B4 VOL: 0
 ;PCODE: $000007B5 VOL: 0
-; 0000 00B3             }
-; 0000 00B4 
-; 0000 00B5         if((count%2) ==0){ //count가 짝수일때 들어온 t값을 저장하고
+; 0000 003B             for(i=0;i<11;i++)  putch_USART1(num[2][i]);
 ;PCODE: $000007B6 VOL: 0
 ;PCODE: $000007B7 VOL: 0
 ;PCODE: $000007B8 VOL: 0
@@ -2282,8 +2148,6 @@ _0xA:
 ;PCODE: $000007BC VOL: 0
 ;PCODE: $000007BD VOL: 0
 ;PCODE: $000007BE VOL: 0
-; 0000 00B6                             //다시 count를 홀수로 만듬
-; 0000 00B7             for(i=11;i>0;i--) {
 ;PCODE: $000007BF VOL: 0
 ;PCODE: $000007C0 VOL: 0
 ;PCODE: $000007C1 VOL: 0
@@ -2295,7 +2159,9 @@ _0xA:
 ;PCODE: $000007C7 VOL: 0
 ;PCODE: $000007C8 VOL: 0
 ;PCODE: $000007C9 VOL: 0
-; 0000 00B8                 fnd[i] = fnd[i-1];
+; 0000 003C }
+; 0000 003D 
+; 0000 003E         for(i=0;i<MAXLEN;i++) str2[i] = 0;
 ;PCODE: $000007CA VOL: 0
 ;PCODE: $000007CB VOL: 0
 ;PCODE: $000007CC VOL: 0
@@ -2309,71 +2175,98 @@ _0xA:
 ;PCODE: $000007D4 VOL: 0
 ;PCODE: $000007D5 VOL: 0
 ;PCODE: $000007D6 VOL: 0
-; 0000 00B9                 delay_us(10);
 ;PCODE: $000007D7 VOL: 0
-; 0000 00BA             }
 ;PCODE: $000007D8 VOL: 0
 ;PCODE: $000007D9 VOL: 0
 ;PCODE: $000007DA VOL: 0
 ;PCODE: $000007DB VOL: 0
 ;PCODE: $000007DC VOL: 0
 ;PCODE: $000007DD VOL: 0
+; 0000 003F }
 ;PCODE: $000007DE VOL: 0
-; 0000 00BB             fnd[0] = t;
+; 0000 0040      else ch++;
 ;PCODE: $000007DF VOL: 0
 ;PCODE: $000007E0 VOL: 0
-; 0000 00BC             count++;
 ;PCODE: $000007E1 VOL: 0
+; 0000 0041      delay_ms(10);
 ;PCODE: $000007E2 VOL: 0
 ;PCODE: $000007E3 VOL: 0
 ;PCODE: $000007E4 VOL: 0
-; 0000 00BD             delay_ms(50);
 ;PCODE: $000007E5 VOL: 0
+; 0000 0042 
+; 0000 0043 
+; 0000 0044 
+; 0000 0045     if ( ch >= MAXLEN) ch = 0;    //최대 글자 이상일때 에러모드
 ;PCODE: $000007E6 VOL: 0
 ;PCODE: $000007E7 VOL: 0
-; 0000 00BE         }
-; 0000 00BF         finalnum = 1000*fnd[3] + 100*fnd[2] + 10*fnd[1] + fnd[0];
 ;PCODE: $000007E8 VOL: 0
 ;PCODE: $000007E9 VOL: 0
+; 0000 0046 
+; 0000 0047 }
 ;PCODE: $000007EA VOL: 0
 ;PCODE: $000007EB VOL: 0
 ;PCODE: $000007EC VOL: 0
 ;PCODE: $000007ED VOL: 0
 ;PCODE: $000007EE VOL: 0
+
+	.DSEG
+_0xBC:
+	.BYTE 0x34
+;
+;
+;void Timer0_Init()  //초음파 센서구동 타이머 인터럽트
+; 0000 004B {
+
+	.CSEG
 ;PCODE: $000007EF VOL: 0
 ;PCODE: $000007F0 VOL: 0
+; 0000 004C     TCCR0 = (1<<WGM01)|(1<<CS00)|(1<<CS01)|(1<<CS02);
 ;PCODE: $000007F1 VOL: 0
 ;PCODE: $000007F2 VOL: 0
+; 0000 004D     TCNT0 = 0x00;
 ;PCODE: $000007F3 VOL: 0
 ;PCODE: $000007F4 VOL: 0
+; 0000 004E     OCR0 = 100;
 ;PCODE: $000007F5 VOL: 0
 ;PCODE: $000007F6 VOL: 0
+; 0000 004F     TIMSK = (1<<OCIE0);
 ;PCODE: $000007F7 VOL: 0
 ;PCODE: $000007F8 VOL: 0
-; 0000 00C0         OUTFND(finalnum); //FND 출력
+; 0000 0050 }
 ;PCODE: $000007F9 VOL: 0
 ;PCODE: $000007FA VOL: 0
+;
+;interrupt[TIM0_COMP] void timer0_comp(void)    //실제 카운트 증가
+; 0000 0053 {
 ;PCODE: $000007FB VOL: 0
-; 0000 00C1         buzzer_play_function(t); //숫자에 맞는 음 출력
 ;PCODE: $000007FC VOL: 0
+; 0000 0054     ti_Cnt_1ms++;
 ;PCODE: $000007FD VOL: 0
-; 0000 00C2 
-; 0000 00C3 
-; 0000 00C4 
-; 0000 00C5 
-; 0000 00C6 
-; 0000 00C7 
-; 0000 00C8         switch (STATE) {  //LCD처
+; 0000 0055     LCD_DelCnt_1ms++;
 ;PCODE: $000007FE VOL: 0
+; 0000 0056 
+; 0000 0057 }
 ;PCODE: $000007FF VOL: 0
-; 0000 00C9 
-; 0000 00CA             case NONE: //기본 상태
 ;PCODE: $00000800 VOL: 0
 ;PCODE: $00000801 VOL: 0
-; 0000 00CB                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10) {
+;
+;
+;
+;
+;
+;
+;int SRF_Run(char Sonar_Addr){    //SRF 주소로 값을 받아옴
+; 0000 005E int SRF_Run(char Sonar_Addr){
 ;PCODE: $00000802 VOL: 0
 ;PCODE: $00000803 VOL: 0
+; 0000 005F     unsigned char res;
+; 0000 0060     unsigned int Sonar_range;
+; 0000 0061 
+; 0000 0062     res = getRange(Sonar_Addr, &Sonar_range);
 ;PCODE: $00000804 VOL: 0
+;	Sonar_Addr -> Y+4
+;	res -> R17
+;	Sonar_range -> R18,R19
 ;PCODE: $00000805 VOL: 0
 ;PCODE: $00000806 VOL: 0
 ;PCODE: $00000807 VOL: 0
@@ -2384,107 +2277,173 @@ _0xA:
 ;PCODE: $0000080C VOL: 0
 ;PCODE: $0000080D VOL: 0
 ;PCODE: $0000080E VOL: 0
-; 0000 00CC                     user_name = fnd[1]-1;
 ;PCODE: $0000080F VOL: 0
+; 0000 0063         if(res)
 ;PCODE: $00000810 VOL: 0
 ;PCODE: $00000811 VOL: 0
-; 0000 00CD                     STATE=INPUT_PHONE_INIT ;
+; 0000 0064         {
+; 0000 0065             return 0;
 ;PCODE: $00000812 VOL: 0
 ;PCODE: $00000813 VOL: 0
-; 0000 00CE                 }
-; 0000 00CF                 if (fnd[1]==4 && fnd[0] == 10) { //탈출 모드
 ;PCODE: $00000814 VOL: 0
 ;PCODE: $00000815 VOL: 0
+; 0000 0066         }
+; 0000 0067         else if(LCD_DelCnt_1ms > 100)
 ;PCODE: $00000816 VOL: 0
 ;PCODE: $00000817 VOL: 0
 ;PCODE: $00000818 VOL: 0
 ;PCODE: $00000819 VOL: 0
+; 0000 0068         {
+; 0000 0069             LCD_DelCnt_1ms = 0;
 ;PCODE: $0000081A VOL: 0
+; 0000 006A             return Sonar_range;
 ;PCODE: $0000081B VOL: 0
 ;PCODE: $0000081C VOL: 0
 ;PCODE: $0000081D VOL: 0
 ;PCODE: $0000081E VOL: 0
-; 0000 00D0                     LCD_Clear();
+; 0000 006B         }
+; 0000 006C }
 ;PCODE: $0000081F VOL: 0
-; 0000 00D1                     LCD_Pos(0,0);
 ;PCODE: $00000820 VOL: 0
 ;PCODE: $00000821 VOL: 0
 ;PCODE: $00000822 VOL: 0
 ;PCODE: $00000823 VOL: 0
 ;PCODE: $00000824 VOL: 0
-; 0000 00D2                     LCD_Str("Choose Seat");
+;
+;
+;void main(void)
+; 0000 0070 {
 ;PCODE: $00000825 VOL: 0
+; 0000 0071     unsigned char res;
+; 0000 0072     char Sonar_Addr = 0xE0;
+; 0000 0073     unsigned int Sonar_range[3]={0,};
+; 0000 0074     char Message[40];
+; 0000 0075     int readCnt = 0;
+; 0000 0076     int t=0; //키패드로 받은 숫자
+; 0000 0077     int count =0; //count 변수
+; 0000 0078     int finalnum=0; //FND에 출력으로 넣어줄 변수
+; 0000 0079     int fnd[12]={0,};
+; 0000 007A     signed int angle=0; // 서브모터 각도로 넣을 변수
+; 0000 007B     char STATE = START;
+; 0000 007C     char user_state[3] = {'X','X','X'};
+; 0000 007D     int i = 0;
+; 0000 007E     char user_pnumber[3][11]; //유저 비밀번호 저장
+; 0000 007F     char check_pnumber[11]; //비밀번호 일치확인을위한 공간
+; 0000 0080     char user_name; //1~3번중 어느좌석 유저를 가르키는지 저장
+; 0000 0081 
+; 0000 0082     char empty_cnt[3]={0,};
+; 0000 0083 
+; 0000 0084     DDRD |= 0x03;
 ;PCODE: $00000826 VOL: 0
 ;PCODE: $00000827 VOL: 0
 ;PCODE: $00000828 VOL: 0
-; 0000 00D3                     LCD_Pos(1,0);
 ;PCODE: $00000829 VOL: 0
 ;PCODE: $0000082A VOL: 0
+;	res -> R17
+;	Sonar_Addr -> R16
+;	Sonar_range -> Y+124
+;	Message -> Y+84
+;	readCnt -> R18,R19
+;	t -> R20,R21
+;	count -> Y+82
+;	finalnum -> Y+80
+;	fnd -> Y+56
+;	angle -> Y+54
+;	STATE -> Y+53
+;	user_state -> Y+50
+;	i -> Y+48
+;	user_pnumber -> Y+15
+;	check_pnumber -> Y+4
+;	user_name -> Y+3
+;	empty_cnt -> Y+0
 ;PCODE: $0000082B VOL: 0
 ;PCODE: $0000082C VOL: 0
 ;PCODE: $0000082D VOL: 0
-; 0000 00D4                     if (user_state[0] == 'O') LCD_Str("1  ");
 ;PCODE: $0000082E VOL: 0
 ;PCODE: $0000082F VOL: 0
 ;PCODE: $00000830 VOL: 0
 ;PCODE: $00000831 VOL: 0
 ;PCODE: $00000832 VOL: 0
 ;PCODE: $00000833 VOL: 0
+; 0000 0085 
+; 0000 0086     LCD_Init();
 ;PCODE: $00000834 VOL: 0
-; 0000 00D5                     if (user_state[1] == 'O') LCD_Str("2  ");
+; 0000 0087     Timer0_Init();
 ;PCODE: $00000835 VOL: 0
+; 0000 0088     FND_PORT_Init(); // 포트들 입출력 초기 설정
 ;PCODE: $00000836 VOL: 0
+; 0000 0089     Init_TWI();
 ;PCODE: $00000837 VOL: 0
+; 0000 008A     Init_Timer1();
 ;PCODE: $00000838 VOL: 0
+; 0000 008B     delay_ms(1000);
 ;PCODE: $00000839 VOL: 0
 ;PCODE: $0000083A VOL: 0
 ;PCODE: $0000083B VOL: 0
+; 0000 008C     SREG |= 0x80;
 ;PCODE: $0000083C VOL: 0
-; 0000 00D6                     if (user_state[2] == 'O') LCD_Str("3  ");
+; 0000 008D 
+; 0000 008E     OCR1A =4710;
 ;PCODE: $0000083D VOL: 0
 ;PCODE: $0000083E VOL: 0
+; 0000 008F     startRanging(Sonar_Addr);
 ;PCODE: $0000083F VOL: 0
 ;PCODE: $00000840 VOL: 0
+; 0000 0090     ti_Cnt_1ms = 0;
 ;PCODE: $00000841 VOL: 0
+; 0000 0091     LCD_DelCnt_1ms = 0;
 ;PCODE: $00000842 VOL: 0
+; 0000 0092 
+; 0000 0093     Init_USART1_IntCon(0,RX_Int);
 ;PCODE: $00000843 VOL: 0
 ;PCODE: $00000844 VOL: 0
-; 0000 00D7                     STATE=EXIT_CHOOSE ;
 ;PCODE: $00000845 VOL: 0
 ;PCODE: $00000846 VOL: 0
 ;PCODE: $00000847 VOL: 0
-; 0000 00D8                 }
-; 0000 00D9                 break;
+; 0000 0094     DDRD.7 =1;
 ;PCODE: $00000848 VOL: 0
 ;PCODE: $00000849 VOL: 0
-; 0000 00DA 
-; 0000 00DB             case START: //업로드
+; 0000 0095 
+; 0000 0096 
+; 0000 0097 
+; 0000 0098     while(1)
 ;PCODE: $0000084A VOL: 0
+; 0000 0099     {
+; 0000 009A         if(ti_Cnt_1ms > 100)  //2초에 한번정도 한센서씩 갱신
 ;PCODE: $0000084B VOL: 0
 ;PCODE: $0000084C VOL: 0
-; 0000 00DC                 LCD_Pos(0,0);
 ;PCODE: $0000084D VOL: 0
+; 0000 009B         {
+; 0000 009C             if (Sonar_Addr == 0xE0){
 ;PCODE: $0000084E VOL: 0
 ;PCODE: $0000084F VOL: 0
 ;PCODE: $00000850 VOL: 0
+; 0000 009D                 Sonar_Addr = 0xEC;
 ;PCODE: $00000851 VOL: 0
-; 0000 00DD                 LCD_Str("StudyRoom  4:OUT");
 ;PCODE: $00000852 VOL: 0
+; 0000 009E                 startRanging(Sonar_Addr);
 ;PCODE: $00000853 VOL: 0
 ;PCODE: $00000854 VOL: 0
+; 0000 009F                 Sonar_range[0] = SRF_Run(Sonar_Addr);
 ;PCODE: $00000855 VOL: 0
-; 0000 00DE                 sprintf(Message, "1:%c 2:%c 3:%c", user_state[0],user_state[1],user_state[2]);
 ;PCODE: $00000856 VOL: 0
 ;PCODE: $00000857 VOL: 0
+; 0000 00A0 
+; 0000 00A1 
+; 0000 00A2             }
+; 0000 00A3             else if (Sonar_Addr == 0xEC) {
 ;PCODE: $00000858 VOL: 0
 ;PCODE: $00000859 VOL: 0
 ;PCODE: $0000085A VOL: 0
 ;PCODE: $0000085B VOL: 0
 ;PCODE: $0000085C VOL: 0
+; 0000 00A4                 Sonar_Addr = 0xE2;
 ;PCODE: $0000085D VOL: 0
 ;PCODE: $0000085E VOL: 0
+; 0000 00A5                 startRanging(Sonar_Addr);
 ;PCODE: $0000085F VOL: 0
 ;PCODE: $00000860 VOL: 0
+; 0000 00A6                 Sonar_range[1] = SRF_Run(Sonar_Addr);
 ;PCODE: $00000861 VOL: 0
 ;PCODE: $00000862 VOL: 0
 ;PCODE: $00000863 VOL: 0
@@ -2492,32 +2451,49 @@ _0xA:
 ;PCODE: $00000865 VOL: 0
 ;PCODE: $00000866 VOL: 0
 ;PCODE: $00000867 VOL: 0
-; 0000 00DF                 LCD_Pos(1,0);
+; 0000 00A7 
+; 0000 00A8             }
+; 0000 00A9             else{
 ;PCODE: $00000868 VOL: 0
 ;PCODE: $00000869 VOL: 0
+; 0000 00AA                 Sonar_Addr = 0xE0;
 ;PCODE: $0000086A VOL: 0
 ;PCODE: $0000086B VOL: 0
+; 0000 00AB                 startRanging(Sonar_Addr);
 ;PCODE: $0000086C VOL: 0
-; 0000 00E0                 LCD_Str(Message);
 ;PCODE: $0000086D VOL: 0
+; 0000 00AC                 Sonar_range[2] = SRF_Run(Sonar_Addr);
 ;PCODE: $0000086E VOL: 0
 ;PCODE: $0000086F VOL: 0
-; 0000 00E1                 STATE = NONE;
 ;PCODE: $00000870 VOL: 0
 ;PCODE: $00000871 VOL: 0
-; 0000 00E2                 break;
 ;PCODE: $00000872 VOL: 0
-; 0000 00E3 
-; 0000 00E4             case INPUT_PHONE: //입장 : 폰번호 입력
 ;PCODE: $00000873 VOL: 0
 ;PCODE: $00000874 VOL: 0
+; 0000 00AD 
+; 0000 00AE             }
 ;PCODE: $00000875 VOL: 0
-; 0000 00E5 
-; 0000 00E6                 if (fnd[0] == 10){
 ;PCODE: $00000876 VOL: 0
+; 0000 00AF 
+; 0000 00B0 
+; 0000 00B1             /*   초음파 확 인 *//*
+; 0000 00B2             LCD_Clear();
+; 0000 00B3             sprintf(Message, "%03dcm", Sonar_range[0]);
+; 0000 00B4             LCD_Pos(0,0);
+; 0000 00B5             LCD_Str(Message);
+; 0000 00B6 
+; 0000 00B7             sprintf(Message, "%03dcm", Sonar_range[1]);
+; 0000 00B8             LCD_Pos(1,0);
+; 0000 00B9             LCD_Str(Message);
+; 0000 00BA 
+; 0000 00BB             sprintf(Message, "%03dcm", Sonar_range[2]);
+; 0000 00BC             LCD_Pos(1,5);
+; 0000 00BD             LCD_Str(Message); */
+; 0000 00BE 
+; 0000 00BF             /* 자리비움 처리 */
+; 0000 00C0             for (i=0;i<3;i++){
 ;PCODE: $00000877 VOL: 0
 ;PCODE: $00000878 VOL: 0
-; 0000 00E7                     sprintf(user_pnumber[user_name], "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]);
 ;PCODE: $00000879 VOL: 0
 ;PCODE: $0000087A VOL: 0
 ;PCODE: $0000087B VOL: 0
@@ -2526,6 +2502,7 @@ _0xA:
 ;PCODE: $0000087E VOL: 0
 ;PCODE: $0000087F VOL: 0
 ;PCODE: $00000880 VOL: 0
+; 0000 00C1                 if ( (Sonar_range[i] > 30)&&(user_state[i] == 'O') ){
 ;PCODE: $00000881 VOL: 0
 ;PCODE: $00000882 VOL: 0
 ;PCODE: $00000883 VOL: 0
@@ -2543,12 +2520,19 @@ _0xA:
 ;PCODE: $0000088F VOL: 0
 ;PCODE: $00000890 VOL: 0
 ;PCODE: $00000891 VOL: 0
+; 0000 00C2                    empty_cnt[i] ++;
 ;PCODE: $00000892 VOL: 0
 ;PCODE: $00000893 VOL: 0
 ;PCODE: $00000894 VOL: 0
 ;PCODE: $00000895 VOL: 0
 ;PCODE: $00000896 VOL: 0
 ;PCODE: $00000897 VOL: 0
+; 0000 00C3                     /*sprintf(Message, "%03dcm", empty_cnt[i]);
+; 0000 00C4                     LCD_Clear();
+; 0000 00C5                     LCD_Pos(0,0);
+; 0000 00C6                     LCD_Str(Message);  */ //cnt확인용
+; 0000 00C7                 }
+; 0000 00C8                 else empty_cnt[i] =0;
 ;PCODE: $00000898 VOL: 0
 ;PCODE: $00000899 VOL: 0
 ;PCODE: $0000089A VOL: 0
@@ -2556,6 +2540,8 @@ _0xA:
 ;PCODE: $0000089C VOL: 0
 ;PCODE: $0000089D VOL: 0
 ;PCODE: $0000089E VOL: 0
+; 0000 00C9 
+; 0000 00CA                 if (empty_cnt[i] > 15 ) {
 ;PCODE: $0000089F VOL: 0
 ;PCODE: $000008A0 VOL: 0
 ;PCODE: $000008A1 VOL: 0
@@ -2563,19 +2549,21 @@ _0xA:
 ;PCODE: $000008A3 VOL: 0
 ;PCODE: $000008A4 VOL: 0
 ;PCODE: $000008A5 VOL: 0
+; 0000 00CB                  user_state[i] ='E';
 ;PCODE: $000008A6 VOL: 0
-; 0000 00E8                     user_state[user_name] ='X';
 ;PCODE: $000008A7 VOL: 0
 ;PCODE: $000008A8 VOL: 0
 ;PCODE: $000008A9 VOL: 0
 ;PCODE: $000008AA VOL: 0
+; 0000 00CC                  if (STATE == NONE ) STATE = START;
 ;PCODE: $000008AB VOL: 0
 ;PCODE: $000008AC VOL: 0
-; 0000 00E9                     for(i=0;i<11;i++){
 ;PCODE: $000008AD VOL: 0
 ;PCODE: $000008AE VOL: 0
 ;PCODE: $000008AF VOL: 0
+; 0000 00CD                 }
 ;PCODE: $000008B0 VOL: 0
+; 0000 00CE             }
 ;PCODE: $000008B1 VOL: 0
 ;PCODE: $000008B2 VOL: 0
 ;PCODE: $000008B3 VOL: 0
@@ -2583,15 +2571,57 @@ _0xA:
 ;PCODE: $000008B5 VOL: 0
 ;PCODE: $000008B6 VOL: 0
 ;PCODE: $000008B7 VOL: 0
-; 0000 00EA                         num[user_name][i] = user_pnumber[user_name][i];
+; 0000 00CF 
+; 0000 00D0 
+; 0000 00D1 
+; 0000 00D2             LCD_DelCnt_1ms = 0;
 ;PCODE: $000008B8 VOL: 0
+; 0000 00D3             ti_Cnt_1ms = 0;
 ;PCODE: $000008B9 VOL: 0
+; 0000 00D4         }
+; 0000 00D5 
+; 0000 00D6 
+; 0000 00D7         /*
+; 0000 00D8         if(PIND.7 == 1){
+; 0000 00D9            LCD_Clear();
+; 0000 00DA               LCD_Pos(0,0); // 문자열 위치 0행 1열 지정
+; 0000 00DB               LCD_Str("Warning....."); // 문자열 str을 LCD 첫번째 라인에 출력
+; 0000 00DC               delay_us(10);
+; 0000 00DD               LCD_Pos(1,0); // 문자열 위치 1행 1열 지정
+; 0000 00DE                LCD_Str("Fire!!!    "); // 문자열 str을 LCD 두번째 라인에 출력
+; 0000 00DF              LCD_Pos(1,0);
+; 0000 00E0               delay_us(10);
+; 0000 00E1 
+; 0000 00E2             while(1)
+; 0000 00E3             {
+; 0000 00E4 
+; 0000 00E5                  for(i=0;i<20;i++){    //사이렌 소리
+; 0000 00E6                   Buzzer_play(Sol/2);
+; 0000 00E7                   delay_ms(10);
+; 0000 00E8                 }
+; 0000 00E9                 delay_ms(10);
+; 0000 00EA                 for(i=0;i<20;i++){
+; 0000 00EB                     Buzzer_play(Re/2);
+; 0000 00EC                     delay_ms(10);
+; 0000 00ED                 }
+; 0000 00EE             }
+; 0000 00EF 
+; 0000 00F0         }
+; 0000 00F1             else{
+; 0000 00F2 
+; 0000 00F3         }*/
+; 0000 00F4 
+; 0000 00F5 
+; 0000 00F6 
+; 0000 00F7 
+; 0000 00F8         t= Changenum(KeyScan());
 ;PCODE: $000008BA VOL: 0
 ;PCODE: $000008BB VOL: 0
 ;PCODE: $000008BC VOL: 0
 ;PCODE: $000008BD VOL: 0
 ;PCODE: $000008BE VOL: 0
 ;PCODE: $000008BF VOL: 0
+; 0000 00F9         if(t<11 & t>0 ) //숫자가 눌리면 새로운 값을 저장하도록 count값 설정
 ;PCODE: $000008C0 VOL: 0
 ;PCODE: $000008C1 VOL: 0
 ;PCODE: $000008C2 VOL: 0
@@ -2601,92 +2631,90 @@ _0xA:
 ;PCODE: $000008C6 VOL: 0
 ;PCODE: $000008C7 VOL: 0
 ;PCODE: $000008C8 VOL: 0
-; 0000 00EB                     }
+; 0000 00FA             {
+; 0000 00FB                 count++;
 ;PCODE: $000008C9 VOL: 0
 ;PCODE: $000008CA VOL: 0
 ;PCODE: $000008CB VOL: 0
 ;PCODE: $000008CC VOL: 0
+; 0000 00FC                 delay_ms(50);
 ;PCODE: $000008CD VOL: 0
 ;PCODE: $000008CE VOL: 0
 ;PCODE: $000008CF VOL: 0
-; 0000 00EC                     STATE = CHECK_PNUM_INIT;
+; 0000 00FD             }
+; 0000 00FE         else if(t==0 & zero_flag) //zero_flag가 실행된 경우에만 0으로 입력
 ;PCODE: $000008D0 VOL: 0
 ;PCODE: $000008D1 VOL: 0
-; 0000 00ED                 }
-; 0000 00EE                 delay_ms(10);
 ;PCODE: $000008D2 VOL: 0
 ;PCODE: $000008D3 VOL: 0
 ;PCODE: $000008D4 VOL: 0
 ;PCODE: $000008D5 VOL: 0
-; 0000 00EF                 break;
 ;PCODE: $000008D6 VOL: 0
-; 0000 00F0 
-; 0000 00F1             case INPUT_PHONE_INIT:
+; 0000 00FF             {
+; 0000 0100                 count++;
 ;PCODE: $000008D7 VOL: 0
 ;PCODE: $000008D8 VOL: 0
 ;PCODE: $000008D9 VOL: 0
-; 0000 00F2                 fnd[0]=0;
 ;PCODE: $000008DA VOL: 0
+; 0000 0101                 zero_flag =0; //계속 0으로 입력된 상태가 안되게 zero_flag를 다시 0으로
 ;PCODE: $000008DB VOL: 0
-; 0000 00F3                 LCD_Clear();
+; 0000 0102                 delay_ms(50);
 ;PCODE: $000008DC VOL: 0
-; 0000 00F4                 LCD_Pos(0,0);
 ;PCODE: $000008DD VOL: 0
 ;PCODE: $000008DE VOL: 0
+; 0000 0103             }
+; 0000 0104         else if(t==13) // FND 출력숫자 리셋버튼 기능
 ;PCODE: $000008DF VOL: 0
 ;PCODE: $000008E0 VOL: 0
 ;PCODE: $000008E1 VOL: 0
-; 0000 00F5                 LCD_Str("Input PhoneNum") ;
 ;PCODE: $000008E2 VOL: 0
 ;PCODE: $000008E3 VOL: 0
+; 0000 0105             {
+; 0000 0106                 fnd[0]=0,fnd[1]=0,fnd[2]=0,fnd[3]=0;
 ;PCODE: $000008E4 VOL: 0
 ;PCODE: $000008E5 VOL: 0
-; 0000 00F6                 STATE = INPUT_PHONE;
 ;PCODE: $000008E6 VOL: 0
 ;PCODE: $000008E7 VOL: 0
-; 0000 00F7 
-; 0000 00F8                 if (user_state[user_name] == 'O'){
 ;PCODE: $000008E8 VOL: 0
 ;PCODE: $000008E9 VOL: 0
 ;PCODE: $000008EA VOL: 0
 ;PCODE: $000008EB VOL: 0
+; 0000 0107             }
+; 0000 0108         else if (t ==14)
 ;PCODE: $000008EC VOL: 0
 ;PCODE: $000008ED VOL: 0
 ;PCODE: $000008EE VOL: 0
-; 0000 00F9                     LCD_Clear();
 ;PCODE: $000008EF VOL: 0
-; 0000 00FA                     LCD_Pos(0,0);
 ;PCODE: $000008F0 VOL: 0
+; 0000 0109             {
+; 0000 010A                STATE = START;
 ;PCODE: $000008F1 VOL: 0
 ;PCODE: $000008F2 VOL: 0
+; 0000 010B             }
+; 0000 010C 
+; 0000 010D         if((count%2) ==0){ //count가 짝수일때 들어온 t값을 저장하고
 ;PCODE: $000008F3 VOL: 0
 ;PCODE: $000008F4 VOL: 0
-; 0000 00FB                     LCD_Str("Someone Used");
 ;PCODE: $000008F5 VOL: 0
 ;PCODE: $000008F6 VOL: 0
 ;PCODE: $000008F7 VOL: 0
 ;PCODE: $000008F8 VOL: 0
-; 0000 00FC                     delay_ms(1000);
 ;PCODE: $000008F9 VOL: 0
 ;PCODE: $000008FA VOL: 0
 ;PCODE: $000008FB VOL: 0
-; 0000 00FD                     STATE = START;
+; 0000 010E                             //다시 count를 홀수로 만듬
+; 0000 010F             for(i=11;i>0;i--) {
 ;PCODE: $000008FC VOL: 0
 ;PCODE: $000008FD VOL: 0
-; 0000 00FE                 }
-; 0000 00FF 
-; 0000 0100                 break;
 ;PCODE: $000008FE VOL: 0
 ;PCODE: $000008FF VOL: 0
-; 0000 0101             case CHECK_PNUM:
 ;PCODE: $00000900 VOL: 0
 ;PCODE: $00000901 VOL: 0
 ;PCODE: $00000902 VOL: 0
-; 0000 0102 
-; 0000 0103                 if (fnd[1] == 1 && fnd[0] == 10){
 ;PCODE: $00000903 VOL: 0
 ;PCODE: $00000904 VOL: 0
 ;PCODE: $00000905 VOL: 0
+; 0000 0110                 fnd[i] = fnd[i-1];
 ;PCODE: $00000906 VOL: 0
 ;PCODE: $00000907 VOL: 0
 ;PCODE: $00000908 VOL: 0
@@ -2694,101 +2722,96 @@ _0xA:
 ;PCODE: $0000090A VOL: 0
 ;PCODE: $0000090B VOL: 0
 ;PCODE: $0000090C VOL: 0
-; 0000 0104                     user_state[user_name] = 'O';
 ;PCODE: $0000090D VOL: 0
 ;PCODE: $0000090E VOL: 0
 ;PCODE: $0000090F VOL: 0
 ;PCODE: $00000910 VOL: 0
 ;PCODE: $00000911 VOL: 0
 ;PCODE: $00000912 VOL: 0
-; 0000 0105                     /*OCR1A = 3000;
-; 0000 0106                     LCD_Clear();
-; 0000 0107                     LCD_Pos(0,0);
-; 0000 0108                     LCD_Str("Door Open") ;
-; 0000 0109                     delay_ms(5000);
-; 0000 010A                     OCR1A = 4710;*/
-; 0000 010B                     STATE = START;
+; 0000 0111                 delay_us(10);
 ;PCODE: $00000913 VOL: 0
+; 0000 0112             }
 ;PCODE: $00000914 VOL: 0
-; 0000 010C                     fnd[0]=0;
 ;PCODE: $00000915 VOL: 0
 ;PCODE: $00000916 VOL: 0
-; 0000 010D                     user_name = 4;
 ;PCODE: $00000917 VOL: 0
 ;PCODE: $00000918 VOL: 0
-; 0000 010E                 }
-; 0000 010F                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_INIT;
 ;PCODE: $00000919 VOL: 0
+; 0000 0113             fnd[0] = t;
 ;PCODE: $0000091A VOL: 0
 ;PCODE: $0000091B VOL: 0
+; 0000 0114             count++;
 ;PCODE: $0000091C VOL: 0
 ;PCODE: $0000091D VOL: 0
 ;PCODE: $0000091E VOL: 0
 ;PCODE: $0000091F VOL: 0
+; 0000 0115             delay_ms(50);
 ;PCODE: $00000920 VOL: 0
 ;PCODE: $00000921 VOL: 0
 ;PCODE: $00000922 VOL: 0
+; 0000 0116         }
+; 0000 0117         finalnum = 1000*fnd[3] + 100*fnd[2] + 10*fnd[1] + fnd[0];
 ;PCODE: $00000923 VOL: 0
 ;PCODE: $00000924 VOL: 0
 ;PCODE: $00000925 VOL: 0
 ;PCODE: $00000926 VOL: 0
-; 0000 0110             break;
 ;PCODE: $00000927 VOL: 0
 ;PCODE: $00000928 VOL: 0
 ;PCODE: $00000929 VOL: 0
-; 0000 0111             case CHECK_PNUM_INIT:
 ;PCODE: $0000092A VOL: 0
 ;PCODE: $0000092B VOL: 0
 ;PCODE: $0000092C VOL: 0
-; 0000 0112                 fnd[0]=0;
 ;PCODE: $0000092D VOL: 0
 ;PCODE: $0000092E VOL: 0
-; 0000 0113                 LCD_Clear();
 ;PCODE: $0000092F VOL: 0
-; 0000 0114                 LCD_Pos(0,0);
 ;PCODE: $00000930 VOL: 0
 ;PCODE: $00000931 VOL: 0
 ;PCODE: $00000932 VOL: 0
 ;PCODE: $00000933 VOL: 0
+; 0000 0118         OUTFND(finalnum); //FND 출력
 ;PCODE: $00000934 VOL: 0
-; 0000 0115                 LCD_Str(user_pnumber[user_name]);
 ;PCODE: $00000935 VOL: 0
 ;PCODE: $00000936 VOL: 0
+; 0000 0119         buzzer_play_function(t); //숫자에 맞는 음 출력
 ;PCODE: $00000937 VOL: 0
 ;PCODE: $00000938 VOL: 0
+; 0000 011A 
+; 0000 011B 
+; 0000 011C 
+; 0000 011D 
+; 0000 011E 
+; 0000 011F 
+; 0000 0120         switch (STATE) {  //LCD처
 ;PCODE: $00000939 VOL: 0
 ;PCODE: $0000093A VOL: 0
+; 0000 0121 
+; 0000 0122             case NONE: //기본 상태
 ;PCODE: $0000093B VOL: 0
-; 0000 0116                 LCD_Pos(1,0);
 ;PCODE: $0000093C VOL: 0
+; 0000 0123                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10) {
 ;PCODE: $0000093D VOL: 0
 ;PCODE: $0000093E VOL: 0
 ;PCODE: $0000093F VOL: 0
 ;PCODE: $00000940 VOL: 0
-; 0000 0117                 LCD_Str("1:Yes  2:No");
 ;PCODE: $00000941 VOL: 0
 ;PCODE: $00000942 VOL: 0
 ;PCODE: $00000943 VOL: 0
 ;PCODE: $00000944 VOL: 0
-; 0000 0118                 fnd[1] = 0;
 ;PCODE: $00000945 VOL: 0
 ;PCODE: $00000946 VOL: 0
-; 0000 0119                 STATE = CHECK_PNUM;
 ;PCODE: $00000947 VOL: 0
 ;PCODE: $00000948 VOL: 0
-; 0000 011A             break;
 ;PCODE: $00000949 VOL: 0
-; 0000 011B 
-; 0000 011C             case EXIT_CHOOSE:  //퇴장 번호 선
+; 0000 0124                     user_name = fnd[1]-1;
 ;PCODE: $0000094A VOL: 0
 ;PCODE: $0000094B VOL: 0
 ;PCODE: $0000094C VOL: 0
-; 0000 011D 
-; 0000 011E                 user_name = fnd[1]-1;
+; 0000 0125                     STATE=INPUT_PHONE_INIT ;
 ;PCODE: $0000094D VOL: 0
 ;PCODE: $0000094E VOL: 0
+; 0000 0126                 }
+; 0000 0127                 if (fnd[1]==4 && fnd[0] == 10) { //탈출 모드
 ;PCODE: $0000094F VOL: 0
-; 0000 011F                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10){
 ;PCODE: $00000950 VOL: 0
 ;PCODE: $00000951 VOL: 0
 ;PCODE: $00000952 VOL: 0
@@ -2799,101 +2822,84 @@ _0xA:
 ;PCODE: $00000957 VOL: 0
 ;PCODE: $00000958 VOL: 0
 ;PCODE: $00000959 VOL: 0
+; 0000 0128                     LCD_Clear();
 ;PCODE: $0000095A VOL: 0
+; 0000 0129                     LCD_Pos(0,0);
 ;PCODE: $0000095B VOL: 0
 ;PCODE: $0000095C VOL: 0
-; 0000 0120 
-; 0000 0121                     STATE = INPUT_PHONE_OUT_INIT;
 ;PCODE: $0000095D VOL: 0
 ;PCODE: $0000095E VOL: 0
-; 0000 0122 
-; 0000 0123                     if (user_state[user_name] != 'O'){
 ;PCODE: $0000095F VOL: 0
+; 0000 012A                     LCD_Str("Choose Seat");
 ;PCODE: $00000960 VOL: 0
 ;PCODE: $00000961 VOL: 0
 ;PCODE: $00000962 VOL: 0
 ;PCODE: $00000963 VOL: 0
+; 0000 012B                     LCD_Pos(1,0);
 ;PCODE: $00000964 VOL: 0
 ;PCODE: $00000965 VOL: 0
-; 0000 0124                         LCD_Clear();
 ;PCODE: $00000966 VOL: 0
-; 0000 0125                         LCD_Pos(0,0);
 ;PCODE: $00000967 VOL: 0
 ;PCODE: $00000968 VOL: 0
+; 0000 012C                     if (user_state[0] == 'O') LCD_Str("1  ");
 ;PCODE: $00000969 VOL: 0
 ;PCODE: $0000096A VOL: 0
 ;PCODE: $0000096B VOL: 0
-; 0000 0126                         LCD_Str("Empty Seat");
 ;PCODE: $0000096C VOL: 0
 ;PCODE: $0000096D VOL: 0
 ;PCODE: $0000096E VOL: 0
 ;PCODE: $0000096F VOL: 0
-; 0000 0127                         delay_ms(1000);
+; 0000 012D                     if (user_state[1] == 'O') LCD_Str("2  ");
 ;PCODE: $00000970 VOL: 0
 ;PCODE: $00000971 VOL: 0
 ;PCODE: $00000972 VOL: 0
-; 0000 0128                         fnd[0]=0;
 ;PCODE: $00000973 VOL: 0
 ;PCODE: $00000974 VOL: 0
-; 0000 0129                         STATE = START;
 ;PCODE: $00000975 VOL: 0
 ;PCODE: $00000976 VOL: 0
-; 0000 012A                     }
-; 0000 012B                 }
 ;PCODE: $00000977 VOL: 0
-; 0000 012C 
-; 0000 012D 
-; 0000 012E 
-; 0000 012F             break;
+; 0000 012E                     if (user_state[2] == 'O') LCD_Str("3  ");
 ;PCODE: $00000978 VOL: 0
 ;PCODE: $00000979 VOL: 0
-; 0000 0130              case CHECK_PNUM_OUT_INIT:
 ;PCODE: $0000097A VOL: 0
 ;PCODE: $0000097B VOL: 0
 ;PCODE: $0000097C VOL: 0
-; 0000 0131                  fnd[0]=0;
 ;PCODE: $0000097D VOL: 0
 ;PCODE: $0000097E VOL: 0
-; 0000 0132                  fnd[1] = 0;
 ;PCODE: $0000097F VOL: 0
+; 0000 012F                     STATE=EXIT_CHOOSE ;
 ;PCODE: $00000980 VOL: 0
-; 0000 0133                  LCD_Clear();
 ;PCODE: $00000981 VOL: 0
-; 0000 0134                  LCD_Pos(0,0);
 ;PCODE: $00000982 VOL: 0
+; 0000 0130                 }
+; 0000 0131                 break;
 ;PCODE: $00000983 VOL: 0
 ;PCODE: $00000984 VOL: 0
+; 0000 0132 
+; 0000 0133             case START: //업로드
 ;PCODE: $00000985 VOL: 0
 ;PCODE: $00000986 VOL: 0
-; 0000 0135                  LCD_Str(check_pnumber);
 ;PCODE: $00000987 VOL: 0
+; 0000 0134                 LCD_Pos(0,0);
 ;PCODE: $00000988 VOL: 0
 ;PCODE: $00000989 VOL: 0
-; 0000 0136                  LCD_Pos(1,0);
 ;PCODE: $0000098A VOL: 0
 ;PCODE: $0000098B VOL: 0
 ;PCODE: $0000098C VOL: 0
+; 0000 0135                 LCD_Str("StudyRoom  4:OUT");
 ;PCODE: $0000098D VOL: 0
 ;PCODE: $0000098E VOL: 0
-; 0000 0137 
-; 0000 0138                  LCD_Str("1:Yes  2:No");
 ;PCODE: $0000098F VOL: 0
 ;PCODE: $00000990 VOL: 0
+; 0000 0136                 sprintf(Message, "1:%c 2:%c 3:%c", user_state[0],user_state[1],user_state[2]);
 ;PCODE: $00000991 VOL: 0
 ;PCODE: $00000992 VOL: 0
-; 0000 0139                  STATE = CHECK_PNUM_OUT;
 ;PCODE: $00000993 VOL: 0
 ;PCODE: $00000994 VOL: 0
-; 0000 013A 
-; 0000 013B 
-; 0000 013C             break;
 ;PCODE: $00000995 VOL: 0
-; 0000 013D             case CHECK_PNUM_OUT:   //비밀번호 일치시 탈출
 ;PCODE: $00000996 VOL: 0
 ;PCODE: $00000997 VOL: 0
 ;PCODE: $00000998 VOL: 0
-; 0000 013E 
-; 0000 013F                  if (fnd[1] == 1 && fnd[0] == 10){
 ;PCODE: $00000999 VOL: 0
 ;PCODE: $0000099A VOL: 0
 ;PCODE: $0000099B VOL: 0
@@ -2904,41 +2910,32 @@ _0xA:
 ;PCODE: $000009A0 VOL: 0
 ;PCODE: $000009A1 VOL: 0
 ;PCODE: $000009A2 VOL: 0
-; 0000 0140                    int cnt=0;
-; 0000 0141                    for(i=0;i<11;i++){
+; 0000 0137                 LCD_Pos(1,0);
 ;PCODE: $000009A3 VOL: 0
 ;PCODE: $000009A4 VOL: 0
 ;PCODE: $000009A5 VOL: 0
 ;PCODE: $000009A6 VOL: 0
 ;PCODE: $000009A7 VOL: 0
-;	Sonar_range -> Y+159
-;	Message -> Y+119
-;	count -> Y+117
-;	finalnum -> Y+115
-;	fnd -> Y+91
-;	angle -> Y+89
-;	STATE -> Y+88
-;	user_state -> Y+85
-;	i -> Y+83
-;	user_pnumber -> Y+50
-;	check_pnumber -> Y+39
-;	user_name -> Y+38
-;	num -> Y+5
-;	empty_cnt -> Y+2
-;	cnt -> Y+0
+; 0000 0138                 LCD_Str(Message);
 ;PCODE: $000009A8 VOL: 0
 ;PCODE: $000009A9 VOL: 0
 ;PCODE: $000009AA VOL: 0
+; 0000 0139                 STATE = NONE;
 ;PCODE: $000009AB VOL: 0
 ;PCODE: $000009AC VOL: 0
+; 0000 013A                 break;
 ;PCODE: $000009AD VOL: 0
+; 0000 013B 
+; 0000 013C             case INPUT_PHONE: //입장 : 폰번호 입력
 ;PCODE: $000009AE VOL: 0
 ;PCODE: $000009AF VOL: 0
 ;PCODE: $000009B0 VOL: 0
+; 0000 013D 
+; 0000 013E                 if (fnd[0] == 10){
 ;PCODE: $000009B1 VOL: 0
 ;PCODE: $000009B2 VOL: 0
-; 0000 0142                       if(num[user_name][i] == check_pnumber[i] ) cnt ++;  }
 ;PCODE: $000009B3 VOL: 0
+; 0000 013F                     sprintf(user_pnumber[user_name], "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]);
 ;PCODE: $000009B4 VOL: 0
 ;PCODE: $000009B5 VOL: 0
 ;PCODE: $000009B6 VOL: 0
@@ -2963,120 +2960,106 @@ _0xA:
 ;PCODE: $000009C9 VOL: 0
 ;PCODE: $000009CA VOL: 0
 ;PCODE: $000009CB VOL: 0
-; 0000 0143 
-; 0000 0144                     if (cnt == 11 ){  //비밀번호 일치
 ;PCODE: $000009CC VOL: 0
 ;PCODE: $000009CD VOL: 0
 ;PCODE: $000009CE VOL: 0
-; 0000 0145                        LCD_Clear();
 ;PCODE: $000009CF VOL: 0
-; 0000 0146                        LCD_Pos(0,0);
 ;PCODE: $000009D0 VOL: 0
 ;PCODE: $000009D1 VOL: 0
 ;PCODE: $000009D2 VOL: 0
 ;PCODE: $000009D3 VOL: 0
 ;PCODE: $000009D4 VOL: 0
-; 0000 0147                        LCD_Str("User Check") ;
 ;PCODE: $000009D5 VOL: 0
 ;PCODE: $000009D6 VOL: 0
 ;PCODE: $000009D7 VOL: 0
 ;PCODE: $000009D8 VOL: 0
-; 0000 0148                        LCD_Pos(1,0);
 ;PCODE: $000009D9 VOL: 0
 ;PCODE: $000009DA VOL: 0
 ;PCODE: $000009DB VOL: 0
 ;PCODE: $000009DC VOL: 0
 ;PCODE: $000009DD VOL: 0
-; 0000 0149                        LCD_Str("Good Bye") ;
 ;PCODE: $000009DE VOL: 0
 ;PCODE: $000009DF VOL: 0
 ;PCODE: $000009E0 VOL: 0
 ;PCODE: $000009E1 VOL: 0
-; 0000 014A                        /*OCR1A = 3000;
-; 0000 014B                         delay_ms(5000);
-; 0000 014C                         OCR1A = 4710;    */
-; 0000 014D                       user_state[user_name] ='X';
+; 0000 0140                     user_state[user_name] ='X';
 ;PCODE: $000009E2 VOL: 0
 ;PCODE: $000009E3 VOL: 0
 ;PCODE: $000009E4 VOL: 0
 ;PCODE: $000009E5 VOL: 0
 ;PCODE: $000009E6 VOL: 0
 ;PCODE: $000009E7 VOL: 0
-; 0000 014E                       STATE = START;
+; 0000 0141                     for(i=0;i<11;i++){
 ;PCODE: $000009E8 VOL: 0
 ;PCODE: $000009E9 VOL: 0
-; 0000 014F                       fnd[0] = 0;
 ;PCODE: $000009EA VOL: 0
 ;PCODE: $000009EB VOL: 0
-; 0000 0150                     }
-; 0000 0151                     else{ //비밀번호 불일치
 ;PCODE: $000009EC VOL: 0
 ;PCODE: $000009ED VOL: 0
-; 0000 0152                       LCD_Clear();
 ;PCODE: $000009EE VOL: 0
-; 0000 0153                       LCD_Pos(0,0);
 ;PCODE: $000009EF VOL: 0
 ;PCODE: $000009F0 VOL: 0
 ;PCODE: $000009F1 VOL: 0
+; 0000 0142                         num[user_name][i] = user_pnumber[user_name][i];
 ;PCODE: $000009F2 VOL: 0
 ;PCODE: $000009F3 VOL: 0
-; 0000 0154                       LCD_Str("Wrong Password") ;
 ;PCODE: $000009F4 VOL: 0
 ;PCODE: $000009F5 VOL: 0
 ;PCODE: $000009F6 VOL: 0
 ;PCODE: $000009F7 VOL: 0
-; 0000 0155                       delay_ms(2000);
 ;PCODE: $000009F8 VOL: 0
 ;PCODE: $000009F9 VOL: 0
 ;PCODE: $000009FA VOL: 0
-; 0000 0156                       fnd[0] = 0;
 ;PCODE: $000009FB VOL: 0
 ;PCODE: $000009FC VOL: 0
-; 0000 0157                       STATE = START;
 ;PCODE: $000009FD VOL: 0
 ;PCODE: $000009FE VOL: 0
-; 0000 0158                     }
 ;PCODE: $000009FF VOL: 0
-; 0000 0159                 }
 ;PCODE: $00000A00 VOL: 0
-; 0000 015A                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_OUT_INIT;
+; 0000 0143                     }
 ;PCODE: $00000A01 VOL: 0
 ;PCODE: $00000A02 VOL: 0
 ;PCODE: $00000A03 VOL: 0
 ;PCODE: $00000A04 VOL: 0
 ;PCODE: $00000A05 VOL: 0
 ;PCODE: $00000A06 VOL: 0
+; 0000 0144                     STATE = CHECK_PNUM_INIT;
 ;PCODE: $00000A07 VOL: 0
 ;PCODE: $00000A08 VOL: 0
+; 0000 0145                 }
+; 0000 0146                 delay_ms(10);
 ;PCODE: $00000A09 VOL: 0
 ;PCODE: $00000A0A VOL: 0
 ;PCODE: $00000A0B VOL: 0
 ;PCODE: $00000A0C VOL: 0
+; 0000 0147                 break;
 ;PCODE: $00000A0D VOL: 0
+; 0000 0148 
+; 0000 0149             case INPUT_PHONE_INIT:
 ;PCODE: $00000A0E VOL: 0
-; 0000 015B 
-; 0000 015C 
-; 0000 015D             break;
 ;PCODE: $00000A0F VOL: 0
 ;PCODE: $00000A10 VOL: 0
+; 0000 014A                 fnd[0]=0;
 ;PCODE: $00000A11 VOL: 0
-; 0000 015E             case INPUT_PHONE_OUT: //퇴장 : 폰번호 입력
 ;PCODE: $00000A12 VOL: 0
+; 0000 014B                 LCD_Clear();
 ;PCODE: $00000A13 VOL: 0
+; 0000 014C                 LCD_Pos(0,0);
 ;PCODE: $00000A14 VOL: 0
-; 0000 015F 
-; 0000 0160                 if (fnd[0] == 10){
 ;PCODE: $00000A15 VOL: 0
 ;PCODE: $00000A16 VOL: 0
 ;PCODE: $00000A17 VOL: 0
-; 0000 0161                     sprintf(check_pnumber, "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]);
 ;PCODE: $00000A18 VOL: 0
+; 0000 014D                 LCD_Str("Input PhoneNum") ;
 ;PCODE: $00000A19 VOL: 0
 ;PCODE: $00000A1A VOL: 0
 ;PCODE: $00000A1B VOL: 0
 ;PCODE: $00000A1C VOL: 0
+; 0000 014E                 STATE = INPUT_PHONE;
 ;PCODE: $00000A1D VOL: 0
 ;PCODE: $00000A1E VOL: 0
+; 0000 014F 
+; 0000 0150                 if (user_state[user_name] == 'O'){
 ;PCODE: $00000A1F VOL: 0
 ;PCODE: $00000A20 VOL: 0
 ;PCODE: $00000A21 VOL: 0
@@ -3084,26 +3067,37 @@ _0xA:
 ;PCODE: $00000A23 VOL: 0
 ;PCODE: $00000A24 VOL: 0
 ;PCODE: $00000A25 VOL: 0
+; 0000 0151                     LCD_Clear();
 ;PCODE: $00000A26 VOL: 0
+; 0000 0152                     LCD_Pos(0,0);
 ;PCODE: $00000A27 VOL: 0
 ;PCODE: $00000A28 VOL: 0
 ;PCODE: $00000A29 VOL: 0
 ;PCODE: $00000A2A VOL: 0
 ;PCODE: $00000A2B VOL: 0
+; 0000 0153                     LCD_Str("Someone Used");
 ;PCODE: $00000A2C VOL: 0
 ;PCODE: $00000A2D VOL: 0
 ;PCODE: $00000A2E VOL: 0
 ;PCODE: $00000A2F VOL: 0
+; 0000 0154                     delay_ms(1000);
 ;PCODE: $00000A30 VOL: 0
 ;PCODE: $00000A31 VOL: 0
 ;PCODE: $00000A32 VOL: 0
+; 0000 0155                     STATE = START;
 ;PCODE: $00000A33 VOL: 0
 ;PCODE: $00000A34 VOL: 0
+; 0000 0156                 }
+; 0000 0157 
+; 0000 0158                 break;
 ;PCODE: $00000A35 VOL: 0
 ;PCODE: $00000A36 VOL: 0
+; 0000 0159             case CHECK_PNUM:
 ;PCODE: $00000A37 VOL: 0
 ;PCODE: $00000A38 VOL: 0
 ;PCODE: $00000A39 VOL: 0
+; 0000 015A 
+; 0000 015B                 if (fnd[1] == 1 && fnd[0] == 10){
 ;PCODE: $00000A3A VOL: 0
 ;PCODE: $00000A3B VOL: 0
 ;PCODE: $00000A3C VOL: 0
@@ -3112,60 +3106,500 @@ _0xA:
 ;PCODE: $00000A3F VOL: 0
 ;PCODE: $00000A40 VOL: 0
 ;PCODE: $00000A41 VOL: 0
-; 0000 0162 
-; 0000 0163                     STATE = CHECK_PNUM_OUT_INIT;
 ;PCODE: $00000A42 VOL: 0
 ;PCODE: $00000A43 VOL: 0
-; 0000 0164                 }
-; 0000 0165                 delay_ms(10);
+; 0000 015C                     user_state[user_name] = 'O';
 ;PCODE: $00000A44 VOL: 0
 ;PCODE: $00000A45 VOL: 0
 ;PCODE: $00000A46 VOL: 0
 ;PCODE: $00000A47 VOL: 0
-; 0000 0166                 break;
 ;PCODE: $00000A48 VOL: 0
-; 0000 0167 
-; 0000 0168              case INPUT_PHONE_OUT_INIT: //퇴장 : 폰번호 입력
 ;PCODE: $00000A49 VOL: 0
+; 0000 015D                     OCR1A = 3000;
 ;PCODE: $00000A4A VOL: 0
 ;PCODE: $00000A4B VOL: 0
-; 0000 0169 
-; 0000 016A 
-; 0000 016B                 fnd[0]=0;
+; 0000 015E                     LCD_Clear();
 ;PCODE: $00000A4C VOL: 0
+; 0000 015F                     LCD_Pos(0,0);
 ;PCODE: $00000A4D VOL: 0
-; 0000 016C                 LCD_Clear();
 ;PCODE: $00000A4E VOL: 0
-; 0000 016D                 LCD_Pos(0,0);
 ;PCODE: $00000A4F VOL: 0
 ;PCODE: $00000A50 VOL: 0
 ;PCODE: $00000A51 VOL: 0
+; 0000 0160                     LCD_Str("Door Open") ;
 ;PCODE: $00000A52 VOL: 0
 ;PCODE: $00000A53 VOL: 0
-; 0000 016E                 LCD_Str("Input PhoneNum") ;
 ;PCODE: $00000A54 VOL: 0
 ;PCODE: $00000A55 VOL: 0
+; 0000 0161                     delay_ms(5000);
 ;PCODE: $00000A56 VOL: 0
 ;PCODE: $00000A57 VOL: 0
-; 0000 016F                 STATE = INPUT_PHONE_OUT;
 ;PCODE: $00000A58 VOL: 0
+; 0000 0162                     OCR1A = 4710;
 ;PCODE: $00000A59 VOL: 0
-; 0000 0170                 break;
 ;PCODE: $00000A5A VOL: 0
-; 0000 0171 
-; 0000 0172 
-; 0000 0173         }
+; 0000 0163                     STATE = START;
 ;PCODE: $00000A5B VOL: 0
-; 0000 0174 
-; 0000 0175     }
 ;PCODE: $00000A5C VOL: 0
+; 0000 0164                     fnd[0]=0;
 ;PCODE: $00000A5D VOL: 0
-; 0000 0176 }
 ;PCODE: $00000A5E VOL: 0
+; 0000 0165                     user_name = 4;
 ;PCODE: $00000A5F VOL: 0
 ;PCODE: $00000A60 VOL: 0
+; 0000 0166                 }
+; 0000 0167                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_INIT;
 ;PCODE: $00000A61 VOL: 0
+;PCODE: $00000A62 VOL: 0
+;PCODE: $00000A63 VOL: 0
+;PCODE: $00000A64 VOL: 0
+;PCODE: $00000A65 VOL: 0
+;PCODE: $00000A66 VOL: 0
+;PCODE: $00000A67 VOL: 0
+;PCODE: $00000A68 VOL: 0
+;PCODE: $00000A69 VOL: 0
+;PCODE: $00000A6A VOL: 0
+;PCODE: $00000A6B VOL: 0
+;PCODE: $00000A6C VOL: 0
+;PCODE: $00000A6D VOL: 0
+;PCODE: $00000A6E VOL: 0
+; 0000 0168             break;
+;PCODE: $00000A6F VOL: 0
+;PCODE: $00000A70 VOL: 0
+;PCODE: $00000A71 VOL: 0
+; 0000 0169             case CHECK_PNUM_INIT:
+;PCODE: $00000A72 VOL: 0
+;PCODE: $00000A73 VOL: 0
+;PCODE: $00000A74 VOL: 0
+; 0000 016A                 fnd[0]=0;
+;PCODE: $00000A75 VOL: 0
+;PCODE: $00000A76 VOL: 0
+; 0000 016B                 LCD_Clear();
+;PCODE: $00000A77 VOL: 0
+; 0000 016C                 LCD_Pos(0,0);
+;PCODE: $00000A78 VOL: 0
+;PCODE: $00000A79 VOL: 0
+;PCODE: $00000A7A VOL: 0
+;PCODE: $00000A7B VOL: 0
+;PCODE: $00000A7C VOL: 0
+; 0000 016D                 LCD_Str(user_pnumber[user_name]);
+;PCODE: $00000A7D VOL: 0
+;PCODE: $00000A7E VOL: 0
+;PCODE: $00000A7F VOL: 0
+;PCODE: $00000A80 VOL: 0
+;PCODE: $00000A81 VOL: 0
+;PCODE: $00000A82 VOL: 0
+;PCODE: $00000A83 VOL: 0
+; 0000 016E                 LCD_Pos(1,0);
+;PCODE: $00000A84 VOL: 0
+;PCODE: $00000A85 VOL: 0
+;PCODE: $00000A86 VOL: 0
+;PCODE: $00000A87 VOL: 0
+;PCODE: $00000A88 VOL: 0
+; 0000 016F                 LCD_Str("1:Yes  2:No");
+;PCODE: $00000A89 VOL: 0
+;PCODE: $00000A8A VOL: 0
+;PCODE: $00000A8B VOL: 0
+;PCODE: $00000A8C VOL: 0
+; 0000 0170                 fnd[1] = 0;
+;PCODE: $00000A8D VOL: 0
+;PCODE: $00000A8E VOL: 0
+; 0000 0171                 STATE = CHECK_PNUM;
+;PCODE: $00000A8F VOL: 0
+;PCODE: $00000A90 VOL: 0
+; 0000 0172             break;
+;PCODE: $00000A91 VOL: 0
+; 0000 0173 
+; 0000 0174             case EXIT_CHOOSE:  //퇴장 번호 선
+;PCODE: $00000A92 VOL: 0
+;PCODE: $00000A93 VOL: 0
+;PCODE: $00000A94 VOL: 0
+; 0000 0175 
+; 0000 0176                 user_name = fnd[1]-1;
+;PCODE: $00000A95 VOL: 0
+;PCODE: $00000A96 VOL: 0
+;PCODE: $00000A97 VOL: 0
+; 0000 0177                 if (fnd[1] <=3 && fnd[1] >0 && fnd[0] == 10){
+;PCODE: $00000A98 VOL: 0
+;PCODE: $00000A99 VOL: 0
+;PCODE: $00000A9A VOL: 0
+;PCODE: $00000A9B VOL: 0
+;PCODE: $00000A9C VOL: 0
+;PCODE: $00000A9D VOL: 0
+;PCODE: $00000A9E VOL: 0
+;PCODE: $00000A9F VOL: 0
+;PCODE: $00000AA0 VOL: 0
+;PCODE: $00000AA1 VOL: 0
+;PCODE: $00000AA2 VOL: 0
+;PCODE: $00000AA3 VOL: 0
+;PCODE: $00000AA4 VOL: 0
+; 0000 0178 
+; 0000 0179                     STATE = INPUT_PHONE_OUT_INIT;
+;PCODE: $00000AA5 VOL: 0
+;PCODE: $00000AA6 VOL: 0
+; 0000 017A 
+; 0000 017B                     if (user_state[user_name] != 'O'){
+;PCODE: $00000AA7 VOL: 0
+;PCODE: $00000AA8 VOL: 0
+;PCODE: $00000AA9 VOL: 0
+;PCODE: $00000AAA VOL: 0
+;PCODE: $00000AAB VOL: 0
+;PCODE: $00000AAC VOL: 0
+;PCODE: $00000AAD VOL: 0
+; 0000 017C                         LCD_Clear();
+;PCODE: $00000AAE VOL: 0
+; 0000 017D                         LCD_Pos(0,0);
+;PCODE: $00000AAF VOL: 0
+;PCODE: $00000AB0 VOL: 0
+;PCODE: $00000AB1 VOL: 0
+;PCODE: $00000AB2 VOL: 0
+;PCODE: $00000AB3 VOL: 0
+; 0000 017E                         LCD_Str("Empty Seat");
+;PCODE: $00000AB4 VOL: 0
+;PCODE: $00000AB5 VOL: 0
+;PCODE: $00000AB6 VOL: 0
+;PCODE: $00000AB7 VOL: 0
+; 0000 017F                         delay_ms(1000);
+;PCODE: $00000AB8 VOL: 0
+;PCODE: $00000AB9 VOL: 0
+;PCODE: $00000ABA VOL: 0
+; 0000 0180                         fnd[0]=0;
+;PCODE: $00000ABB VOL: 0
+;PCODE: $00000ABC VOL: 0
+; 0000 0181                         STATE = START;
+;PCODE: $00000ABD VOL: 0
+;PCODE: $00000ABE VOL: 0
+; 0000 0182                     }
+; 0000 0183                 }
+;PCODE: $00000ABF VOL: 0
+; 0000 0184 
+; 0000 0185 
+; 0000 0186 
+; 0000 0187             break;
+;PCODE: $00000AC0 VOL: 0
+;PCODE: $00000AC1 VOL: 0
+; 0000 0188              case CHECK_PNUM_OUT_INIT:
+;PCODE: $00000AC2 VOL: 0
+;PCODE: $00000AC3 VOL: 0
+;PCODE: $00000AC4 VOL: 0
+; 0000 0189                  fnd[0]=0;
+;PCODE: $00000AC5 VOL: 0
+;PCODE: $00000AC6 VOL: 0
+; 0000 018A                  fnd[1] = 0;
+;PCODE: $00000AC7 VOL: 0
+;PCODE: $00000AC8 VOL: 0
+; 0000 018B                  LCD_Clear();
+;PCODE: $00000AC9 VOL: 0
+; 0000 018C                  LCD_Pos(0,0);
+;PCODE: $00000ACA VOL: 0
+;PCODE: $00000ACB VOL: 0
+;PCODE: $00000ACC VOL: 0
+;PCODE: $00000ACD VOL: 0
+;PCODE: $00000ACE VOL: 0
+; 0000 018D                  LCD_Str(check_pnumber);
+;PCODE: $00000ACF VOL: 0
+;PCODE: $00000AD0 VOL: 0
+;PCODE: $00000AD1 VOL: 0
+; 0000 018E                  LCD_Pos(1,0);
+;PCODE: $00000AD2 VOL: 0
+;PCODE: $00000AD3 VOL: 0
+;PCODE: $00000AD4 VOL: 0
+;PCODE: $00000AD5 VOL: 0
+;PCODE: $00000AD6 VOL: 0
+; 0000 018F 
+; 0000 0190                  LCD_Str("1:Yes  2:No");
+;PCODE: $00000AD7 VOL: 0
+;PCODE: $00000AD8 VOL: 0
+;PCODE: $00000AD9 VOL: 0
+;PCODE: $00000ADA VOL: 0
+; 0000 0191                  STATE = CHECK_PNUM_OUT;
+;PCODE: $00000ADB VOL: 0
+;PCODE: $00000ADC VOL: 0
+; 0000 0192 
+; 0000 0193 
+; 0000 0194             break;
+;PCODE: $00000ADD VOL: 0
+; 0000 0195             case CHECK_PNUM_OUT:   //비밀번호 일치시 탈출
+;PCODE: $00000ADE VOL: 0
+;PCODE: $00000ADF VOL: 0
+;PCODE: $00000AE0 VOL: 0
+; 0000 0196 
+; 0000 0197                  if (fnd[1] == 1 && fnd[0] == 10){
+;PCODE: $00000AE1 VOL: 0
+;PCODE: $00000AE2 VOL: 0
+;PCODE: $00000AE3 VOL: 0
+;PCODE: $00000AE4 VOL: 0
+;PCODE: $00000AE5 VOL: 0
+;PCODE: $00000AE6 VOL: 0
+;PCODE: $00000AE7 VOL: 0
+;PCODE: $00000AE8 VOL: 0
+;PCODE: $00000AE9 VOL: 0
+;PCODE: $00000AEA VOL: 0
+; 0000 0198                    int cnt=0;
+; 0000 0199                    for(i=0;i<11;i++){
+;PCODE: $00000AEB VOL: 0
+;PCODE: $00000AEC VOL: 0
+;PCODE: $00000AED VOL: 0
+;PCODE: $00000AEE VOL: 0
+;PCODE: $00000AEF VOL: 0
+;	Sonar_range -> Y+126
+;	Message -> Y+86
+;	count -> Y+84
+;	finalnum -> Y+82
+;	fnd -> Y+58
+;	angle -> Y+56
+;	STATE -> Y+55
+;	user_state -> Y+52
+;	i -> Y+50
+;	user_pnumber -> Y+17
+;	check_pnumber -> Y+6
+;	user_name -> Y+5
+;	empty_cnt -> Y+2
+;	cnt -> Y+0
+;PCODE: $00000AF0 VOL: 0
+;PCODE: $00000AF1 VOL: 0
+;PCODE: $00000AF2 VOL: 0
+;PCODE: $00000AF3 VOL: 0
+;PCODE: $00000AF4 VOL: 0
+;PCODE: $00000AF5 VOL: 0
+;PCODE: $00000AF6 VOL: 0
+;PCODE: $00000AF7 VOL: 0
+;PCODE: $00000AF8 VOL: 0
+;PCODE: $00000AF9 VOL: 0
+; 0000 019A                       if(num[user_name][i] == check_pnumber[i] ) cnt ++;  }
+;PCODE: $00000AFA VOL: 0
+;PCODE: $00000AFB VOL: 0
+;PCODE: $00000AFC VOL: 0
+;PCODE: $00000AFD VOL: 0
+;PCODE: $00000AFE VOL: 0
+;PCODE: $00000AFF VOL: 0
+;PCODE: $00000B00 VOL: 0
+;PCODE: $00000B01 VOL: 0
+;PCODE: $00000B02 VOL: 0
+;PCODE: $00000B03 VOL: 0
+;PCODE: $00000B04 VOL: 0
+;PCODE: $00000B05 VOL: 0
+;PCODE: $00000B06 VOL: 0
+;PCODE: $00000B07 VOL: 0
+;PCODE: $00000B08 VOL: 0
+;PCODE: $00000B09 VOL: 0
+;PCODE: $00000B0A VOL: 0
+;PCODE: $00000B0B VOL: 0
+;PCODE: $00000B0C VOL: 0
+;PCODE: $00000B0D VOL: 0
+;PCODE: $00000B0E VOL: 0
+;PCODE: $00000B0F VOL: 0
+;PCODE: $00000B10 VOL: 0
+; 0000 019B 
+; 0000 019C                     if (cnt == 11 ){  //비밀번호 일치
+;PCODE: $00000B11 VOL: 0
+;PCODE: $00000B12 VOL: 0
+;PCODE: $00000B13 VOL: 0
+; 0000 019D                        LCD_Clear();
+;PCODE: $00000B14 VOL: 0
+; 0000 019E                        LCD_Pos(0,0);
+;PCODE: $00000B15 VOL: 0
+;PCODE: $00000B16 VOL: 0
+;PCODE: $00000B17 VOL: 0
+;PCODE: $00000B18 VOL: 0
+;PCODE: $00000B19 VOL: 0
+; 0000 019F                        LCD_Str("User Check") ;
+;PCODE: $00000B1A VOL: 0
+;PCODE: $00000B1B VOL: 0
+;PCODE: $00000B1C VOL: 0
+;PCODE: $00000B1D VOL: 0
+; 0000 01A0                        LCD_Pos(1,0);
+;PCODE: $00000B1E VOL: 0
+;PCODE: $00000B1F VOL: 0
+;PCODE: $00000B20 VOL: 0
+;PCODE: $00000B21 VOL: 0
+;PCODE: $00000B22 VOL: 0
+; 0000 01A1                        LCD_Str("Good Bye") ;
+;PCODE: $00000B23 VOL: 0
+;PCODE: $00000B24 VOL: 0
+;PCODE: $00000B25 VOL: 0
+;PCODE: $00000B26 VOL: 0
+; 0000 01A2                        OCR1A = 3000;
+;PCODE: $00000B27 VOL: 0
+;PCODE: $00000B28 VOL: 0
+; 0000 01A3                         delay_ms(5000);
+;PCODE: $00000B29 VOL: 0
+;PCODE: $00000B2A VOL: 0
+;PCODE: $00000B2B VOL: 0
+; 0000 01A4                         OCR1A = 4710;
+;PCODE: $00000B2C VOL: 0
+;PCODE: $00000B2D VOL: 0
+; 0000 01A5                       user_state[user_name] ='X';
+;PCODE: $00000B2E VOL: 0
+;PCODE: $00000B2F VOL: 0
+;PCODE: $00000B30 VOL: 0
+;PCODE: $00000B31 VOL: 0
+;PCODE: $00000B32 VOL: 0
+;PCODE: $00000B33 VOL: 0
+; 0000 01A6                       STATE = START;
+;PCODE: $00000B34 VOL: 0
+;PCODE: $00000B35 VOL: 0
+; 0000 01A7                       fnd[0] = 0;
+;PCODE: $00000B36 VOL: 0
+;PCODE: $00000B37 VOL: 0
+; 0000 01A8                     }
+; 0000 01A9                     else{ //비밀번호 불일치
+;PCODE: $00000B38 VOL: 0
+;PCODE: $00000B39 VOL: 0
+; 0000 01AA                       LCD_Clear();
+;PCODE: $00000B3A VOL: 0
+; 0000 01AB                       LCD_Pos(0,0);
+;PCODE: $00000B3B VOL: 0
+;PCODE: $00000B3C VOL: 0
+;PCODE: $00000B3D VOL: 0
+;PCODE: $00000B3E VOL: 0
+;PCODE: $00000B3F VOL: 0
+; 0000 01AC                       LCD_Str("Wrong Password") ;
+;PCODE: $00000B40 VOL: 0
+;PCODE: $00000B41 VOL: 0
+;PCODE: $00000B42 VOL: 0
+;PCODE: $00000B43 VOL: 0
+; 0000 01AD                       delay_ms(2000);
+;PCODE: $00000B44 VOL: 0
+;PCODE: $00000B45 VOL: 0
+;PCODE: $00000B46 VOL: 0
+; 0000 01AE                       fnd[0] = 0;
+;PCODE: $00000B47 VOL: 0
+;PCODE: $00000B48 VOL: 0
+; 0000 01AF                       STATE = START;
+;PCODE: $00000B49 VOL: 0
+;PCODE: $00000B4A VOL: 0
+; 0000 01B0                     }
+;PCODE: $00000B4B VOL: 0
+; 0000 01B1                 }
+;PCODE: $00000B4C VOL: 0
+; 0000 01B2                 else if (fnd[1] == 2 && fnd[0] == 10) STATE = INPUT_PHONE_OUT_INIT;
+;PCODE: $00000B4D VOL: 0
+;PCODE: $00000B4E VOL: 0
+;PCODE: $00000B4F VOL: 0
+;PCODE: $00000B50 VOL: 0
+;PCODE: $00000B51 VOL: 0
+;PCODE: $00000B52 VOL: 0
+;PCODE: $00000B53 VOL: 0
+;PCODE: $00000B54 VOL: 0
+;PCODE: $00000B55 VOL: 0
+;PCODE: $00000B56 VOL: 0
+;PCODE: $00000B57 VOL: 0
+;PCODE: $00000B58 VOL: 0
+;PCODE: $00000B59 VOL: 0
+;PCODE: $00000B5A VOL: 0
+; 0000 01B3 
+; 0000 01B4 
+; 0000 01B5             break;
+;PCODE: $00000B5B VOL: 0
+;PCODE: $00000B5C VOL: 0
+;PCODE: $00000B5D VOL: 0
+; 0000 01B6             case INPUT_PHONE_OUT: //퇴장 : 폰번호 입력
+;PCODE: $00000B5E VOL: 0
+;PCODE: $00000B5F VOL: 0
+;PCODE: $00000B60 VOL: 0
+; 0000 01B7 
+; 0000 01B8                 if (fnd[0] == 10){
+;PCODE: $00000B61 VOL: 0
+;PCODE: $00000B62 VOL: 0
+;PCODE: $00000B63 VOL: 0
+; 0000 01B9                     sprintf(check_pnumber, "%d%d%d%d%d%d%d%d%d%d%d", fnd[11],fnd[10],fnd[9],fnd[8],fnd[7],fnd[6],fnd[5],fnd[4],fnd[3],fnd[2],fnd[1]);
+;PCODE: $00000B64 VOL: 0
+;PCODE: $00000B65 VOL: 0
+;PCODE: $00000B66 VOL: 0
+;PCODE: $00000B67 VOL: 0
+;PCODE: $00000B68 VOL: 0
+;PCODE: $00000B69 VOL: 0
+;PCODE: $00000B6A VOL: 0
+;PCODE: $00000B6B VOL: 0
+;PCODE: $00000B6C VOL: 0
+;PCODE: $00000B6D VOL: 0
+;PCODE: $00000B6E VOL: 0
+;PCODE: $00000B6F VOL: 0
+;PCODE: $00000B70 VOL: 0
+;PCODE: $00000B71 VOL: 0
+;PCODE: $00000B72 VOL: 0
+;PCODE: $00000B73 VOL: 0
+;PCODE: $00000B74 VOL: 0
+;PCODE: $00000B75 VOL: 0
+;PCODE: $00000B76 VOL: 0
+;PCODE: $00000B77 VOL: 0
+;PCODE: $00000B78 VOL: 0
+;PCODE: $00000B79 VOL: 0
+;PCODE: $00000B7A VOL: 0
+;PCODE: $00000B7B VOL: 0
+;PCODE: $00000B7C VOL: 0
+;PCODE: $00000B7D VOL: 0
+;PCODE: $00000B7E VOL: 0
+;PCODE: $00000B7F VOL: 0
+;PCODE: $00000B80 VOL: 0
+;PCODE: $00000B81 VOL: 0
+;PCODE: $00000B82 VOL: 0
+;PCODE: $00000B83 VOL: 0
+;PCODE: $00000B84 VOL: 0
+;PCODE: $00000B85 VOL: 0
+;PCODE: $00000B86 VOL: 0
+;PCODE: $00000B87 VOL: 0
+;PCODE: $00000B88 VOL: 0
+;PCODE: $00000B89 VOL: 0
+;PCODE: $00000B8A VOL: 0
+;PCODE: $00000B8B VOL: 0
+;PCODE: $00000B8C VOL: 0
+;PCODE: $00000B8D VOL: 0
+; 0000 01BA 
+; 0000 01BB                     STATE = CHECK_PNUM_OUT_INIT;
+;PCODE: $00000B8E VOL: 0
+;PCODE: $00000B8F VOL: 0
+; 0000 01BC                 }
+; 0000 01BD                 delay_ms(10);
+;PCODE: $00000B90 VOL: 0
+;PCODE: $00000B91 VOL: 0
+;PCODE: $00000B92 VOL: 0
+;PCODE: $00000B93 VOL: 0
+; 0000 01BE                 break;
+;PCODE: $00000B94 VOL: 0
+; 0000 01BF 
+; 0000 01C0              case INPUT_PHONE_OUT_INIT: //퇴장 : 폰번호 입력
+;PCODE: $00000B95 VOL: 0
+;PCODE: $00000B96 VOL: 0
+;PCODE: $00000B97 VOL: 0
+; 0000 01C1 
+; 0000 01C2 
+; 0000 01C3                 fnd[0]=0;
+;PCODE: $00000B98 VOL: 0
+;PCODE: $00000B99 VOL: 0
+; 0000 01C4                 LCD_Clear();
+;PCODE: $00000B9A VOL: 0
+; 0000 01C5                 LCD_Pos(0,0);
+;PCODE: $00000B9B VOL: 0
+;PCODE: $00000B9C VOL: 0
+;PCODE: $00000B9D VOL: 0
+;PCODE: $00000B9E VOL: 0
+;PCODE: $00000B9F VOL: 0
+; 0000 01C6                 LCD_Str("Input PhoneNum") ;
+;PCODE: $00000BA0 VOL: 0
+;PCODE: $00000BA1 VOL: 0
+;PCODE: $00000BA2 VOL: 0
+;PCODE: $00000BA3 VOL: 0
+; 0000 01C7                 STATE = INPUT_PHONE_OUT;
+;PCODE: $00000BA4 VOL: 0
+;PCODE: $00000BA5 VOL: 0
+; 0000 01C8                 break;
+;PCODE: $00000BA6 VOL: 0
+; 0000 01C9 
+; 0000 01CA 
+; 0000 01CB         }
+;PCODE: $00000BA7 VOL: 0
+; 0000 01CC 
+; 0000 01CD     }
+;PCODE: $00000BA8 VOL: 0
+;PCODE: $00000BA9 VOL: 0
+; 0000 01CE }
+;PCODE: $00000BAA VOL: 0
+;PCODE: $00000BAB VOL: 0
+;PCODE: $00000BAC VOL: 0
+;PCODE: $00000BAD VOL: 0
 
 	.DSEG
-_0xBD:
-	.BYTE 0x9A
+_0xF7:
+	.BYTE 0xA4

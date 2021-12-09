@@ -5,6 +5,7 @@
 #include "twi.h"
 #include "srf02.h"
 #include "Keypad.h"
+#include "usart.h"
 
 /*상태 정의*/
 #define NONE 0
@@ -19,9 +20,56 @@
 #define INPUT_PHONE_OUT 9
 #define INPUT_PHONE_OUT_INIT 10
 
+/*usart 정의*/
+#define ENTER '\r'
+#define MAXLEN 17
+unsigned char str[MAXLEN], str2[MAXLEN];
+unsigned char master_password[] = "1mingyu";
+char num[3][11];
+
 unsigned char ti_Cnt_1ms;  //초음파 센서구동을위한 cnt 
 unsigned char LCD_DelCnt_1ms;
 unsigned char Distance_cnt_1ms; // 시간지나면 자리비움처리를 위한 cnt
+unsigned char ch=0;
+
+interrupt [USART1_RXC] void usart1_receive(void)
+{
+    unsigned char i;
+    
+    str[ch] = UDR1;          //인터럽트 발생 시 수신된 문자를 str[ch]에 저장
+   
+
+     if(str[ch] == ENTER){
+        char access_cnt = 0;
+        for(i=0;i<MAXLEN;i++) str2[i] = 'a';
+        for(i=0;i<MAXLEN;i++) str2[i] = str[i];
+        
+        str[ch-1] = 0x00;   
+        ch = 0;             //문자열 초기화 
+         
+        for (i=1;i<7;i++) {
+            if (master_password[i] == str2[i]) access_cnt ++; 
+        }
+        if (access_cnt == 6) {
+            puts_USART1("\n first seat : \n");
+            for(i=0;i<11;i++)  putch_USART1(num[0][i]);
+            puts_USART1("\n Second seat : \n");
+            for(i=0;i<11;i++)  putch_USART1(num[1][i]);
+            puts_USART1("\n Third seat : \n");
+            for(i=0;i<11;i++)  putch_USART1(num[2][i]); 
+        }
+               
+        for(i=0;i<MAXLEN;i++) str2[i] = 0;
+     }
+     else ch++;
+     delay_ms(10);
+        
+       
+    
+    if ( ch >= MAXLEN) ch = 0;    //최대 글자 이상일때 에러모드
+
+}
+
 
 void Timer0_Init()  //초음파 센서구동 타이머 인터럽트
 {
@@ -78,10 +126,11 @@ void main(void)
     char user_pnumber[3][11]; //유저 비밀번호 저장 
     char check_pnumber[11]; //비밀번호 일치확인을위한 공간
     char user_name; //1~3번중 어느좌석 유저를 가르키는지 저장
-    char num[3][11];
+    
     char empty_cnt[3]={0,};
     
-    DDRD |= 0x03;    
+    DDRD |= 0x03;
+      
     LCD_Init();
     Timer0_Init(); 
     FND_PORT_Init(); // 포트들 입출력 초기 설정 
@@ -95,6 +144,9 @@ void main(void)
     ti_Cnt_1ms = 0; 
     LCD_DelCnt_1ms = 0; 
      
+    Init_USART1_IntCon(0,RX_Int); 
+    DDRD.7 =1;
+    
     
     
     while(1)
@@ -136,19 +188,20 @@ void main(void)
             LCD_Pos(1,5);
             LCD_Str(Message); */ 
             
-            
+            /* 자리비움 처리 */
             for (i=0;i<3;i++){
                 if ( (Sonar_range[i] > 30)&&(user_state[i] == 'O') ){
                    empty_cnt[i] ++;
-                sprintf(Message, "%03dcm", empty_cnt[i]); 
-                LCD_Clear();
-                LCD_Pos(0,0);
-                LCD_Str(Message);
+                    /*sprintf(Message, "%03dcm", empty_cnt[i]); 
+                    LCD_Clear();
+                    LCD_Pos(0,0);
+                    LCD_Str(Message);  */ //cnt확인용 
                 }
                 else empty_cnt[i] =0;
             
                 if (empty_cnt[i] > 15 ) {
                  user_state[i] ='E';
+                 if (STATE == NONE ) STATE = START;
                 }
             }
             
@@ -156,7 +209,42 @@ void main(void)
                 
             LCD_DelCnt_1ms = 0;             
             ti_Cnt_1ms = 0;
-        } 
+        }
+        
+        
+        /*
+        if(PIND.7 == 1){ 
+           LCD_Clear();
+              LCD_Pos(0,0); // 문자열 위치 0행 1열 지정
+              LCD_Str("Warning....."); // 문자열 str을 LCD 첫번째 라인에 출력
+              delay_us(10);
+              LCD_Pos(1,0); // 문자열 위치 1행 1열 지정
+               LCD_Str("Fire!!!    "); // 문자열 str을 LCD 두번째 라인에 출력 
+             LCD_Pos(1,0);
+              delay_us(10); 
+                
+            while(1)
+            {
+                    
+                 for(i=0;i<20;i++){    //사이렌 소리
+                  Buzzer_play(Sol/2);
+                  delay_ms(10);
+                }  
+                delay_ms(10);
+                for(i=0;i<20;i++){
+                    Buzzer_play(Re/2); 
+                    delay_ms(10);
+                }  
+            } 
+            
+        }
+            else{
+               
+        }*/
+        
+        
+        
+         
         t= Changenum(KeyScan()); 
         if(t<11 & t>0 ) //숫자가 눌리면 새로운 값을 저장하도록 count값 설정 
             {
@@ -258,12 +346,12 @@ void main(void)
                 
                 if (fnd[1] == 1 && fnd[0] == 10){
                     user_state[user_name] = 'O';
-                    /*OCR1A = 3000;
+                    OCR1A = 3000;
                     LCD_Clear();
                     LCD_Pos(0,0);
                     LCD_Str("Door Open") ;    
                     delay_ms(5000);
-                    OCR1A = 4710;*/
+                    OCR1A = 4710;
                     STATE = START;
                     fnd[0]=0;     
                     user_name = 4;
@@ -327,9 +415,9 @@ void main(void)
                        LCD_Str("User Check") ; 
                        LCD_Pos(1,0);
                        LCD_Str("Good Bye") ;
-                       /*OCR1A = 3000;
+                       OCR1A = 3000;
                         delay_ms(5000);
-                        OCR1A = 4710;    */
+                        OCR1A = 4710;    
                       user_state[user_name] ='X';
                       STATE = START;
                       fnd[0] = 0;

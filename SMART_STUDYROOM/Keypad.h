@@ -21,7 +21,7 @@ void FND_PORT_Init(void)
     DDRF|=0xFF; //FND 출력을 위한 설정
     DDRC|=0x0F; //키패드를 위한 설정 
     DDRG|=0x10; //부저 출력을 위한 설정 
-    DDRB|=0x20; //서브모터 출력을 위한 설정 
+    DDRB|=0x20; //서브모터  출력을 위한 설정 
     PORTC|=0xFF;
 }
 

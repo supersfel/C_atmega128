@@ -1,8 +1,12 @@
 RAM Allocation
 Variable                                                          Address   Size
 --------------------------------------------------------------------------------
-Port_char                                                         0x05AF      16
-Port_fnd                                                          0x05BF       8
+Port_char                                                         0x05ED      16
+Port_fnd                                                          0x05FD       8
+str                                                               0x0605      17
+str2                                                              0x0616      17
+master_password                                                   0x0627       8
+num                                                               0x062F      33
 
 EEPROM Allocation
 Variable                                                          Address   Size
@@ -15,3 +19,4 @@ zero_flag                                                         R5           1
 ti_Cnt_1ms                                                        R4           1
 LCD_DelCnt_1ms                                                    R7           1
 Distance_cnt_1ms                                                  R6           1
+ch                                                                R9           1

@@ -21,7 +21,7 @@ void FND_PORT_Init(void)
     DDRF|=0xFF; //FND 출력을 위한 설정
     DDRC|=0x0F; //키패드를 위한 설정 
     DDRG|=0x10; //부저 출력을 위한 설정 
-    DDRB|=0x20; //서브모터 출력을 위한 설정 
+    DDRB|=0x21; //서브모터  출력을 위한 설정 
     PORTC|=0xFF;
 }
 
@@ -146,16 +146,16 @@ void OUTFND( unsigned int t)
     FND0 = t%10;
     PORTE = Port_fnd[0];
     PORTF = Port_char[FND0]; //1의자리
-    delay_ms(10);
+    delay_ms(1);
     PORTE = Port_fnd[1];
     PORTF = Port_char[FND1]; //10의자리 
-    delay_ms(10);
+    delay_ms(1);
     PORTE = Port_fnd[2];
     PORTF = Port_char[FND2]; //100의 자리 
-    delay_ms(10);
+    delay_ms(1);
     PORTE = Port_fnd[3]; //1000의 자리 
     PORTF = Port_char[FND3]; 
-    delay_ms(10); 
+    delay_ms(1); 
 }
 
 
