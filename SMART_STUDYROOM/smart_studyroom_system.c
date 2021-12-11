@@ -25,6 +25,7 @@
 #define MAXLEN 17
 unsigned char str[MAXLEN], str2[MAXLEN];
 unsigned char master_password[] = "1mingyu";
+unsigned char open_password[] = "1opendo";
 char num[3][11];
 
 unsigned char ti_Cnt_1ms;  //초음파 센서구동을위한 cnt 
@@ -58,6 +59,23 @@ interrupt [USART1_RXC] void usart1_receive(void)
             puts_USART1("\n Third seat : \n");
             for(i=0;i<11;i++)  putch_USART1(num[2][i]); 
         }
+        
+        access_cnt = 0;
+         for (i=1;i<7;i++) {
+            if (master_password[i] == str2[i]) access_cnt ++; 
+        }
+        if (access_cnt == 6) {
+            OCR1A = 3000;
+            LCD_Clear();
+            LCD_Pos(0,0);
+            LCD_Str("Door Open") ;    
+            delay_ms(5000);
+            OCR1A = 4710;
+            STATE = START;
+            fnd[0]=0; 
+        }
+        
+        
                
         for(i=0;i<MAXLEN;i++) str2[i] = 0;
      }
