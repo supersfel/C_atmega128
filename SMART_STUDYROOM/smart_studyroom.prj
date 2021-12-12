@@ -281,7 +281,7 @@ Row=0
 Column=0
 ScrollPosX=0
 ScrollPosY=0
-TimeStamp=1401535489
+TimeStamp=1401719438
 [BookmarksFoldedCode]
 Files=6
 F1=smart_studyroom_system.c
@@ -292,10 +292,10 @@ F5=srf02.h
 F6=twi.h
 [Bookmarks1]
 TimeStamp=1401529992
-Row=134
-Column=15
+Row=153
+Column=68
 ScrollPosX=0
-ScrollPosY=87
+ScrollPosY=291
 BK0=-1
 BK1=-1
 BK2=-1
@@ -342,8 +342,6 @@ RebuildAll=0
 LinkageInformationPresent=1
 Build=134
 UseEEPROMLocation0=1
-[FoldedCode1]
-Blocks=0
 [Bookmarks3]
 TimeStamp=1401529839
 Row=40
@@ -360,8 +358,6 @@ BK6=-1
 BK7=-1
 BK8=-1
 BK9=-1
-[FoldedCode3]
-Blocks=0
 [Bookmarks4]
 TimeStamp=1401033737
 Row=78
@@ -378,8 +374,6 @@ BK6=-1
 BK7=-1
 BK8=-1
 BK9=-1
-[FoldedCode4]
-Blocks=0
 [Bookmarks5]
 TimeStamp=1401033737
 Row=0
@@ -396,8 +390,6 @@ BK6=-1
 BK7=-1
 BK8=-1
 BK9=-1
-[FoldedCode5]
-Blocks=0
 [Bookmarks6]
 TimeStamp=1401033737
 Row=21
@@ -414,6 +406,14 @@ BK6=-1
 BK7=-1
 BK8=-1
 BK9=-1
+[FoldedCode1]
+Blocks=0
+[FoldedCode3]
+Blocks=0
+[FoldedCode4]
+Blocks=0
+[FoldedCode5]
+Blocks=0
 [FoldedCode6]
 Blocks=0
 [FoldedCode2]
